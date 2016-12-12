@@ -4,7 +4,7 @@
 	"require": {
 		"ext-gd": "*",
 		"ext-mbstring": "*",
-		"silverstripe/docsviewer": "^2.0@beta",
+		"silverstripe/docsviewer": "dev-bugfix/127-use-stable-version-in-all-page",
 		"silverstripe/framework": "^3.2",
 		"silverstripe/toolbar": "^4.2",
 		"silverstripe/dynamodb": "^1.1",
@@ -17,6 +17,10 @@
         {
             "type": "vcs",
             "url": "git://github.com/silverstripe/silverstripe-globaltoolbar.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:robbieaverill/silverstripe-docsviewer.git"
         }
 	],
 	"config": {

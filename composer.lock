@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fe77eae7f153ec8d70ba905ae736c1f3",
-    "content-hash": "db0fd420bda434d99cd25d69e6acf238",
+    "hash": "e31acdb53ecc4536255b304ebbeff561",
+    "content-hash": "9760773b3ace122cac6eb414a3c2c9e3",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -554,16 +554,16 @@
         },
         {
             "name": "silverstripe/docsviewer",
-            "version": "2.0.0-beta4",
+            "version": "dev-bugfix/127-use-stable-version-in-all-page",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-docsviewer.git",
-                "reference": "40d70a0b32f1ea63594238ab25aba9d9397416b7"
+                "url": "https://github.com/robbieaverill/silverstripe-docsviewer.git",
+                "reference": "3deb655018cbc7c61293d33b79f47265256734b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-docsviewer/zipball/40d70a0b32f1ea63594238ab25aba9d9397416b7",
-                "reference": "40d70a0b32f1ea63594238ab25aba9d9397416b7",
+                "url": "https://api.github.com/repos/robbieaverill/silverstripe-docsviewer/zipball/3deb655018cbc7c61293d33b79f47265256734b6",
+                "reference": "3deb655018cbc7c61293d33b79f47265256734b6",
                 "shasum": ""
             },
             "require": {
@@ -575,15 +575,14 @@
                 "silverstripe/staticpublisher": "Allows publishing documentation as HTML"
             },
             "type": "silverstripe-module",
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Will Rossiter",
-                    "email": "will@fullscreen.io",
-                    "homepage": "http://wilr.github.io"
+                    "homepage": "http://wilr.github.io",
+                    "email": "will@fullscreen.io"
                 }
             ],
             "description": "Documentation viewer module for SilverStripe",
@@ -591,7 +590,12 @@
                 "documentation",
                 "silverstripe"
             ],
-            "time": "2016-12-04 21:22:45"
+            "support": {
+                "email": "will@fullscreen.io",
+                "irc": "irc://irc.freenode.org/silverstripe",
+                "source": "https://github.com/robbieaverill/silverstripe-docsviewer/tree/bugfix/127-use-stable-version-in-all-page"
+            },
+            "time": "2016-12-07 20:03:39"
         },
         {
             "name": "silverstripe/dynamodb",
@@ -1256,7 +1260,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "silverstripe/docsviewer": 10,
+        "silverstripe/docsviewer": 20,
         "phpunit/phpunit": 0
     },
     "prefer-stable": true,
