@@ -558,12 +558,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/robbieaverill/silverstripe-docsviewer.git",
-                "reference": "3deb655018cbc7c61293d33b79f47265256734b6"
+                "reference": "1a4475af1b0daa1e9afa7c8eda4052f803e0dc89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robbieaverill/silverstripe-docsviewer/zipball/3deb655018cbc7c61293d33b79f47265256734b6",
-                "reference": "3deb655018cbc7c61293d33b79f47265256734b6",
+                "url": "https://api.github.com/repos/robbieaverill/silverstripe-docsviewer/zipball/1a4475af1b0daa1e9afa7c8eda4052f803e0dc89",
+                "reference": "1a4475af1b0daa1e9afa7c8eda4052f803e0dc89",
                 "shasum": ""
             },
             "require": {
@@ -595,7 +595,7 @@
                 "irc": "irc://irc.freenode.org/silverstripe",
                 "source": "https://github.com/robbieaverill/silverstripe-docsviewer/tree/bugfix/127-use-stable-version-in-all-page"
             },
-            "time": "2016-12-07 20:03:39"
+            "time": "2016-12-12 00:42:58"
         },
         {
             "name": "silverstripe/dynamodb",
