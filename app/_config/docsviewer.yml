@@ -15,6 +15,7 @@ DocumentationManifest:
       VersionTitle: "4.x"
       Version: "4"
       Branch: "4"
+      Stable: true
       DefaultEntity: true
     -
       Path: "assets/src/framework_3/docs/"
