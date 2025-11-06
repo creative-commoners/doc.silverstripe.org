@@ -1,0 +1,49 @@
+---
+import '../styles/global.scss';
+
+export interface Props {
+  title: string;
+  description?: string;
+  version?: string;
+  context?: 'docs' | 'user';
+}
+
+const { 
+  title, 
+  description = 'Silverstripe CMS Documentation',
+  version = '6',
+  context = 'docs'
+} = Astro.props;
+
+const fullTitle = `${title} | Silverstripe CMS ${context === 'user' ? 'User Help' : 'Documentation'}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- SEO -->
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  
+  <!-- Algolia DocSearch CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+</head>
+<body>
+  <div id="app">
+    <slot />
+  </div>
+</body>
+</html>

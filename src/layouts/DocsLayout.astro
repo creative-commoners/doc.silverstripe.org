@@ -1,0 +1,43 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  version?: string;
+  context?: 'docs' | 'user';
+}
+
+const { 
+  title, 
+  description,
+  version = '6',
+  context = 'docs'
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} version={version} context={context}>
+  <Header version={version} context={context} />
+  <main class="docs-main">
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  .docs-main {
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 768px) {
+    .docs-main {
+      padding: 1rem 0.75rem;
+    }
+  }
+</style>

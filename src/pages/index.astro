@@ -1,16 +1,64 @@
 ---
-
+import DocsLayout from '../layouts/DocsLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<DocsLayout title="Welcome" description="Welcome to Silverstripe CMS Documentation">
+	<div class="welcome-container">
+		<h1>Silverstripe CMS Documentation</h1>
+		<p>Welcome to the Silverstripe CMS documentation site. Select a version to get started.</p>
+		<ul>
+			<li><a href="/en/6/">Version 6</a></li>
+			<li><a href="/en/5/">Version 5</a></li>
+			<li><a href="/en/4/">Version 4</a></li>
+			<li><a href="/en/3/">Version 3</a></li>
+		</ul>
+	</div>
+</DocsLayout>
+
+<style>
+	.welcome-container {
+		max-width: 800px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: #333;
+	}
+	
+	p {
+		font-size: 1.1rem;
+		color: #666;
+		margin-bottom: 2rem;
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+	}
+	
+	li {
+		margin: 0;
+	}
+	
+	a {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		background-color: #0066cc;
+		color: white;
+		border-radius: 4px;
+		text-decoration: none;
+		transition: background-color 0.2s ease;
+	}
+	
+	a:hover {
+		background-color: #0052a3;
+		text-decoration: none;
+	}
+</style>
