@@ -3,8 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "clone-docs": "DOCS_CONTEXT=docs node scripts/clone-docs.js",
+    "clone-user": "DOCS_CONTEXT=user node scripts/clone-docs.js",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run clone-docs && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -24,5 +26,8 @@
     "react-dom": "^19.2.0",
     "sass": "^1.93.3",
     "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.3.2"
   }
 }
