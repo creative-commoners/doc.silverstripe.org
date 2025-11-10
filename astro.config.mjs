@@ -4,6 +4,12 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { remarkConvertImagesToPictures } from './src/utils/remarkConvertImages.mjs';
 import { remarkLanguageAliases } from './src/utils/remarkPlugins.ts';
+import { 
+  rehypeHeaders, 
+  rehypeFixLinks, 
+  rehypeCallouts, 
+  rehypeTables 
+} from './src/utils/rehypePlugins.ts';
 
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
@@ -31,7 +37,12 @@ export default defineConfig({
       wrap: true,
     },
     remarkPlugins: [remarkLanguageAliases],
-    rehypePlugins: [],
+    rehypePlugins: [
+      rehypeHeaders,
+      rehypeTables,
+      [rehypeFixLinks, { version: '6' }],
+      rehypeCallouts,
+    ],
   },
   vite: {
     css: {

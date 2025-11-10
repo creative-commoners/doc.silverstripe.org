@@ -1,0 +1,47 @@
+---
+import { getCalloutClass, type CalloutType } from '../utils/parseCalloutTags';
+
+interface Props {
+  type: CalloutType;
+}
+
+const { type } = Astro.props;
+const alertClass = getCalloutClass(type);
+---
+
+<div class={`alert ${alertClass}`} role="alert" data-callout-type={type}>
+  <slot />
+</div>
+
+<style>
+  .alert {
+    padding: 0.75rem 1.25rem;
+    margin: 1rem 0;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+
+  .alert-info {
+    color: #004085;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+
+  .alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+</style>
