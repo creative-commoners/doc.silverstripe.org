@@ -22,7 +22,12 @@ const {
   headings = []
 } = Astro.props;
 
-const currentPath = doc?.id || '';
+// Build the URL path from doc.id: "00_Getting_Started/02_Composer" -> "/en/6/00_Getting_Started/02_Composer/"
+let currentPath = '';
+if (doc) {
+  const parts = doc.id.split('/').filter(p => p !== 'index');
+  currentPath = `/en/${version}/${parts.join('/')}/`;
+}
 ---
 
 <BaseLayout title={title} description={description} version={version} context={context}>

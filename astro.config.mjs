@@ -24,7 +24,8 @@ export default defineConfig({
     react(),
     mdx({
       optimize: false,
-      remarkPlugins: [remarkConvertImagesToPictures],
+      remarkPlugins: [],
+      // remarkPlugins: [remarkConvertImagesToPictures],
     }),
     sitemap()
   ],

@@ -281,8 +281,7 @@ export function rehypeTables() {
       if (!node.properties) {
         node.properties = {};
       }
-      const classNames = node.properties.className || [];
-      if (!Array.isArray(classNames)) {
+      if (!Array.isArray(node.properties.className)) {
         node.properties.className = [];
       }
       (node.properties.className as string[]).push('table', 'table-striped');

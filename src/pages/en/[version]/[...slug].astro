@@ -1,18 +1,26 @@
 ---
 import { getCollection } from 'astro:content';
-import DocsLayout from '../../layouts/DocsLayout.astro';
+import DocsLayout from '../../../layouts/DocsLayout.astro';
 import type { GetStaticPaths } from 'astro';
 
 export const getStaticPaths = (async () => {
   const allDocs = await getCollection('docs');
   
-  return allDocs.map(doc => {
+  const paths = allDocs.map(doc => {
     // Extract the slug path from the doc ID
-    // Content collection IDs are like: "00_Getting_Started/01_Server_Requirements"
-    const parts = doc.id.split('/');
+    // Astro Content Collection IDs may include .md/.mdx extensions
+    // e.g., "00_Getting_Started/02_Composer.md" or "index.md"
+    let id = doc.id
+      .replace(/\.(md|mdx)$/, '')  // Remove file extension
+      .replace(/\.md$/, '')        // Additional cleanup for .md
+      .replace(/\.mdx$/, '');      // Additional cleanup for .mdx
     
-    // For root index.md, slug will be empty
-    const slug = parts.filter(part => part !== 'index').join('/');
+    const parts = id.split('/');
+    
+    // Build slug: remove 'index' parts and join remaining
+    const slugParts = parts
+      .filter(p => p !== 'index')
+      .join('/');
     
     // Default to version 6 for now (will be expanded in future phases)
     const version = '6';
@@ -20,11 +28,13 @@ export const getStaticPaths = (async () => {
     return {
       params: { 
         version, 
-        slug: slug || undefined 
+        slug: slugParts  // Use empty string for root, not undefined
       },
       props: { doc },
     };
   });
+  
+  return paths;
 }) satisfies GetStaticPaths;
 
 const { doc } = Astro.props;

@@ -73,6 +73,11 @@ export function buildNavHierarchy(
     });
   });
 
+  // Extract root items from hierarchy
+  Object.values(hierarchy).forEach(item => {
+    roots.push(item);
+  });
+
   return roots;
 }
 
