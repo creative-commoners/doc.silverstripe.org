@@ -7,8 +7,9 @@
     "clone-docs": "DOCS_CONTEXT=docs node scripts/clone-docs.js",
     "clone-user": "DOCS_CONTEXT=user node scripts/clone-docs.js",
     "fix-paths": "node scripts/fix-image-paths.js",
-    "dev": "astro dev",
-    "build": "npm run clone-docs && npm run fix-paths && astro build",
+    "generate-nav": "node scripts/generate-nav.js",
+    "dev": "npm run fix-paths && npm run generate-nav && astro dev",
+    "build": "npm run clone-docs && npm run clean && npm run fix-paths && npm run generate-nav && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

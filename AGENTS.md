@@ -154,7 +154,7 @@ npm run dev:user      # User help context
 
 **Production:**
 ```bash
-npm run build         # Full build with content cloning
+npm run build         # Full build with content cloning (will first remove dist directory)
 npm run build:docs    # Build docs site
 npm run build:user    # Build user help site
 ```

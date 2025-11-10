@@ -1,43 +1,147 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar';
+import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
   title: string;
   description?: string;
   version?: string;
   context?: 'docs' | 'user';
+  doc?: CollectionEntry<'docs'>;
+  headings?: Array<{ depth: number; slug: string; text: string }>;
 }
 
 const { 
   title, 
   description,
   version = '6',
-  context = 'docs'
+  context = 'docs',
+  doc,
+  headings = []
 } = Astro.props;
+
+const currentPath = doc?.id || '';
 ---
 
 <BaseLayout title={title} description={description} version={version} context={context}>
   <Header version={version} context={context} />
-  <main class="docs-main">
-    <slot />
-  </main>
+  
+  <div class="docs-container">
+    <Sidebar 
+      version={version} 
+      currentPath={currentPath}
+      client:load 
+    />
+    
+    <main class="docs-main">
+      <article class="docs-content">
+        <slot />
+      </article>
+      
+      {headings.length > 0 && (
+        <aside class="docs-toc">
+          <h4>On this page</h4>
+          <ul>
+            {headings.map(heading => (
+              <li class={`toc-level-${heading.depth}`}>
+                <a href={`#${heading.slug}`}>
+                  {heading.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+    </main>
+  </div>
 </BaseLayout>
 
 <style>
+  .docs-container {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+  
   .docs-main {
     flex: 1;
-    max-width: 1400px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    display: grid;
-    grid-template-columns: 1fr;
+    min-width: 0;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .docs-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .docs-toc {
+    width: 200px;
+    flex-shrink: 0;
+  }
+  
+  .docs-toc h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin: 0 0 1rem 0;
+    padding: 0;
+  }
+  
+  .docs-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .docs-toc li {
+    margin: 0.5rem 0;
+  }
+  
+  .docs-toc a {
+    font-size: 0.875rem;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: block;
+    padding: 0.25rem 0;
+  }
+  
+  .docs-toc a:hover {
+    color: #333;
+  }
+  
+  .toc-level-3 a {
+    padding-left: 1rem;
+    font-size: 0.8125rem;
+  }
+  
+  .toc-level-4 a {
+    padding-left: 2rem;
+    font-size: 0.8125rem;
+  }
+
+  @media (max-width: 1200px) {
+    .docs-toc {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
+    .docs-container {
+      flex-direction: column;
+    }
+    
     .docs-main {
+      flex-direction: column;
       padding: 1rem 0.75rem;
+      gap: 1rem;
     }
   }
 </style>

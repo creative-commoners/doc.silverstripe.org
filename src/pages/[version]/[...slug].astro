@@ -41,29 +41,33 @@ const {
 
 // Generate page title
 const pageTitle = title || doc.id.split('/').pop()?.replace(/_/g, ' ') || 'Documentation';
+
+// Format headings for TOC
+const formattedHeadings = headings
+  .filter(h => h.depth > 1 && h.depth <= 3)
+  .map(h => ({
+    ...h,
+    slug: h.slug,
+  }));
 ---
 
 <DocsLayout 
   title={pageTitle} 
   version={version}
   context="docs"
+  doc={doc}
+  headings={formattedHeadings}
 >
-  <article class="docs-content">
-    {introduction && (
-      <div class="introduction">
-        {introduction}
-      </div>
-    )}
-    
-    <Content />
-  </article>
+  {introduction && (
+    <div class="introduction">
+      {introduction}
+    </div>
+  )}
+  
+  <Content />
 </DocsLayout>
 
 <style>
-  .docs-content {
-    width: 100%;
-  }
-  
   .introduction {
     font-size: 1.1rem;
     line-height: 1.6;

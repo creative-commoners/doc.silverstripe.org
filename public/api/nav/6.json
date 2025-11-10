@@ -1,0 +1,1122 @@
+[
+  {
+    "title": "Changelogs",
+    "path": "/en/6/08_Changelogs/",
+    "children": [
+      {
+        "title": "6.0.0",
+        "path": "/en/6/08_Changelogs/6.0.0/",
+        "order": 999
+      },
+      {
+        "title": "6.1.0",
+        "path": "/en/6/08_Changelogs/6.1.0/",
+        "order": 999
+      },
+      {
+        "title": "Alpha Changelogs",
+        "path": "/en/6/08_Changelogs/alpha/",
+        "children": [
+          {
+            "title": "6.0.0-alpha1",
+            "path": "/en/6/08_Changelogs/alpha/6.0.0-alpha1/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Beta Changelogs",
+        "path": "/en/6/08_Changelogs/beta/",
+        "children": [
+          {
+            "title": "6.0.0-beta1",
+            "path": "/en/6/08_Changelogs/beta/6.0.0-beta1/",
+            "order": 999
+          },
+          {
+            "title": "6.1.0-beta1",
+            "path": "/en/6/08_Changelogs/beta/6.1.0-beta1/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Release Candidate Changelogs",
+        "path": "/en/6/08_Changelogs/rc/",
+        "children": [
+          {
+            "title": "6.0.0-rc1",
+            "path": "/en/6/08_Changelogs/rc/6.0.0-rc1/",
+            "order": 999
+          },
+          {
+            "title": "6.1.0-rc1",
+            "path": "/en/6/08_Changelogs/rc/6.1.0-rc1/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      }
+    ],
+    "order": 999
+  },
+  {
+    "title": "Contributing",
+    "path": "/en/6/10_Contributing/",
+    "children": [
+      {
+        "title": "Build tooling",
+        "path": "/en/6/10_Contributing/06_Build_Tooling/",
+        "order": 999
+      },
+      {
+        "title": "Coding conventions",
+        "path": "/en/6/10_Contributing/05_Coding_Conventions/",
+        "children": [
+          {
+            "title": "CSS coding conventions",
+            "path": "/en/6/10_Contributing/05_Coding_Conventions/03_CSS_Coding_Conventions/",
+            "order": 999
+          },
+          {
+            "title": "Javascript coding conventions",
+            "path": "/en/6/10_Contributing/05_Coding_Conventions/02_JavaScript_Coding_Conventions/",
+            "order": 999
+          },
+          {
+            "title": "PHP coding conventions",
+            "path": "/en/6/10_Contributing/05_Coding_Conventions/01_PHP_Coding_Conventions/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Contributing Code",
+        "path": "/en/6/10_Contributing/01_Code/",
+        "order": 999
+      },
+      {
+        "title": "Contributing Documentation",
+        "path": "/en/6/10_Contributing/02_Documentation/",
+        "order": 999
+      },
+      {
+        "title": "Contributing Translations",
+        "path": "/en/6/10_Contributing/03_Translations/",
+        "order": 999
+      },
+      {
+        "title": "Issues and Bug Reports",
+        "path": "/en/6/10_Contributing/00_Issues_and_Bugs/",
+        "order": 999
+      },
+      {
+        "title": "Managing security issues",
+        "path": "/en/6/10_Contributing/10_Managing_Security_Issues/",
+        "order": 999
+      },
+      {
+        "title": "Release process",
+        "path": "/en/6/10_Contributing/09_Release_Process/",
+        "order": 999
+      },
+      {
+        "title": "Triage and peer review",
+        "path": "/en/6/10_Contributing/08_Triage_Resources/",
+        "order": 999
+      }
+    ],
+    "order": 999
+  },
+  {
+    "title": "Developer Guides",
+    "path": "/en/6/02_Developer_Guides/",
+    "children": [
+      {
+        "title": "Command Line Interface (CLI)",
+        "path": "/en/6/02_Developer_Guides/17_CLI/",
+        "children": [
+          {
+            "title": "PolyCommand",
+            "path": "/en/6/02_Developer_Guides/17_CLI/02_PolyCommand/",
+            "order": 999
+          },
+          {
+            "title": "Sake",
+            "path": "/en/6/02_Developer_Guides/17_CLI/01_Sake/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Configuration",
+        "path": "/en/6/02_Developer_Guides/04_Configuration/",
+        "children": [
+          {
+            "title": "Configuration API",
+            "path": "/en/6/02_Developer_Guides/04_Configuration/00_Configuration/",
+            "order": 999
+          },
+          {
+            "title": "Environment Variables",
+            "path": "/en/6/02_Developer_Guides/04_Configuration/03_Environment_Variables/",
+            "order": 999
+          },
+          {
+            "title": "SiteConfig",
+            "path": "/en/6/02_Developer_Guides/04_Configuration/01_SiteConfig/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Controllers",
+        "path": "/en/6/02_Developer_Guides/02_Controllers/",
+        "children": [
+          {
+            "title": "Access Control",
+            "path": "/en/6/02_Developer_Guides/02_Controllers/03_Access_Control/",
+            "order": 999
+          },
+          {
+            "title": "Built-in Middleware",
+            "path": "/en/6/02_Developer_Guides/02_Controllers/06_Builtin_Middlewares/",
+            "order": 999
+          },
+          {
+            "title": "CMS JSON APIs",
+            "path": "/en/6/02_Developer_Guides/02_Controllers/07_CMS_JSON_APIs/",
+            "order": 999
+          },
+          {
+            "title": "HTTP Middlewares",
+            "path": "/en/6/02_Developer_Guides/02_Controllers/05_Middlewares/",
+            "order": 999
+          },
+          {
+            "title": "Introduction to a Controller",
+            "path": "/en/6/02_Developer_Guides/02_Controllers/01_Introduction/",
+            "order": 999
+          },
+          {
+            "title": "Redirection",
+            "path": "/en/6/02_Developer_Guides/02_Controllers/04_Redirection/",
+            "order": 999
+          },
+          {
+            "title": "Routing",
+            "path": "/en/6/02_Developer_Guides/02_Controllers/02_Routing/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Cookies and Sessions",
+        "path": "/en/6/02_Developer_Guides/18_Cookies_And_Sessions/",
+        "children": [
+          {
+            "title": "Cookies",
+            "path": "/en/6/02_Developer_Guides/18_Cookies_And_Sessions/01_Cookies/",
+            "order": 999
+          },
+          {
+            "title": "Managing Sessions",
+            "path": "/en/6/02_Developer_Guides/18_Cookies_And_Sessions/03_Managing_Sessions/",
+            "order": 999
+          },
+          {
+            "title": "Sessions",
+            "path": "/en/6/02_Developer_Guides/18_Cookies_And_Sessions/02_Sessions/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Customising the Admin Interface",
+        "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/",
+        "children": [
+          {
+            "title": "Admin Layout",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/05_CMS_Layout/",
+            "order": 999
+          },
+          {
+            "title": "CMS Architecture",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/04_CMS_Architecture/",
+            "order": 999
+          },
+          {
+            "title": "How To's",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/",
+            "children": [
+              {
+                "title": "CMS alternating button",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/CMS_Alternating_Button/",
+                "order": 999
+              },
+              {
+                "title": "CMS form field help text",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/CMS_Formfield_Help_Text/",
+                "order": 999
+              },
+              {
+                "title": "Customise site reports",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_Site_Reports/",
+                "order": 999
+              },
+              {
+                "title": "Customise the CMS Menu",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Menu/",
+                "order": 999
+              },
+              {
+                "title": "Customise the CMS pages list",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Pages_List/",
+                "order": 999
+              },
+              {
+                "title": "Customise the CMS tree",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Tree/",
+                "order": 999
+              },
+              {
+                "title": "Customising React components",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_React_Components/",
+                "order": 999
+              },
+              {
+                "title": "Customising React forms",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_React_Forms/",
+                "order": 999
+              },
+              {
+                "title": "Extend the CMS interface",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Extend_CMS_Interface/",
+                "order": 999
+              },
+              {
+                "title": "Extending an existing ModelAdmin",
+                "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Extending_An_Existing_ModelAdmin/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Javascript Development",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/10_Javascript_Development/",
+            "order": 999
+          },
+          {
+            "title": "jQuery Entwine",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/11_jQuery_Entwine/",
+            "order": 999
+          },
+          {
+            "title": "Managing Multiple Records",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/01_ModelAdmin/",
+            "order": 999
+          },
+          {
+            "title": "Preview",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/06_Preview/",
+            "order": 999
+          },
+          {
+            "title": "React and Redux",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/12_ReactJS_and_Redux/",
+            "order": 999
+          },
+          {
+            "title": "Single-record Admin Sections",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/03_SingleRecordAdmin/",
+            "order": 999
+          },
+          {
+            "title": "Status Flags",
+            "path": "/en/6/02_Developer_Guides/15_Customising_the_Admin_Interface/07_Status_Flags/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Debugging",
+        "path": "/en/6/02_Developer_Guides/07_Debugging/",
+        "children": [
+          {
+            "title": "Environment Types",
+            "path": "/en/6/02_Developer_Guides/07_Debugging/00_Environment_Types/",
+            "order": 999
+          },
+          {
+            "title": "Logging and Error Handling",
+            "path": "/en/6/02_Developer_Guides/07_Debugging/01_Error_Handling/",
+            "order": 999
+          },
+          {
+            "title": "Template debugging",
+            "path": "/en/6/02_Developer_Guides/07_Debugging/03_Template_debugging/",
+            "order": 999
+          },
+          {
+            "title": "URL Variable tools",
+            "path": "/en/6/02_Developer_Guides/07_Debugging/02_URL_Variable_Tools/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Deprecating code",
+        "path": "/en/6/02_Developer_Guides/20_Deprecations/",
+        "order": 999
+      },
+      {
+        "title": "Email",
+        "path": "/en/6/02_Developer_Guides/10_Email/",
+        "order": 999
+      },
+      {
+        "title": "Execution pipeline",
+        "path": "/en/6/02_Developer_Guides/16_Execution_Pipeline/",
+        "children": [
+          {
+            "title": "Flushable",
+            "path": "/en/6/02_Developer_Guides/16_Execution_Pipeline/01_Flushable/",
+            "order": 999
+          },
+          {
+            "title": "Kernel and Application",
+            "path": "/en/6/02_Developer_Guides/16_Execution_Pipeline/03_App_Object_and_Kernel/",
+            "order": 999
+          },
+          {
+            "title": "Manifests",
+            "path": "/en/6/02_Developer_Guides/16_Execution_Pipeline/02_Manifests/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Extending Silverstripe CMS",
+        "path": "/en/6/02_Developer_Guides/05_Extending/",
+        "children": [
+          {
+            "title": "Custom Templates",
+            "path": "/en/6/02_Developer_Guides/05_Extending/07_Templates/",
+            "order": 999
+          },
+          {
+            "title": "Dependency Injection",
+            "path": "/en/6/02_Developer_Guides/05_Extending/05_Injector/",
+            "order": 999
+          },
+          {
+            "title": "Extensions",
+            "path": "/en/6/02_Developer_Guides/05_Extending/01_Extensions/",
+            "order": 999
+          },
+          {
+            "title": "How To's",
+            "path": "/en/6/02_Developer_Guides/05_Extending/How_Tos/",
+            "children": [
+              {
+                "title": "How to Create a Google Maps Shortcode",
+                "path": "/en/6/02_Developer_Guides/05_Extending/How_Tos/02_Create_a_Google_Maps_Shortcode/",
+                "order": 999
+              },
+              {
+                "title": "How to Publish a Silverstripe CMS module",
+                "path": "/en/6/02_Developer_Guides/05_Extending/How_Tos/01_Publish_a_Module/",
+                "order": 999
+              },
+              {
+                "title": "Track member logins",
+                "path": "/en/6/02_Developer_Guides/05_Extending/How_Tos/03_Track_member_logins/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Modules",
+            "path": "/en/6/02_Developer_Guides/05_Extending/00_Modules/",
+            "order": 999
+          },
+          {
+            "title": "Shortcodes",
+            "path": "/en/6/02_Developer_Guides/05_Extending/04_Shortcodes/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Files",
+        "path": "/en/6/02_Developer_Guides/14_Files/",
+        "children": [
+          {
+            "title": "Allowed file types",
+            "path": "/en/6/02_Developer_Guides/14_Files/06_Allowed_file_types/",
+            "order": 999
+          },
+          {
+            "title": "File management",
+            "path": "/en/6/02_Developer_Guides/14_Files/01_File_Management/",
+            "order": 999
+          },
+          {
+            "title": "File manipulation and conversion",
+            "path": "/en/6/02_Developer_Guides/14_Files/05_File_Manipulation/",
+            "order": 999
+          },
+          {
+            "title": "File security",
+            "path": "/en/6/02_Developer_Guides/14_Files/03_File_Security/",
+            "order": 999
+          },
+          {
+            "title": "File storage",
+            "path": "/en/6/02_Developer_Guides/14_Files/04_File_Storage/",
+            "order": 999
+          },
+          {
+            "title": "File usage",
+            "path": "/en/6/02_Developer_Guides/14_Files/07_File_Usage/",
+            "order": 999
+          },
+          {
+            "title": "Images",
+            "path": "/en/6/02_Developer_Guides/14_Files/02_Images/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Forms",
+        "path": "/en/6/02_Developer_Guides/03_Forms/",
+        "children": [
+          {
+            "title": "Field Types",
+            "path": "/en/6/02_Developer_Guides/03_Forms/Field_types/",
+            "children": [
+              {
+                "title": "Common FormField type subclasses",
+                "path": "/en/6/02_Developer_Guides/03_Forms/Field_types/01_Common_Subclasses/",
+                "order": 999
+              },
+              {
+                "title": "DateField",
+                "path": "/en/6/02_Developer_Guides/03_Forms/Field_types/02_DateField/",
+                "order": 999
+              },
+              {
+                "title": "GridField",
+                "path": "/en/6/02_Developer_Guides/03_Forms/Field_types/04_GridField/",
+                "order": 999
+              },
+              {
+                "title": "Rich-text editing (WYSIWYG)",
+                "path": "/en/6/02_Developer_Guides/03_Forms/Field_types/03_HTMLEditorField/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Form Security",
+            "path": "/en/6/02_Developer_Guides/03_Forms/04_Form_Security/",
+            "order": 999
+          },
+          {
+            "title": "Form Templates",
+            "path": "/en/6/02_Developer_Guides/03_Forms/03_Form_Templates/",
+            "order": 999
+          },
+          {
+            "title": "Form Transformations",
+            "path": "/en/6/02_Developer_Guides/03_Forms/05_Form_Transformations/",
+            "order": 999
+          },
+          {
+            "title": "Form Validation",
+            "path": "/en/6/02_Developer_Guides/03_Forms/01_Validation/",
+            "order": 999
+          },
+          {
+            "title": "How To's",
+            "path": "/en/6/02_Developer_Guides/03_Forms/How_Tos/",
+            "children": [
+              {
+                "title": "Create a GridField Component",
+                "path": "/en/6/02_Developer_Guides/03_Forms/How_Tos/03_Create_a_GridFieldComponent/",
+                "order": 999
+              },
+              {
+                "title": "How to add a custom action to a GridField row",
+                "path": "/en/6/02_Developer_Guides/03_Forms/How_Tos/04_Create_a_GridField_ActionProvider/",
+                "order": 999
+              },
+              {
+                "title": "How to Create Lightweight Form",
+                "path": "/en/6/02_Developer_Guides/03_Forms/How_Tos/02_Lightweight_Form/",
+                "order": 999
+              },
+              {
+                "title": "How to Encapsulate Forms",
+                "path": "/en/6/02_Developer_Guides/03_Forms/How_Tos/01_Encapsulate_Forms/",
+                "order": 999
+              },
+              {
+                "title": "How to handle nested data in forms",
+                "path": "/en/6/02_Developer_Guides/03_Forms/How_Tos/06_Handle_Nested_data/",
+                "order": 999
+              },
+              {
+                "title": "Simple contact form",
+                "path": "/en/6/02_Developer_Guides/03_Forms/How_Tos/05_Simple_Contact_Form/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Introduction to Forms",
+            "path": "/en/6/02_Developer_Guides/03_Forms/00_Introduction/",
+            "order": 999
+          },
+          {
+            "title": "Tabbed Forms",
+            "path": "/en/6/02_Developer_Guides/03_Forms/06_Tabbed_Forms/",
+            "order": 999
+          },
+          {
+            "title": "Using GridField with Arbitrary Data",
+            "path": "/en/6/02_Developer_Guides/03_Forms/07_Using_GridField_With_Arbitrary_Data/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "i18n",
+        "path": "/en/6/02_Developer_Guides/13_i18n/",
+        "order": 999
+      },
+      {
+        "title": "Integration and Web Services",
+        "path": "/en/6/02_Developer_Guides/11_Integration/",
+        "children": [
+          {
+            "title": "CSV Import",
+            "path": "/en/6/02_Developer_Guides/11_Integration/00_CSV_Import/",
+            "order": 999
+          },
+          {
+            "title": "How To's",
+            "path": "/en/6/02_Developer_Guides/11_Integration/How_Tos/",
+            "children": [
+              {
+                "title": "A custom CSVBulkLoader instance",
+                "path": "/en/6/02_Developer_Guides/11_Integration/How_Tos/custom_csvbulkloader/",
+                "order": 999
+              },
+              {
+                "title": "Import CSV Data through a Controller",
+                "path": "/en/6/02_Developer_Guides/11_Integration/How_Tos/Import_CSV_through_a_Controller/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "RSS Feed",
+            "path": "/en/6/02_Developer_Guides/11_Integration/02_RSSFeed/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Model and Databases",
+        "path": "/en/6/02_Developer_Guides/00_Model/",
+        "children": [
+          {
+            "title": "Building Model and Search Interfaces around Scaffolding",
+            "path": "/en/6/02_Developer_Guides/00_Model/11_Scaffolding/",
+            "order": 999
+          },
+          {
+            "title": "Data types, Overriding and Casting",
+            "path": "/en/6/02_Developer_Guides/00_Model/04_Data_Types_and_Casting/",
+            "order": 999
+          },
+          {
+            "title": "Extending DataObjects",
+            "path": "/en/6/02_Developer_Guides/00_Model/05_Extending_DataObjects/",
+            "order": 999
+          },
+          {
+            "title": "How To's",
+            "path": "/en/6/02_Developer_Guides/00_Model/How_Tos/",
+            "children": [
+              {
+                "title": "Dynamic Default Fields",
+                "path": "/en/6/02_Developer_Guides/00_Model/How_Tos/Dynamic_Default_Fields/",
+                "order": 999
+              },
+              {
+                "title": "Grouping DataObject sets",
+                "path": "/en/6/02_Developer_Guides/00_Model/How_Tos/Grouping_DataObject_Sets/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Indexes",
+            "path": "/en/6/02_Developer_Guides/00_Model/12_Indexes/",
+            "order": 999
+          },
+          {
+            "title": "Introduction to the Data Model and ORM",
+            "path": "/en/6/02_Developer_Guides/00_Model/01_Data_Model_and_ORM/",
+            "order": 999
+          },
+          {
+            "title": "Managing Lists",
+            "path": "/en/6/02_Developer_Guides/00_Model/03_Lists/",
+            "order": 999
+          },
+          {
+            "title": "Managing Records",
+            "path": "/en/6/02_Developer_Guides/00_Model/13_Managing_Records/",
+            "order": 999
+          },
+          {
+            "title": "Model Validation and Constraints",
+            "path": "/en/6/02_Developer_Guides/00_Model/09_Validation/",
+            "order": 999
+          },
+          {
+            "title": "Model-Level Permissions",
+            "path": "/en/6/02_Developer_Guides/00_Model/07_Permissions/",
+            "order": 999
+          },
+          {
+            "title": "Relations between Records",
+            "path": "/en/6/02_Developer_Guides/00_Model/02_Relations/",
+            "order": 999
+          },
+          {
+            "title": "SearchFilter Modifiers",
+            "path": "/en/6/02_Developer_Guides/00_Model/06_SearchFilters/",
+            "order": 999
+          },
+          {
+            "title": "SQL Queries",
+            "path": "/en/6/02_Developer_Guides/00_Model/08_SQL_Select/",
+            "order": 999
+          },
+          {
+            "title": "Versioning",
+            "path": "/en/6/02_Developer_Guides/00_Model/10_Versioning/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Performance",
+        "path": "/en/6/02_Developer_Guides/08_Performance/",
+        "children": [
+          {
+            "title": "Cache adapters",
+            "path": "/en/6/02_Developer_Guides/08_Performance/02_Cache_Adapters/",
+            "order": 999
+          },
+          {
+            "title": "Configuration Options",
+            "path": "/en/6/02_Developer_Guides/08_Performance/09_Configuration_Options/",
+            "order": 999
+          },
+          {
+            "title": "Eager loading",
+            "path": "/en/6/02_Developer_Guides/08_Performance/07_Eager_Loading/",
+            "order": 999
+          },
+          {
+            "title": "HTTP Cache Headers",
+            "path": "/en/6/02_Developer_Guides/08_Performance/03_HTTP_Cache_Headers/",
+            "order": 999
+          },
+          {
+            "title": "Object caching",
+            "path": "/en/6/02_Developer_Guides/08_Performance/01_Object_Caching/",
+            "order": 999
+          },
+          {
+            "title": "ORM Performance",
+            "path": "/en/6/02_Developer_Guides/08_Performance/06_ORM/",
+            "order": 999
+          },
+          {
+            "title": "Other Optimisations",
+            "path": "/en/6/02_Developer_Guides/08_Performance/10_Other_Optimisations/",
+            "order": 999
+          },
+          {
+            "title": "Partial template caching",
+            "path": "/en/6/02_Developer_Guides/08_Performance/00_Partial_Template_Caching/",
+            "order": 999
+          },
+          {
+            "title": "Read-only database replicas",
+            "path": "/en/6/02_Developer_Guides/08_Performance/08_Read_only_database_replicas/",
+            "order": 999
+          },
+          {
+            "title": "Static Publishing",
+            "path": "/en/6/02_Developer_Guides/08_Performance/04_Static_Publishing/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Search",
+        "path": "/en/6/02_Developer_Guides/12_Search/",
+        "children": [
+          {
+            "title": "Fulltext Search",
+            "path": "/en/6/02_Developer_Guides/12_Search/02_FulltextSearch/",
+            "order": 999
+          },
+          {
+            "title": "Scaffolding with SearchContext",
+            "path": "/en/6/02_Developer_Guides/12_Search/01_Searchcontext/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Security",
+        "path": "/en/6/02_Developer_Guides/09_Security/",
+        "children": [
+          {
+            "title": "Access Control",
+            "path": "/en/6/02_Developer_Guides/09_Security/01_Access_Control/",
+            "order": 999
+          },
+          {
+            "title": "Authentication",
+            "path": "/en/6/02_Developer_Guides/09_Security/03_Authentication/",
+            "order": 999
+          },
+          {
+            "title": "Members",
+            "path": "/en/6/02_Developer_Guides/09_Security/00_Member/",
+            "order": 999
+          },
+          {
+            "title": "Permissions",
+            "path": "/en/6/02_Developer_Guides/09_Security/02_Permissions/",
+            "order": 999
+          },
+          {
+            "title": "Personal Data",
+            "path": "/en/6/02_Developer_Guides/09_Security/07_Personal_Data/",
+            "order": 999
+          },
+          {
+            "title": "Rate Limiting",
+            "path": "/en/6/02_Developer_Guides/09_Security/06_Rate_Limiting/",
+            "order": 999
+          },
+          {
+            "title": "Security",
+            "path": "/en/6/02_Developer_Guides/09_Security/05_Secure_Coding/",
+            "order": 999
+          },
+          {
+            "title": "SQL Placeholders",
+            "path": "/en/6/02_Developer_Guides/09_Security/08_SQL_Placeholders/",
+            "order": 999
+          },
+          {
+            "title": "Sudo Mode",
+            "path": "/en/6/02_Developer_Guides/09_Security/04_Sudo_Mode/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Templates and Views",
+        "path": "/en/6/02_Developer_Guides/01_Templates/",
+        "children": [
+          {
+            "title": "Caching",
+            "path": "/en/6/02_Developer_Guides/01_Templates/07_Caching/",
+            "order": 999
+          },
+          {
+            "title": "Common Variables",
+            "path": "/en/6/02_Developer_Guides/01_Templates/02_Common_Variables/",
+            "order": 999
+          },
+          {
+            "title": "Formatting, Casting, and Escaping Variable Content",
+            "path": "/en/6/02_Developer_Guides/01_Templates/09_Casting/",
+            "order": 999
+          },
+          {
+            "title": "Generating Unique Keys",
+            "path": "/en/6/02_Developer_Guides/01_Templates/10_Unique_Keys/",
+            "order": 999
+          },
+          {
+            "title": "How To's",
+            "path": "/en/6/02_Developer_Guides/01_Templates/How_Tos/",
+            "children": [
+              {
+                "title": "Disable Anchor Rewriting",
+                "path": "/en/6/02_Developer_Guides/01_Templates/How_Tos/03_Disable_Anchor_Links/",
+                "order": 999
+              },
+              {
+                "title": "How to Create a Navigation Menu",
+                "path": "/en/6/02_Developer_Guides/01_Templates/How_Tos/01_Navigation_Menu/",
+                "order": 999
+              },
+              {
+                "title": "How to Create a Paginated List",
+                "path": "/en/6/02_Developer_Guides/01_Templates/How_Tos/02_Pagination/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Partial Template Caching",
+            "path": "/en/6/02_Developer_Guides/01_Templates/11_Partial_Template_Caching/",
+            "order": 999
+          },
+          {
+            "title": "Rendering data to a template",
+            "path": "/en/6/02_Developer_Guides/01_Templates/04_Rendering_Templates/",
+            "order": 999
+          },
+          {
+            "title": "Requirements",
+            "path": "/en/6/02_Developer_Guides/01_Templates/03_Requirements/",
+            "order": 999
+          },
+          {
+            "title": "Swap Template Engines",
+            "path": "/en/6/02_Developer_Guides/01_Templates/12_Swap_Template_Engines/",
+            "order": 999
+          },
+          {
+            "title": "Template Inheritance",
+            "path": "/en/6/02_Developer_Guides/01_Templates/05_Template_Inheritance/",
+            "order": 999
+          },
+          {
+            "title": "Template Syntax",
+            "path": "/en/6/02_Developer_Guides/01_Templates/01_Syntax/",
+            "order": 999
+          },
+          {
+            "title": "Themes",
+            "path": "/en/6/02_Developer_Guides/01_Templates/06_Themes/",
+            "order": 999
+          },
+          {
+            "title": "Translations",
+            "path": "/en/6/02_Developer_Guides/01_Templates/08_Translations/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      },
+      {
+        "title": "Testing",
+        "path": "/en/6/02_Developer_Guides/06_Testing/",
+        "children": [
+          {
+            "title": "Behavior Testing",
+            "path": "/en/6/02_Developer_Guides/06_Testing/02_Behavior_Testing/",
+            "order": 999
+          },
+          {
+            "title": "Fixtures",
+            "path": "/en/6/02_Developer_Guides/06_Testing/04_Fixtures/",
+            "order": 999
+          },
+          {
+            "title": "Functional Testing",
+            "path": "/en/6/02_Developer_Guides/06_Testing/01_Functional_Testing/",
+            "order": 999
+          },
+          {
+            "title": "How To's",
+            "path": "/en/6/02_Developer_Guides/06_Testing/How_Tos/",
+            "children": [
+              {
+                "title": "How to test emails within unit tests",
+                "path": "/en/6/02_Developer_Guides/06_Testing/How_Tos/03_Testing_Email/",
+                "order": 999
+              },
+              {
+                "title": "How to use a FixtureFactory",
+                "path": "/en/6/02_Developer_Guides/06_Testing/How_Tos/02_FixtureFactories/",
+                "order": 999
+              },
+              {
+                "title": "How to write a FunctionalTest",
+                "path": "/en/6/02_Developer_Guides/06_Testing/How_Tos/01_Write_a_FunctionalTest/",
+                "order": 999
+              },
+              {
+                "title": "How to write a SapphireTest",
+                "path": "/en/6/02_Developer_Guides/06_Testing/How_Tos/00_Write_a_SapphireTest/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Testing Glossary",
+            "path": "/en/6/02_Developer_Guides/06_Testing/05_Testing_Glossary/",
+            "order": 999
+          },
+          {
+            "title": "Unit and Integration Testing",
+            "path": "/en/6/02_Developer_Guides/06_Testing/00_Unit_Testing/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      }
+    ],
+    "order": 999
+  },
+  {
+    "title": "Getting Started",
+    "path": "/en/6/00_Getting_Started/",
+    "children": [
+      {
+        "title": "Composer",
+        "path": "/en/6/00_Getting_Started/02_Composer/",
+        "order": 999
+      },
+      {
+        "title": "Directory Structure",
+        "path": "/en/6/00_Getting_Started/04_Directory_Structure/",
+        "order": 999
+      },
+      {
+        "title": "Environment Management",
+        "path": "/en/6/00_Getting_Started/03_Environment_Management/",
+        "order": 999
+      },
+      {
+        "title": "Recipes",
+        "path": "/en/6/00_Getting_Started/05_Recipes/",
+        "order": 999
+      },
+      {
+        "title": "Server Requirements",
+        "path": "/en/6/00_Getting_Started/00_Server_Requirements/",
+        "order": 999
+      }
+    ],
+    "order": 999
+  },
+  {
+    "title": "Optional features",
+    "path": "/en/6/04_Optional_Features/",
+    "order": 999
+  },
+  {
+    "title": "Project Governance",
+    "path": "/en/6/12_Project_Governance/",
+    "children": [
+      {
+        "title": "Code of conduct",
+        "path": "/en/6/12_Project_Governance/02_Code_of_conduct/",
+        "order": 999
+      },
+      {
+        "title": "Core committers",
+        "path": "/en/6/12_Project_Governance/01_Core_committers/",
+        "order": 999
+      },
+      {
+        "title": "Definition of Public API",
+        "path": "/en/6/12_Project_Governance/08_Public_API/",
+        "order": 999
+      },
+      {
+        "title": "Fixed dependencies",
+        "path": "/en/6/12_Project_Governance/08_Fixed_dependencies/",
+        "order": 999
+      },
+      {
+        "title": "GitHub repository management",
+        "path": "/en/6/12_Project_Governance/09_Repository_Management/",
+        "order": 999
+      },
+      {
+        "title": "Maintainer guidelines",
+        "path": "/en/6/12_Project_Governance/03_Maintainer_Guidelines/",
+        "order": 999
+      },
+      {
+        "title": "Release policy",
+        "path": "/en/6/12_Project_Governance/05_Release_policy/",
+        "order": 999
+      },
+      {
+        "title": "Request for comment",
+        "path": "/en/6/12_Project_Governance/04_Request_for_comment/",
+        "order": 999
+      },
+      {
+        "title": "Supported modules",
+        "path": "/en/6/12_Project_Governance/07_Supported_Modules/",
+        "order": 999
+      }
+    ],
+    "order": 999
+  },
+  {
+    "title": "Upgrading",
+    "path": "/en/6/06_Upgrading/",
+    "children": [
+      {
+        "title": "Deprecations",
+        "path": "/en/6/06_Upgrading/07_Deprecations/",
+        "order": 999
+      },
+      {
+        "title": "Staying up to date with CMS releases",
+        "path": "/en/6/06_Upgrading/01_Keeping_projects_up_to_date/",
+        "order": 999
+      }
+    ],
+    "order": 999
+  }
+]
