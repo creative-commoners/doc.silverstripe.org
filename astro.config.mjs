@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { remarkConvertImagesToPictures } from './src/utils/remarkConvertImages.mjs';
+import { remarkLanguageAliases } from './src/utils/remarkPlugins.ts';
 
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
@@ -29,7 +30,7 @@ export default defineConfig({
       langs: ['javascript', 'typescript', 'html', 'css', 'bash', 'php', 'yaml', 'json'],
       wrap: true,
     },
-    remarkPlugins: [],
+    remarkPlugins: [remarkLanguageAliases],
     rehypePlugins: [],
   },
   vite: {
