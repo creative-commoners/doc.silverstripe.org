@@ -1,0 +1,65 @@
+---
+export interface Props {
+  version: string;
+}
+
+const { version } = Astro.props;
+
+// Version metadata
+const versionInfo = {
+  '6': { status: 'stable', eol: null },
+  '5': { status: 'stable', eol: '2025-12-31' },
+  '4': { status: 'eol', eol: '2024-09-30' },
+  '3': { status: 'eol', eol: '2022-03-31' },
+};
+
+const info = versionInfo[version as keyof typeof versionInfo];
+const now = new Date();
+const eolDate = info?.eol ? new Date(info.eol) : null;
+const isEOL = eolDate && now > eolDate;
+const isPreRelease = info?.status === 'prerelease';
+---
+
+{(isEOL || isPreRelease) && (
+  <div class={`version-warning ${isEOL ? 'version-warning-eol' : 'version-warning-prerelease'}`} role="alert">
+    {isEOL && (
+      <p>
+        <strong>⚠️ End of Life:</strong> 
+        This version is no longer supported (EOL: {eolDate?.toLocaleDateString()}). Please upgrade to a newer version.
+      </p>
+    )}
+    {isPreRelease && (
+      <p>
+        <strong>🚧 Pre-release:</strong>
+        This version is not yet stable. Documentation may be incomplete.
+      </p>
+    )}
+  </div>
+)}
+
+<style>
+  .version-warning {
+    padding: 0.75rem 1.25rem;
+    margin: 0 0 1.5rem 0;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+
+  .version-warning p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .version-warning-eol {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  .version-warning-prerelease {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+</style>

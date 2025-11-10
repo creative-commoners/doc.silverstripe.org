@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar';
+import VersionWarning from '../components/VersionWarning.astro';
 import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
@@ -42,6 +43,7 @@ if (doc) {
     
     <main class="docs-main">
       <article class="docs-content">
+        <VersionWarning version={version} />
         <slot />
       </article>
       
