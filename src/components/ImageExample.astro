@@ -1,0 +1,178 @@
+---
+/**
+ * Example: Image usage in documentation
+ * 
+ * This is an example of how to handle images in the Silverstripe documentation.
+ * Images are optimized automatically through the remark plugin.
+ * 
+ * Location: src/components/ImageExample.astro
+ * 
+ * Usage:
+ * 1. Local images in Markdown:
+ *    ![Alt text](./images/my-image.jpg)
+ * 
+ * 2. Remote images in Markdown:
+ *    ![Alt text](https://example.com/image.jpg)
+ * 
+ * 3. Direct component usage with local images:
+ *    <DocsImage src={importedImage} alt="Description" />
+ * 
+ * 4. Direct component usage with remote images:
+ *    <DocsImage src="https://example.com/image.jpg" alt="Description" />
+ */
+
+import DocsImage from './DocsImage.astro';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Image Examples' } = Astro.props;
+---
+
+<section class="image-examples">
+  <h2>{title}</h2>
+  
+  <div class="example-grid">
+    <!-- Example 1: Local image with component -->
+    <figure class="example">
+      <h3>Local Image (Component)</h3>
+      <p>Using the DocsImage component with a local image path:</p>
+      <pre><code>
+&lt;DocsImage 
+  src="./screenshot.jpg"
+  alt="Screenshot"
+  width={800}
+  height={600}
+/&gt;
+      </code></pre>
+      <p class="note">The image is automatically optimized to WebP/AVIF formats and lazy-loaded.</p>
+    </figure>
+
+    <!-- Example 2: Remote image with component -->
+    <figure class="example">
+      <h3>Remote Image (Component)</h3>
+      <p>Using DocsImage with an HTTP URL:</p>
+      <pre><code>
+&lt;DocsImage 
+  src="https://example.com/image.jpg"
+  alt="External image"
+  loading="lazy"
+/&gt;
+      </code></pre>
+      <p class="note">Remote images are served with lazy loading and responsive sizing.</p>
+    </figure>
+
+    <!-- Example 3: Markdown local image -->
+    <figure class="example">
+      <h3>Local Image (Markdown)</h3>
+      <p>In Markdown content:</p>
+      <pre><code>
+![Screenshot of the interface](./images/screenshot.jpg)
+      </code></pre>
+      <p class="note">Automatically converted to optimized HTML with lazy loading.</p>
+    </figure>
+
+    <!-- Example 4: Markdown remote image -->
+    <figure class="example">
+      <h3>Remote Image (Markdown)</h3>
+      <p>Remote URLs in Markdown:</p>
+      <pre><code>
+![External image](https://example.com/image.jpg)
+      </code></pre>
+      <p class="note">Handled consistently with local images.</p>
+    </figure>
+  </div>
+
+  <div class="best-practices">
+    <h3>Best Practices</h3>
+    <ul>
+      <li>Always provide descriptive <code>alt</code> text for accessibility</li>
+      <li>Specify <code>width</code> and <code>height</code> to prevent layout shift</li>
+      <li>Use local images when possible for optimization benefits</li>
+      <li>Keep image file sizes reasonable (under 2MB)</li>
+      <li>Use common formats: JPG for photos, PNG for graphics, WebP where supported</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .image-examples {
+    padding: 2rem;
+    background: #f9fafb;
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+  }
+
+  .example-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .example {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.375rem;
+    border: 1px solid #e5e7eb;
+    margin: 0;
+  }
+
+  .example h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .example pre {
+    background: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+  }
+
+  .example code {
+    font-family: 'Monaco', 'Courier New', monospace;
+    color: #374151;
+  }
+
+  .note {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-style: italic;
+  }
+
+  .best-practices {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.375rem;
+    border-left: 4px solid #3b82f6;
+  }
+
+  .best-practices h3 {
+    margin-top: 0;
+  }
+
+  .best-practices ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .best-practices li {
+    margin: 0.5rem 0;
+    color: #374151;
+  }
+
+  .best-practices code {
+    background: #f3f4f6;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.875em;
+  }
+</style>
