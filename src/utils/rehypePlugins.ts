@@ -299,3 +299,28 @@ export function rehypeTables() {
     });
   };
 }
+
+/**
+ * Rehype plugin to fix relative image paths
+ * Converts relative paths like ../_images/file.png to /_images/file.png
+ */
+export function rehypeFixImages() {
+  return (tree: any) => {
+    visit(tree, 'element', (node: Element) => {
+      if (node.tagName !== 'img') {
+        return;
+      }
+
+      const src = node.properties?.src;
+      if (!src || typeof src !== 'string') {
+        return;
+      }
+
+      // Only process relative paths that go up directories
+      if (src.includes('../_images/')) {
+        // Replace any number of ../ with / to make it absolute
+        node.properties.src = src.replace(/^(\.\.\/)*_images\//, '/_images/');
+      }
+    });
+  };
+}

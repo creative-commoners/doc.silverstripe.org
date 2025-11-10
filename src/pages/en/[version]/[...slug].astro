@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import DocsLayout from '../../../layouts/DocsLayout.astro';
+import DocsContent from '../../../components/DocsContent';
 import type { GetStaticPaths } from 'astro';
 
 export const getStaticPaths = (async () => {
@@ -25,10 +26,13 @@ export const getStaticPaths = (async () => {
     // Default to version 6 for now (will be expanded in future phases)
     const version = '6';
     
+    // For catch-all routes, use undefined for the root path, not empty string
+    const slug = slugParts || undefined;
+    
     return {
       params: { 
         version, 
-        slug: slugParts  // Use empty string for root, not undefined
+        slug
       },
       props: { doc },
     };
@@ -74,7 +78,9 @@ const formattedHeadings = headings
     </div>
   )}
   
-  <Content />
+  <DocsContent client:load version={version} slug={slug}>
+    <Content />
+  </DocsContent>
 </DocsLayout>
 
 <style>

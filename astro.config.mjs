@@ -8,7 +8,8 @@ import {
   rehypeHeaders, 
   rehypeFixLinks, 
   rehypeCallouts, 
-  rehypeTables 
+  rehypeTables,
+  rehypeFixImages 
 } from './src/utils/rehypePlugins.ts';
 
 import react from '@astrojs/react';
@@ -41,7 +42,9 @@ export default defineConfig({
     rehypePlugins: [
       rehypeHeaders,
       rehypeTables,
-      [rehypeFixLinks, { version: '6' }],
+      rehypeFixImages,
+      // rehypeFixLinks is disabled - link fixing is done client-side in DocsContent component
+      // to have access to the current page's slug for proper relative link resolution
       rehypeCallouts,
     ],
   },

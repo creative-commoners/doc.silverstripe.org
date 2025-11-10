@@ -26,3 +26,4 @@ pnpm-debug.log*
 .vscode
 .cache
 src/content/docs
+public/_images
