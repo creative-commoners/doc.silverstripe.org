@@ -108,15 +108,15 @@ module.exports = [
   //     patterns: 'docs/en/!(userguide)/**'
   //   }
   // },
-  // {
-  //   resolve: 'gatsby-source-git',
-  //   options: {
-  //     name: 'docs--6--optional_features/linkfield',
-  //     remote: 'https://github.com/silverstripe/silverstripe-linkfield.git',
-  //     branch: '5.1',
-  //     patterns: 'docs/en/!(userguide)/**'
-  //   }
-  // },
+  {
+    resolve: 'gatsby-source-git',
+    options: {
+      name: 'docs--6--optional_features/linkfield',
+      remote: 'https://github.com/silverstripe/silverstripe-linkfield.git',
+      branch: '5.1',
+      patterns: 'docs/en/!(userguide)/**'
+    }
+  },
   // {
   //   resolve: 'gatsby-source-git',
   //   options: {
@@ -172,16 +172,16 @@ module.exports = [
   //   }
   // },
 
-  // // CMS 5
-  // {
-  //   resolve: 'gatsby-source-git',
-  //   options: {
-  //     name: 'docs--5',
-  //     remote: 'https://github.com/silverstripe/developer-docs.git',
-  //     branch: '5.4',
-  //     patterns: 'en/**'
-  //   }
-  // },
+  // CMS 5
+  {
+    resolve: 'gatsby-source-git',
+    options: {
+      name: 'docs--5',
+      remote: 'https://github.com/silverstripe/developer-docs.git',
+      branch: '5.4',
+      patterns: 'en/**'
+    }
+  },
   // {
   //   resolve: 'gatsby-source-git',
   //   options: {
@@ -272,15 +272,15 @@ module.exports = [
   //     patterns: 'docs/en/!(userguide)/**'
   //   }
   // },
-  // {
-  //   resolve: 'gatsby-source-git',
-  //   options: {
-  //     name: 'docs--5--optional_features/linkfield',
-  //     remote: 'https://github.com/silverstripe/silverstripe-linkfield.git',
-  //     branch: '4.2',
-  //     patterns: 'docs/en/!(userguide)/**'
-  //   }
-  // },
+  {
+    resolve: 'gatsby-source-git',
+    options: {
+      name: 'docs--5--optional_features/linkfield',
+      remote: 'https://github.com/silverstripe/silverstripe-linkfield.git',
+      branch: '4.2',
+      patterns: 'docs/en/!(userguide)/**'
+    }
+  },
   // {
   //   resolve: 'gatsby-source-git',
   //   options: {
