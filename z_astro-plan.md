@@ -29,17 +29,26 @@
 - Phase 6: Styling & Polish (Days 14-15)
   - Step 6.1: Migrate Global Styles
   - Step 6.2: Implement Version Warnings
-- Phase 7: Redirects & SEO (Day 16)
+- Phase 6a: Multi-Version Documentation Support (Day 15.5)
+  - Step 6a.1: Enable Additional Documentation Versions
+  - Step 6a.2: Update Content Collection Configuration
+- Phase 6b: Child Page Navigation Blocks (Day 16)
+  - Step 6b.1: Understand Gatsby [CHILDREN] Implementation
+  - Step 6b.2: Implement Astro [CHILDREN] Component
+- Phase 6c: Persistent Sidebar State (Day 16.5)
+  - Step 6c.1: Implement Client-Side State Persistence
+  - Step 6c.2: Auto-Expand Current Path on Page Load
+- Phase 7: Redirects & SEO (Day 17)
   - Step 7.1: Implement Redirects
   - Step 7.2: Configure SEO & Sitemap
-- Phase 8: Build & Deploy (Days 17-18)
+- Phase 8: Build & Deploy (Days 18-19)
   - Step 8.1: Configure Build Process
   - Step 8.2: Configure Netlify Deployment
   - Step 8.3: Test Production Build
-- Phase 9: Migration & Monitoring (Days 19-20)
+- Phase 9: Migration & Monitoring (Days 20-21)
   - Step 9.1: Deploy to Production
   - Step 9.2: Post-Launch Monitoring
-- Phase 10: Testing & Validation (Day 19-20)
+- Phase 10: Testing & Validation (Day 20-21)
   - Step 10.1: Implement Basic Smoke Tests
 - Phase 11: Optimization & Cleanup (Day 21+)
   - Step 11.1: Performance Optimization
@@ -1471,7 +1480,509 @@ Add to `DocsLayout.astro`:
 
 ---
 
-## Phase 7: Redirects & SEO (Day 16)
+## Phase 6a: Multi-Version Documentation Support (Day 15.5)
+
+### Step 6a.1: Enable Additional Documentation Versions
+
+**Goal**: Configure the build system to load and display documentation for versions 3, 4, and 5, plus optional feature modules like LinkField and Elemental.
+
+**Context**: Currently only v6 documentation is loaded. The content sources are defined in `_gatsby/sources-docs.js` but many entries are commented out. The LLM needs to uncomment specific source configurations and verify the content cloning pipeline works for multiple versions.
+
+**Tasks**:
+1. **Audit Current State**:
+   - Examine `_gatsby/sources-docs.js` to identify commented-out source configurations
+   - Verify that v6 docs are currently in `.cache/content/docs/` or `src/content/docs/`
+   - Check if current directory structure assumes single version (needs restructuring)
+
+2. **Uncomment Source Configurations**:
+   - Edit `_gatsby/sources-docs.js` (or copy to root if not already done)
+   - Uncomment ONLY these specific source blocks:
+     - `docs--5` (Silverstripe v5 core documentation)
+     - `docs--6--optional_features/linkfield` (LinkField module for v6)
+     - `docs--5--optional_features/linkfield` (LinkField module for v5)
+   - Do NOT modify `sources-user.js`
+   - Leave other commented sources alone for now
+
+3. **Restructure Content Directory**:
+   - Current state: `src/content/docs/` contains v6 docs at root level
+   - Required state: `src/content/docs/v{version}/` structure
+   - Move existing v6 content into `src/content/docs/v6/` subdirectory
+   - Ensure `.cache/content/docs/` also follows versioned structure
+
+4. **Update Clone Script**:
+   - Verify `scripts/clone-docs.js` correctly handles version-based directory structure
+   - Ensure it creates `v3/`, `v4/`, `v5/`, `v6/` subdirectories
+   - Test that optional feature modules clone into correct paths (e.g., `v6/optional_features/linkfield/`)
+
+5. **Test Content Cloning**:
+   ```bash
+   # Clear existing cache
+   rm -rf .cache/content/docs
+   
+   # Run clone script
+   npm run clone-docs
+   
+   # Verify structure
+   ls -R .cache/content/docs/
+   ```
+
+**Expected Directory Structure After Cloning**:
+```
+.cache/content/docs/
+├── v3/
+│   └── (v3 documentation files)
+├── v4/
+│   └── (v4 documentation files)
+├── v5/
+│   ├── (v5 core documentation)
+│   └── optional_features/
+│       └── linkfield/
+├── v6/
+│   ├── (v6 core documentation)
+│   └── optional_features/
+│       └── linkfield/
+```
+
+**Success Criteria**:
+- `sources-docs.js` has exactly 3 source blocks uncommented (v5 core, v6 linkfield, v5 linkfield)
+- Content cloning creates versioned subdirectories correctly
+- All version content directories contain markdown files
+- No errors during clone process
+- `sources-user.js` remains unmodified
+
+---
+
+### Step 6a.2: Update Content Collection Configuration
+
+**Goal**: Update Astro's content collection configuration to handle multi-version content structure and ensure all versions are queryable.
+
+**Tasks**:
+1. **Update Content Collection Base Path**:
+   - Edit `src/content/config.ts`
+   - Verify content collection points to `.cache/content/docs/` (not `src/content/docs/`)
+   - Ensure collection can recursively find content in `v3/`, `v4/`, `v5/`, `v6/` subdirectories
+
+2. **Update Content Helpers**:
+   - Edit `src/utils/contentHelpers.ts`
+   - Update `getDocsByVersion()` to correctly filter by version from new structure
+   - Update `getAllVersions()` to return `['3', '4', '5', '6']`
+   - Ensure version inference works with new directory structure
+
+3. **Update Dynamic Route**:
+   - Edit `src/pages/[version]/[...slug].astro`
+   - Verify `getStaticPaths()` correctly generates routes for all 4 versions
+   - Test that version parameter extraction works with new structure
+   - Ensure slug building accounts for optional_features subdirectories
+
+4. **Update Navigation Generation**:
+   - Edit `scripts/generate-nav.js` (if exists, otherwise create)
+   - Ensure navigation data generation runs for all versions
+   - Create `/public/api/nav/3.json`, `4.json`, `5.json`, `6.json`
+   - Include optional features in navigation tree
+
+5. **Test Version Routing**:
+   ```bash
+   npm run build
+   
+   # Verify all version routes exist
+   ls dist/en/3/
+   ls dist/en/4/
+   ls dist/en/5/
+   ls dist/en/6/
+   ls dist/en/6/optional_features/linkfield/
+   ls dist/en/5/optional_features/linkfield/
+   ```
+
+6. **Update Version Switcher**:
+   - Edit `src/components/VersionSwitcher.tsx`
+   - Ensure dropdown includes all 4 versions
+   - Test version switching between all versions
+
+**Success Criteria**:
+- Content collections correctly load docs from all 4 versions
+- All version URLs generate without errors (`/en/3/`, `/en/4/`, `/en/5/`, `/en/6/`)
+- Optional feature modules appear in navigation and are accessible
+- Version switcher shows all 4 options
+- No build errors related to content paths
+- Can navigate to LinkField docs in both v5 and v6
+
+---
+
+## Phase 6b: Child Page Navigation Blocks (Day 16)
+
+### Step 6b.1: Understand Gatsby [CHILDREN] Implementation
+
+**Goal**: Analyze the legacy Gatsby implementation to understand how `[CHILDREN]` blocks work before reimplementing in Astro.
+
+**Context**: Documentation markdown files contain special `[CHILDREN]` tags (sometimes with attributes like `[CHILDREN Folder="Field_types"]`) that dynamically generate navigation links to child pages. The LLM needs to understand the exact behavior before recreating it.
+
+**Tasks**:
+1. **Locate Legacy Implementation**:
+   - Search `_gatsby/` for how `[CHILDREN]` tags are processed
+   - Check `_gatsby/src/utils/parseChildrenOf.ts` (if exists)
+   - Check `_gatsby/gatsby-node.js` for content transformation logic
+   - Look for remark/rehype plugins that handle this syntax
+
+2. **Document Current Behavior**:
+   - Identify the exact syntax variations:
+     - `[CHILDREN]` - lists all child pages
+     - `[CHILDREN Folder="Field_types"]` - lists children of specific folder
+     - Any other attribute patterns
+   - Determine output format (unordered list? grid? cards?)
+   - Check if it uses frontmatter (title, summary, icon) from child pages
+   - Determine sorting logic (alphabetical? by order field? folder-aware?)
+
+3. **Find Example Usage**:
+   - Search `.cache/content/docs/` for files containing `[CHILDREN]`
+   - Identify at least 3 real-world examples with different attribute variations
+   - Document expected output for each example
+
+4. **Analyze Styling**:
+   - Check `_gatsby/src/theme/assets/scss/` for child navigation styling
+   - Identify CSS classes used (e.g., `.children-list`, `.child-card`)
+   - Capture layout patterns (grid, list, etc.)
+
+**Research Questions to Answer**:
+- Does `[CHILDREN]` only work at specific locations in markdown (top, bottom, anywhere)?
+- Does it support nesting (children of children)?
+- Are hidden pages (frontmatter: `hide: true`) excluded?
+- Does `hideChildren: true` affect this?
+- What happens if a folder has no children?
+
+**Success Criteria**:
+- Complete understanding of all `[CHILDREN]` syntax variations documented
+- Located the exact Gatsby code responsible for transformation
+- Identified at least 3 real examples in documentation
+- Documented expected HTML output structure
+- Captured CSS styling requirements
+
+---
+
+### Step 6b.2: Implement Astro [CHILDREN] Component
+
+**Goal**: Recreate the `[CHILDREN]` functionality in Astro using a custom remark plugin and component.
+
+**Tasks**:
+1. **Create Remark Plugin**:
+   - Create `src/utils/remarkChildrenBlocks.ts`
+   - Write remark plugin to detect `[CHILDREN]` syntax in markdown
+   - Parse attributes (e.g., `Folder="Field_types"`)
+   - Replace `[CHILDREN]` blocks with custom component syntax
+
+2. **Create ChildrenList Component**:
+   - Create `src/components/ChildrenList.astro`
+   - Accept props: `currentPath`, `folder` (optional), `version`
+   - Query content collection for child pages of current page
+   - Filter based on `folder` attribute if provided
+   - Exclude pages with `hide: true` frontmatter
+   - Sort by `order` field, then alphabetically
+
+3. **Implement Rendering Logic**:
+   ```astro
+   ---
+   // src/components/ChildrenList.astro
+   import { getCollection } from 'astro:content';
+   
+   export interface Props {
+     currentPath: string;
+     folder?: string;
+     version: string;
+   }
+   
+   const { currentPath, folder, version } = Astro.props;
+   
+   // Get all docs for this version
+   const allDocs = await getCollection('docs', ({ id }) => 
+     id.startsWith(`v${version}/`)
+   );
+   
+   // Filter to children of current path
+   const children = allDocs.filter(doc => {
+     // Implementation logic based on Gatsby research
+     const isChild = isChildOf(doc.id, currentPath);
+     const matchesFolder = !folder || doc.id.includes(folder);
+     const isVisible = !doc.data.hide;
+     return isChild && matchesFolder && isVisible;
+   });
+   
+   // Sort children
+   children.sort((a, b) => {
+     if (a.data.order !== undefined && b.data.order !== undefined) {
+       return a.data.order - b.data.order;
+     }
+     return a.data.title.localeCompare(b.data.title);
+   });
+   ---
+   
+   <div class="children-list">
+     {children.map(child => (
+       <div class="child-item">
+         <a href={buildChildUrl(child.id, version)}>
+           {child.data.icon && <i class={`icon fa-${child.data.icon}`} />}
+           <h3>{child.data.title}</h3>
+           {child.data.summary && <p>{child.data.summary}</p>}
+         </a>
+       </div>
+     ))}
+   </div>
+   
+   <style>
+     /* Copy styles from _gatsby/src/theme/assets/scss/ */
+     .children-list {
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+       gap: 1rem;
+       margin: 2rem 0;
+     }
+     
+     .child-item {
+       border: 1px solid var(--border-color);
+       padding: 1rem;
+       border-radius: 4px;
+     }
+     
+     .child-item:hover {
+       background: var(--hover-bg);
+     }
+   </style>
+   ```
+
+4. **Integrate Plugin into Build**:
+   - Edit `astro.config.mjs`
+   - Add `remarkChildrenBlocks` to `remarkPlugins` array
+   - Ensure plugin runs before MDX processing
+
+5. **Create Helper Functions**:
+   - Create `src/utils/childrenHelpers.ts`
+   - Implement `isChildOf(docId, parentPath)` logic
+   - Implement `buildChildUrl(docId, version)` slug builder
+   - Handle edge cases (index files, nested paths)
+
+6. **Test Implementation**:
+   - Find pages with `[CHILDREN]` tags in cloned content
+   - Build site and verify children lists render correctly
+   - Test with and without `Folder` attribute
+   - Test on pages with no children (should render nothing or message)
+   - Verify styling matches old Gatsby site
+
+7. **Handle Edge Cases**:
+   - Empty children lists (no output or "No pages found" message?)
+   - Invalid folder names in attributes
+   - Nested `[CHILDREN]` blocks
+   - `hideChildren: true` in parent page frontmatter
+
+**Success Criteria**:
+- `[CHILDREN]` blocks in markdown are detected and replaced
+- Child pages render in a grid/list matching Gatsby output
+- Folder attribute filtering works correctly
+- Hidden pages are excluded
+- Sorting respects `order` frontmatter
+- Styling matches original design
+- No build errors with pages containing `[CHILDREN]`
+- Works for all versions (3, 4, 5, 6)
+
+---
+
+## Phase 6c: Persistent Sidebar State (Day 16.5)
+
+### Step 6c.1: Implement Client-Side State Persistence
+
+**Goal**: Make the sidebar navigation remember which folders are expanded when navigating between pages, eliminating the frustration of collapsed navigation.
+
+**Context**: Currently, the `Sidebar.tsx` React component uses local state (`expandedPaths`) that resets on every page navigation. The LLM needs to persist this state using localStorage or sessionStorage and restore it on mount.
+
+**Tasks**:
+1. **Update Sidebar Component State Management**:
+   - Edit `src/components/Sidebar.tsx`
+   - Replace simple `useState` with persistent storage solution
+   - Use `localStorage` for persistence across browser sessions
+   - Store as JSON array of expanded path strings
+
+2. **Implement Storage Helpers**:
+   ```typescript
+   // src/components/Sidebar.tsx
+   
+   const STORAGE_KEY = 'ss-docs-sidebar-state';
+   
+   function loadExpandedPaths(): Set<string> {
+     if (typeof window === 'undefined') return new Set();
+     
+     try {
+       const stored = localStorage.getItem(STORAGE_KEY);
+       if (stored) {
+         const parsed = JSON.parse(stored);
+         return new Set(parsed);
+       }
+     } catch (err) {
+       console.warn('Failed to load sidebar state:', err);
+     }
+     
+     return new Set();
+   }
+   
+   function saveExpandedPaths(paths: Set<string>) {
+     if (typeof window === 'undefined') return;
+     
+     try {
+       const array = Array.from(paths);
+       localStorage.setItem(STORAGE_KEY, JSON.stringify(array));
+     } catch (err) {
+       console.warn('Failed to save sidebar state:', err);
+     }
+   }
+   ```
+
+3. **Update Component Initialization**:
+   ```typescript
+   export default function Sidebar({ version, currentPath }: Props) {
+     const [navTree, setNavTree] = useState<NavItem[]>([]);
+     const [expandedPaths, setExpandedPaths] = useState<Set<string>>(() => 
+       loadExpandedPaths()
+     );
+     
+     // Save to localStorage whenever expanded paths change
+     useEffect(() => {
+       saveExpandedPaths(expandedPaths);
+     }, [expandedPaths]);
+     
+     // ... rest of component
+   }
+   ```
+
+4. **Update Toggle Logic**:
+   - Ensure `togglePath()` function triggers state update correctly
+   - Verify that expanding/collapsing persists immediately
+   - Test that state survives page navigation
+
+5. **Handle Version Switching**:
+   - Consider whether expanded state should be version-specific
+   - If yes, use storage key like `ss-docs-sidebar-v${version}`
+   - If no, use single key for all versions
+   - Decision: Version-specific is better (different nav trees per version)
+
+**Success Criteria**:
+- Expanding a folder persists when navigating to child page
+- Refreshing the page retains expanded state
+- State persists across browser sessions
+- State is version-specific (v3 state ≠ v6 state)
+- No console errors related to localStorage
+- Works in browsers with localStorage disabled (graceful degradation)
+
+---
+
+### Step 6c.2: Auto-Expand Current Path on Page Load
+
+**Goal**: Automatically expand the sidebar navigation tree to show the current page's position, providing visual context of where the user is in the documentation hierarchy.
+
+**Context**: Even with persistent state, if a user arrives via direct link or bookmark, the sidebar may not show their current location. The LLM needs to ensure the current page's ancestor folders are always expanded on initial render.
+
+**Tasks**:
+1. **Determine Current Page's Ancestors**:
+   - Create `src/utils/sidebarHelpers.ts`
+   - Implement `getAncestorPaths(currentPath: string): string[]`
+   - Returns array of parent paths from root to current page
+   - Example: `/en/6/forms/field-types/` → `['/en/6/', '/en/6/forms/', '/en/6/forms/field-types/']`
+
+2. **Auto-Expand on Mount**:
+   ```typescript
+   // src/components/Sidebar.tsx
+   
+   useEffect(() => {
+     // When current path changes, ensure ancestors are expanded
+     const ancestors = getAncestorPaths(currentPath);
+     
+     setExpandedPaths(prev => {
+       const newExpanded = new Set(prev);
+       ancestors.forEach(path => newExpanded.add(path));
+       return newExpanded;
+     });
+   }, [currentPath]);
+   ```
+
+3. **Prevent Flash of Collapsed Content (FOUC)**:
+   - The above `useEffect` runs after React hydration, causing visible expansion animation
+   - Need to compute expanded state BEFORE hydration
+   - Options:
+     - **Option A**: Server-render with correct initial state (complex, requires SSR context)
+     - **Option B**: Use `client:load` instead of `client:idle` for immediate hydration
+     - **Option C**: Hide sidebar until hydration complete (brief flash)
+     - **Option D**: Inline script in layout to set initial state before React loads
+   - Recommended: **Option B** (simplest, acceptable tradeoff)
+
+4. **Implement Pre-Hydration State** (if avoiding FOUC is critical):
+   - Edit `src/layouts/DocsLayout.astro`
+   - Add inline script before Sidebar component:
+   ```astro
+   <script define:vars={{ currentPath, version }}>
+     // Set initial expanded state before React hydrates
+     const ancestors = [/* compute ancestors from currentPath */];
+     const stored = JSON.parse(localStorage.getItem('ss-docs-sidebar-state') || '[]');
+     const initial = [...stored, ...ancestors];
+     window.__SIDEBAR_INITIAL__ = initial;
+   </script>
+   
+   <Sidebar 
+     version={version} 
+     currentPath={currentPath}
+     client:load 
+   />
+   ```
+
+5. **Update Sidebar to Use Pre-Computed State**:
+   ```typescript
+   const [expandedPaths, setExpandedPaths] = useState<Set<string>>(() => {
+     // Check for pre-computed state from inline script
+     if (typeof window !== 'undefined' && window.__SIDEBAR_INITIAL__) {
+       const initial = new Set(window.__SIDEBAR_INITIAL__);
+       delete window.__SIDEBAR_INITIAL__;
+       return initial;
+     }
+     
+     // Fallback to localStorage
+     return loadExpandedPaths();
+   });
+   ```
+
+6. **Highlight Current Page**:
+   - Ensure current page has visual indicator in sidebar
+   - Add `.active` class to current nav item
+   - Style with bold text, background color, or left border
+   - Ensure active item is scrolled into view if off-screen
+
+7. **Scroll Active Item Into View**:
+   ```typescript
+   useEffect(() => {
+     // After navigation, scroll active item into view
+     const activeElement = document.querySelector('.sidebar .nav-item.active');
+     if (activeElement) {
+       activeElement.scrollIntoView({ 
+         block: 'nearest', 
+         behavior: 'smooth' 
+       });
+     }
+   }, [currentPath]);
+   ```
+
+**Success Criteria**:
+- Current page's ancestors are always expanded on page load
+- Works for direct links, bookmarks, external referrals
+- No visible flash of collapsed content (FOUC)
+- Current page is highlighted in sidebar
+- Current page scrolls into view if needed
+- State persists when navigating away and back
+- Works across all versions
+- No layout shift or animation jank on load
+
+**Deliverables**:
+- Updated `Sidebar.tsx` with persistent state
+- Helper functions for ancestor path calculation
+- Inline script for FOUC prevention (if implemented)
+- Styling for active nav item
+- Smooth scroll behavior for active item
+
+---
+
+## Phase 7: Redirects & SEO (Day 17)
 
 ### Step 7.1: Implement Redirects
 
@@ -1584,7 +2095,7 @@ export default defineConfig({
 
 ---
 
-## Phase 8: Build & Deploy (Days 17-18)
+## Phase 8: Build & Deploy (Days 18-19)
 
 ### Step 8.1: Configure Build Process
 
@@ -1702,7 +2213,7 @@ Create `netlify.toml`:
 
 ---
 
-## Phase 9: Migration & Monitoring (Days 19-20)
+## Phase 9: Migration & Monitoring (Days 20-21)
 
 ### Step 9.1: Deploy to Production
 
@@ -1751,7 +2262,7 @@ Create `netlify.toml`:
 
 ---
 
-## Phase 10: Testing & Validation (Day 19-20)
+## Phase 10: Testing & Validation (Day 20-21)
 
 ### Step 10.1: Implement Basic Smoke Tests
 

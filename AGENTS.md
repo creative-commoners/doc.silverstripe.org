@@ -123,9 +123,10 @@ The migration follows the detailed plan in `z_astro-plan.md`. Legacy Gatsby file
 ## Content Management
 
 **Version Structure:**
-- Supports versions 3, 4, 5, 6
+- Supports versions 3, 4, 5, 6 (see Phase 6a for multi-version support implementation)
 - Each version has independent content tree
 - Content cloned from git repositories to `.cache/content/docs/v{version}/`
+- Optional features (e.g., LinkField, Elemental) in `v{version}/optional_features/` subdirectories
 
 **Frontmatter Schema:**
 ```yaml
@@ -283,6 +284,26 @@ export async function getStaticPaths() {
 ```astro
 <SearchBox client:idle context={context} />
 ```
+
+## Special Features (Implemented in Phases 6a-6c)
+
+**Child Page Navigation (`[CHILDREN]` blocks):**
+- Markdown files can contain `[CHILDREN]` or `[CHILDREN Folder="name"]` syntax
+- Automatically generates navigation to child pages (see Phase 6b)
+- Implemented via remark plugin and `ChildrenList.astro` component
+- Respects `hide` and `order` frontmatter fields
+
+**Persistent Sidebar State:**
+- Sidebar navigation state persists across page navigation (see Phase 6c)
+- Uses localStorage to remember expanded folders
+- Automatically expands current page's ancestor paths
+- Version-specific state (v3 state ≠ v6 state)
+
+**Multi-Version Support:**
+- Content from versions 3, 4, 5, and 6 (see Phase 6a)
+- Optional feature modules (LinkField, Elemental) supported
+- Version switcher allows navigation between versions
+- Each version has independent navigation tree
 
 ## Resources
 

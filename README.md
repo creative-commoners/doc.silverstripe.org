@@ -37,31 +37,44 @@ All commands are run from the root of the project, from a terminal:
 ```text
 /
 ├── .cache/content/              # Git-cloned documentation (gitignored)
-├── _gatsby/                     # Archived Gatsby v2 project (reference only)
+│   └── docs/
+│       ├── v3/                  # Version 3 documentation
+│       ├── v4/                  # Version 4 documentation
+│       ├── v5/                  # Version 5 documentation
+│       └── v6/                  # Version 6 documentation
+├── _gatsby/                     # Archived Gatsby v2 project (reference only, gitignored)
 ├── scripts/
 │   ├── clone-docs.js            # Clones documentation from git repos
-│   └── fix-image-paths.js       # Fixes relative image paths in markdown
+│   └── archive-gatsby.sh        # Initial setup script
 ├── src/
 │   ├── components/              # Reusable UI components
-│   │   ├── Header.astro
-│   │   ├── Sidebar.tsx
-│   │   ├── SearchBox.tsx
-│   │   └── VersionSwitcher.tsx
+│   │   ├── Header.astro         # Site header (Astro)
+│   │   ├── Sidebar.tsx          # Navigation sidebar (React island)
+│   │   ├── SearchBox.tsx        # Algolia search (React island)
+│   │   ├── VersionSwitcher.tsx  # Version selector (React island)
+│   │   └── ChildrenList.astro   # Child page navigation (from Phase 6b)
 │   ├── layouts/
-│   │   ├── BaseLayout.astro
-│   │   └── DocsLayout.astro
+│   │   ├── BaseLayout.astro     # Base HTML structure
+│   │   └── DocsLayout.astro     # Documentation page layout
 │   ├── pages/
-│   │   ├── index.astro
+│   │   ├── index.astro          # Homepage (redirects to latest version)
+│   │   ├── 404.astro
 │   │   └── [version]/[...slug].astro  # Dynamic documentation routes
 │   ├── content/
-│   │   ├── config.ts            # Content collection schema
-│   │   └── docs/                # Markdown documentation files
+│   │   └── config.ts            # Content collection definitions
 │   ├── styles/
-│   │   ├── global.scss
-│   │   └── utilities.scss
-│   └── utils/                   # Utility functions and plugins
-├── static/                      # Static assets
+│   │   ├── global.scss          # Global styles
+│   │   └── utilities.scss       # SCSS utilities (for post-Tailwind migration)
+│   ├── utils/                   # Utility functions (migrated from _gatsby/src/utils/)
+│   │   ├── fileToTitle.ts
+│   │   ├── contentHelpers.ts
+│   │   ├── childrenHelpers.ts   # Child page helpers (from Phase 6b)
+│   │   ├── sidebarHelpers.ts    # Sidebar state helpers (from Phase 6c)
+│   │   └── rewrite*.ts
+│   └── types/                   # TypeScript type definitions
+├── static/                      # Static assets (copied from original project)
 ├── public/                      # Build output for static files
+│   └── api/nav/                 # Generated navigation JSON files per version
 └── astro.config.mjs             # Astro configuration
 ```
 
@@ -91,10 +104,11 @@ Removes old dist directory and performs a clean build.
 
 ## 📝 Content Management
 
-- **Documentation source**: Cloned from git repositories to `.cache/content/`
-- **Content collection**: Located in `src/content/docs/`
+- **Documentation source**: Cloned from git repositories to `.cache/content/docs/`
+- **Content collection**: Points to `.cache/content/docs/` (configured in `src/content/config.ts`)
+- **Version structure**: Content organized in versioned directories (`v3/`, `v4/`, `v5/`, `v6/`)
 - **Dynamic routes**: All pages generated from `src/pages/[version]/[...slug].astro`
-- **Image assets**: Located in `src/content/docs/_images/`
+- **Image assets**: Located within each version's content directory
 
 ## 🔗 Documentation
 
@@ -105,12 +119,16 @@ For detailed information about the project architecture, migration status, and c
 
 ## 📦 Tech Stack
 
-- **Astro v5** - Static site generator
-- **React v19** - Interactive components (SearchBox, VersionSwitcher, Sidebar)
+- **Astro v4+** - Static site generator with islands architecture
+- **React v18** - Interactive components (SearchBox, VersionSwitcher, Sidebar)
 - **TypeScript v5** - Strict type checking
-- **Bootstrap v5** - Component framework
-- **SCSS** - Styling with Dart Sass
+- **Node.js v24 LTS** - Runtime environment
+- **Bootstrap v5** - Component framework (upgraded from v4)
+- **SCSS** - Styling with Dart Sass compiler
+- **Tailwind CSS** - Utility framework (to be removed in Phase 11.3)
 - **MDX** - Markdown with JSX support
+- **Shiki** - Syntax highlighting
+- **Algolia DocSearch v3** - Search functionality
 
 ## 🚀 Deployment
 
