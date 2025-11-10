@@ -3,10 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "clean": "rm -rf dist",
     "clone-docs": "DOCS_CONTEXT=docs node scripts/clone-docs.js",
     "clone-user": "DOCS_CONTEXT=user node scripts/clone-docs.js",
+    "fix-paths": "node scripts/fix-image-paths.js",
     "dev": "astro dev",
-    "build": "npm run clone-docs && astro build",
+    "build": "npm run clone-docs && npm run fix-paths && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

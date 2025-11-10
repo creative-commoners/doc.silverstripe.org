@@ -159,10 +159,23 @@ npm run build:docs    # Build docs site
 npm run build:user    # Build user help site
 ```
 
+**Utility Scripts:**
+```bash
+npm run clean         # Remove dist directory
+npm run clone-docs    # Clone docs content manually
+npm run clone-user    # Clone user help content manually
+npm run fix-paths     # Normalize relative image paths in markdown
+```
+
 **Content Cloning:**
-- Runs automatically via `prebuild` script
+- Runs automatically as part of `npm run build`
 - Can be triggered manually: `npm run clone-docs` or `npm run clone-user`
 - Uses `scripts/clone-docs.js` with sources from `sources-docs.js` / `sources-user.js`
+
+**Image Path Fixing:**
+- Runs automatically as part of `npm run build`
+- Normalizes relative image paths in markdown files to correct nesting levels
+- Prevents Astro asset resolution errors for symlinked content
 
 ## Testing Expectations
 

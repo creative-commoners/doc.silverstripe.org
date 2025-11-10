@@ -1,18 +1,27 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { remarkConvertImagesToPictures } from './src/utils/remarkConvertImages.mjs';
 
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://docs.silverstripe.org',
   integrations: [
     react(),
-    mdx(),
+    mdx({
+      optimize: false,
+      remarkPlugins: [remarkConvertImagesToPictures],
+    }),
     sitemap()
   ],
+  srcDir: './src',
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
