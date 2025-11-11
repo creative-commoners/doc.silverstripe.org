@@ -7,10 +7,50 @@ interface Props {
   currentPath: string;
 }
 
+function getStorageKey(version: string): string {
+  return `ss-docs-sidebar-v${version}`;
+}
+
+function loadExpandedPaths(version: string): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+
+  try {
+    const storageKey = getStorageKey(version);
+    const stored = localStorage.getItem(storageKey);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return new Set(parsed);
+    }
+  } catch (err) {
+    console.warn('Failed to load sidebar state:', err);
+  }
+
+  return new Set();
+}
+
+function saveExpandedPaths(version: string, paths: Set<string>): void {
+  if (typeof window === 'undefined') return;
+
+  try {
+    const storageKey = getStorageKey(version);
+    const array = Array.from(paths);
+    localStorage.setItem(storageKey, JSON.stringify(array));
+  } catch (err) {
+    console.warn('Failed to save sidebar state:', err);
+  }
+}
+
 export default function Sidebar({ version, currentPath }: Props) {
   const [navTree, setNavTree] = useState<NavItem[]>([]);
-  const [expandedPaths, setExpandedPaths] = useState<Set<string>>(new Set());
+  const [expandedPaths, setExpandedPaths] = useState<Set<string>>(() =>
+    loadExpandedPaths(version)
+  );
   const [isLoading, setIsLoading] = useState(true);
+
+  // Save expanded paths to localStorage whenever they change
+  useEffect(() => {
+    saveExpandedPaths(version, expandedPaths);
+  }, [expandedPaths, version]);
 
   useEffect(() => {
     const loadNavigation = async () => {
@@ -20,15 +60,19 @@ export default function Sidebar({ version, currentPath }: Props) {
         const data = await response.json();
         setNavTree(data);
         
-        // Auto-expand paths containing current page
-        const expanded = new Set<string>();
+        // Merge stored expanded paths with auto-expanded paths from current page
+        const storedExpanded = loadExpandedPaths(version);
+        const ancestorPaths = new Set<string>();
         const parts = currentPath.split('/').filter(Boolean);
         let currentPath_ = '';
         for (const part of parts) {
           currentPath_ += '/' + part;
-          expanded.add(currentPath_);
+          ancestorPaths.add(currentPath_);
         }
-        setExpandedPaths(expanded);
+        
+        // Combine stored paths with current page ancestors
+        const combined = new Set([...storedExpanded, ...ancestorPaths]);
+        setExpandedPaths(combined);
       } catch (err) {
         console.error('Failed to load nav:', err);
       } finally {
@@ -37,7 +81,7 @@ export default function Sidebar({ version, currentPath }: Props) {
     };
 
     loadNavigation();
-  }, [version]);
+  }, [version, currentPath]);
 
   const togglePath = (path: string) => {
     const newExpanded = new Set(expandedPaths);
