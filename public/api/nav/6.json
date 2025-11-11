@@ -375,16 +375,6 @@
         "order": 999
       },
       {
-        "title": "Deprecating code",
-        "path": "/en/6/02_Developer_Guides/20_Deprecations/",
-        "order": 999
-      },
-      {
-        "title": "Email",
-        "path": "/en/6/02_Developer_Guides/10_Email/",
-        "order": 999
-      },
-      {
         "title": "Execution pipeline",
         "path": "/en/6/02_Developer_Guides/16_Execution_Pipeline/",
         "children": [
@@ -606,11 +596,6 @@
             "order": 999
           }
         ],
-        "order": 999
-      },
-      {
-        "title": "i18n",
-        "path": "/en/6/02_Developer_Guides/13_i18n/",
         "order": 999
       },
       {
@@ -1046,8 +1031,109 @@
     "order": 999
   },
   {
-    "title": "Optional features",
-    "path": "/en/6/04_Optional_Features/",
+    "title": "Optional Features",
+    "path": "/en/6/optional_features/",
+    "children": [
+      {
+        "title": "Linkfield",
+        "path": "/en/6/optional_features/linkfield/",
+        "children": [
+          {
+            "title": ".github",
+            "path": "/en/6/optional_features/linkfield/.github/",
+            "children": [
+              {
+                "title": "ISSUE TEMPLATE",
+                "path": "/en/6/optional_features/linkfield/.github/ISSUE_TEMPLATE/",
+                "children": [
+                  {
+                    "title": "Blank Issue",
+                    "path": "/en/6/optional_features/linkfield/.github/ISSUE_TEMPLATE/3_blank_issue/",
+                    "order": 999
+                  }
+                ],
+                "order": 999
+              },
+              {
+                "title": "PULL REQUEST TEMPLATE",
+                "path": "/en/6/optional_features/linkfield/.github/PULL_REQUEST_TEMPLATE/",
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "Basic usage",
+            "path": "/en/6/optional_features/linkfield/docs/",
+            "children": [
+              {
+                "title": "Linkfield",
+                "path": "/en/6/optional_features/linkfield/docs/en/",
+                "children": [
+                  {
+                    "title": "Basic usage",
+                    "path": "/en/6/optional_features/linkfield/docs/en/01_basic_usage/",
+                    "order": 999
+                  },
+                  {
+                    "title": "Configuring links and link fields",
+                    "path": "/en/6/optional_features/linkfield/docs/en/02_configuration/",
+                    "order": 999
+                  },
+                  {
+                    "title": "Gotchas",
+                    "path": "/en/6/optional_features/linkfield/docs/en/08_gotchas/",
+                    "order": 999
+                  },
+                  {
+                    "title": "Managing links in the CMS",
+                    "path": "/en/6/optional_features/linkfield/docs/en/userguide/",
+                    "children": [
+                      {
+                        "title": "Links types",
+                        "path": "/en/6/optional_features/linkfield/docs/en/userguide/01_links_types/",
+                        "order": 999
+                      },
+                      {
+                        "title": "Using the link field",
+                        "path": "/en/6/optional_features/linkfield/docs/en/userguide/02_work_with_link_field/",
+                        "order": 999
+                      }
+                    ],
+                    "order": 999
+                  },
+                  {
+                    "title": "Migrating to silverstripe/linkfield",
+                    "path": "/en/6/optional_features/linkfield/docs/en/09_migrating/",
+                    "children": [
+                      {
+                        "title": "Migrating from gorriecoe/silverstripe-linkfield",
+                        "path": "/en/6/optional_features/linkfield/docs/en/09_migrating/02_gorriecoe-migration/",
+                        "order": 999
+                      }
+                    ],
+                    "order": 999
+                  },
+                  {
+                    "title": "Rendering links in templates",
+                    "path": "/en/6/optional_features/linkfield/docs/en/03_templates/",
+                    "order": 999
+                  }
+                ],
+                "order": 999
+              }
+            ],
+            "order": 999
+          },
+          {
+            "title": "README",
+            "path": "/en/6/optional_features/linkfield/README/",
+            "order": 999
+          }
+        ],
+        "order": 999
+      }
+    ],
     "order": 999
   },
   {

@@ -31,6 +31,11 @@ export default defineConfig({
     sitemap()
   ],
   srcDir: './src',
+  vite: {
+    alias: {
+      '@content': join(__dirname, '.cache/content/docs'),
+    },
+  },
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {

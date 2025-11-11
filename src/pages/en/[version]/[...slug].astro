@@ -8,35 +8,42 @@ export const getStaticPaths = (async () => {
   const allDocs = await getCollection('docs');
   
   const paths = allDocs.map(doc => {
-    // Extract the slug path from the doc ID
-    // Astro Content Collection IDs may include .md/.mdx extensions
-    // e.g., "00_Getting_Started/02_Composer.md" or "index.md"
-    let id = doc.id
+    // Skip ONLY the root version index files (v5/index.md, v6/index.md)
+    // Those are handled by the dedicated index.astro route
+    if (doc.id.match(/^v(\d+)\/index\.mdx?$/)) {
+      return null;
+    }
+    
+    // Extract version from the doc ID (first path component: v3, v4, v5, v6)
+    const idParts = doc.id.split('/');
+    const versionMatch = idParts[0]?.match(/^v(\d+)/);
+    
+    if (!versionMatch) {
+      console.warn(`Warning: Could not extract version from doc ID: ${doc.id}`);
+      return null;
+    }
+    
+    const version = versionMatch[1];
+    
+    // Extract slug path, removing version prefix and file extension
+    let filePath = doc.id
+      .replace(/^v\d+\//, '')  // Remove version prefix
       .replace(/\.(md|mdx)$/, '')  // Remove file extension
-      .replace(/\.md$/, '')        // Additional cleanup for .md
-      .replace(/\.mdx$/, '');      // Additional cleanup for .mdx
+      .replace(/\/index$/, '');  // Remove trailing /index (for nested index files like 08_Changelogs/index)
     
-    const parts = id.split('/');
-    
-    // Build slug: remove 'index' parts and join remaining
-    const slugParts = parts
-      .filter(p => p !== 'index')
-      .join('/');
-    
-    // Default to version 6 for now (will be expanded in future phases)
-    const version = '6';
-    
-    // For catch-all routes, use undefined for the root path, not empty string
-    const slug = slugParts || undefined;
+    // All paths should have content (empty means root index which we skip)
+    if (!filePath) {
+      return null;
+    }
     
     return {
       params: { 
         version, 
-        slug
+        slug: filePath
       },
       props: { doc },
     };
-  });
+  }).filter(Boolean);
   
   return paths;
 }) satisfies GetStaticPaths;
