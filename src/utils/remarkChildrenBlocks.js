@@ -1,14 +1,4 @@
 import { visit } from 'unist-util-visit';
-import type { Root } from 'mdast';
-
-export interface ChildrenBlockData {
-  folder?: string;
-  only?: string[];
-  exclude?: string[];
-  asList?: boolean;
-  includeFolders?: boolean;
-  reverse?: boolean;
-}
 
 /**
  * Parse [CHILDREN] syntax from text
@@ -20,12 +10,12 @@ export interface ChildrenBlockData {
  * - [CHILDREN Only="rc,beta,alpha" includeFolders]
  * - [CHILDREN reverse]
  */
-function parseChildrenBlock(text: string): ChildrenBlockData | null {
+function parseChildrenBlock(text) {
   const childrenMatch = text.match(/^\[CHILDREN(.*?)\]$/);
   if (!childrenMatch) return null;
   
   const attributes = childrenMatch[1].trim();
-  const data: ChildrenBlockData = {};
+  const data = {};
   
   // Parse Folder attribute
   const folderMatch = attributes.match(/Folder=["']?([A-Za-z0-9_<>\/]+)["']?/);
@@ -61,7 +51,7 @@ function parseChildrenBlock(text: string): ChildrenBlockData | null {
  * rendered by the ChildrenRenderer.astro script component
  */
 export default function remarkChildrenBlocks() {
-  return (tree: Root) => {
+  return (tree) => {
     visit(tree, 'paragraph', (node, index, parent) => {
       if (!parent || index === undefined) return;
       
@@ -72,7 +62,7 @@ export default function remarkChildrenBlocks() {
         
         if (childrenData) {
           // Build HTML attributes
-          const attrs: string[] = [];
+          const attrs = [];
           
           if (childrenData.folder) {
             attrs.push(`folder="${childrenData.folder}"`);
@@ -100,7 +90,7 @@ export default function remarkChildrenBlocks() {
           parent.children[index] = {
             type: 'html',
             value: html,
-          } as any;
+          };
         }
       }
     });

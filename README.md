@@ -67,11 +67,10 @@ All commands are run from the root of the project, from a terminal:
 │   │   └── utilities.scss       # SCSS utilities (for post-Tailwind migration)
 │   ├── utils/                   # Utility functions (migrated from _gatsby/src/utils/)
 │   │   ├── fileToTitle.ts
-│   │   ├── contentHelpers.ts
-│   │   ├── childrenHelpers.ts   # Child page helpers (from Phase 6b)
-│   │   ├── sidebarHelpers.ts    # Sidebar state helpers (from Phase 6c)
-│   │   └── rewrite*.ts
-│   └── types/                   # TypeScript type definitions
+│   │   ├── contentHelpers.js
+│   │   ├── childrenHelpers.js   # Child page helpers (from Phase 6b)
+│   │   ├── sidebarHelpers.js    # Sidebar state helpers (from Phase 6c)
+│   │   └── rewrite*.js
 ├── static/                      # Static assets (copied from original project)
 ├── public/                      # Build output for static files
 │   └── api/nav/                 # Generated navigation JSON files per version
@@ -121,7 +120,6 @@ For detailed information about the project architecture, migration status, and c
 
 - **Astro v4+** - Static site generator with islands architecture
 - **React v18** - Interactive components (SearchBox, VersionSwitcher, Sidebar)
-- **TypeScript v5** - Strict type checking
 - **Node.js v24 LTS** - Runtime environment
 - **Bootstrap v5** - Component framework (upgraded from v4)
 - **SCSS** - Styling with Dart Sass compiler

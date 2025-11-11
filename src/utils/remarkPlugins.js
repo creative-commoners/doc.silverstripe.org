@@ -5,9 +5,9 @@ import { visit } from 'unist-util-visit';
  * Handles: ss -> html, sh -> bash
  */
 export function remarkLanguageAliases() {
-  return (tree: any) => {
-    visit(tree, 'code', (node: any) => {
-      const aliases: Record<string, string> = {
+  return (tree) => {
+    visit(tree, 'code', (node) => {
+      const aliases = {
         'ss': 'html',
         'sh': 'bash',
       };

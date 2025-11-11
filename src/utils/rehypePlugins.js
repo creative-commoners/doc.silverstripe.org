@@ -1,10 +1,9 @@
 import { visit } from 'unist-util-visit';
-import type { Element, Text } from 'hast';
 
 /**
  * Generate the ID for a heading
  */
-function generateID(title: string): string {
+function generateID(title) {
   return title
     .replace('&amp;', '-and-')
     .replace('&', '-and-')
@@ -18,7 +17,7 @@ function generateID(title: string): string {
 /**
  * Get the full plain text of the heading for checking and generating the ID
  */
-function getFullHeading(element: Element | Text): string {
+function getFullHeading(element) {
   let text = '';
   if ('value' in element) {
     text += element.value;
@@ -38,8 +37,8 @@ function getFullHeading(element: Element | Text): string {
  * Supports explicit IDs via {#explicit-id} syntax
  */
 export function rehypeHeaders() {
-  return (tree: any) => {
-    visit(tree, 'element', (node: Element) => {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
       const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
       if (!headingTags.includes(node.tagName)) {
         return;
@@ -49,8 +48,8 @@ export function rehypeHeaders() {
 
       if (plainText) {
         const matches = plainText.match(/^(.*?)\{#([A-Za-z0-9_-]+)\}$/);
-        let headingText: string;
-        let id: string;
+        let headingText;
+        let id;
 
         if (matches) {
           headingText = matches[1];
@@ -72,12 +71,12 @@ export function rehypeHeaders() {
           lastChild.value = lastChild.value.replace(/\s*{#([A-Za-z0-9_-]+)\}$/, '');
         }
 
-        // Add anchor link as first child
-        const anchor: Element = {
+        // Add anchor link child
+        const anchor = {
           type: 'element',
           tagName: 'a',
           properties: {
-            id: id,
+            id,
             className: ['anchor'],
             'aria-hidden': true,
             href: `#${id}`,
@@ -100,9 +99,9 @@ export function rehypeHeaders() {
  * Rehype plugin to rewrite links for proper navigation
  * Handles relative, absolute, API, and external links
  */
-export function rehypeFixLinks(options: { version?: string; slug?: string } = {}) {
-  return (tree: any) => {
-    visit(tree, 'element', (node: Element) => {
+export function rehypeFixLinks(options= {}) {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
       if (node.tagName !== 'a') {
         return;
       }
@@ -197,8 +196,8 @@ export function rehypeFixLinks(options: { version?: string; slug?: string } = {}
  * Converts divs with callout classes to semantic callout elements
  */
 export function rehypeCallouts() {
-  return (tree: any) => {
-    visit(tree, 'element', (node: Element) => {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
       if (node.tagName !== 'div') {
         return;
       }
@@ -208,7 +207,7 @@ export function rehypeCallouts() {
         return;
       }
 
-      const calloutMatch = classNames.find((c: string) => 
+      const calloutMatch = classNames.find((c) => 
         c.match(/^(hint|note|warning|info|error|danger|success|alert|deprecated)/)
       );
 
@@ -232,12 +231,12 @@ export function rehypeCallouts() {
 
 /**
  * Rehype plugin to handle [CHILDREN] tags
- * Note: This is a placeholder as actual implementation requires
+ * Note: This is a placeholder implementation requires
  * access to the content collection at render time
  */
 export function rehypeChildrenOf() {
-  return (tree: any) => {
-    visit(tree, 'text', (node: Text) => {
+  return (tree) => {
+    visit(tree, 'text', (node) => {
       if (typeof node.value !== 'string') {
         return;
       }
@@ -261,21 +260,20 @@ export function rehypeChildrenOf() {
  * Rehype plugin to make tables responsive
  */
 export function rehypeTables() {
-  return (tree: any) => {
-    visit(tree, 'element', (node: Element) => {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
       if (node.tagName !== 'table') {
         return;
       }
 
       // Create a wrapper div
-      const wrapper: Element = {
+      const wrapper = {
         type: 'element',
         tagName: 'div',
         properties: {
           className: ['table-responsive', 'my-4'],
         },
-        children: [node],
-      };
+        children};
 
       // Add Bootstrap table classes
       if (!node.properties) {
@@ -284,10 +282,10 @@ export function rehypeTables() {
       if (!Array.isArray(node.properties.className)) {
         node.properties.className = [];
       }
-      (node.properties.className as string[]).push('table', 'table-striped');
+      (node.properties.className).push('table', 'table-striped');
 
       // Replace the table node with the wrapper
-      const parent = tree.children.find((child: any) =>
+      const parent = tree.children.find((child) =>
         child.children?.includes(node)
       );
       if (parent && Array.isArray(parent.children)) {
@@ -305,8 +303,8 @@ export function rehypeTables() {
  * Converts relative paths like ../_images/file.png to /_images/file.png
  */
 export function rehypeFixImages() {
-  return (tree: any) => {
-    visit(tree, 'element', (node: Element) => {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
       if (node.tagName !== 'img') {
         return;
       }

@@ -1,15 +1,14 @@
 import { visit } from 'unist-util-visit';
-import type { Element } from 'hast';
 
 /**
  * Rehype plugin to process ChildrenListRenderer custom elements
  * This converts lowercase custom elements to proper Astro islands
  */
 export default function rehypeChildrenRenderer() {
-  return (tree: any) => {
+  return (tree) => {
     let elementCount = 0;
     
-    visit(tree, 'element', (node: Element) => {
+    visit(tree, 'element', (node) => {
       if (node.tagName === 'childrenlistrenderer' || node.tagName === 'ChildrenListRenderer') {
         elementCount++;
         
@@ -20,7 +19,7 @@ export default function rehypeChildrenRenderer() {
         node.properties.className = (node.properties.className || '') + ' children-list-renderer';
         node.properties['data-component'] = 'ChildrenListRenderer';
         
-        // Copy over the props as data attributes
+        // Copy over the props attributes
         if (node.properties.folder) {
           node.properties['data-folder'] = node.properties.folder;
         }

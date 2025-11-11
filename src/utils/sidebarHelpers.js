@@ -7,8 +7,8 @@
  * Example: "/en/6/forms/field-types/" → ["/en/", "/en/6/", "/en/6/forms/"]
  * Note: Does NOT include the current page path itself
  */
-export function getAncestorPaths(currentPath: string): string[] {
-  const paths: string[] = [];
+export function getAncestorPaths(currentPath) {
+  const paths = [];
   const parts = currentPath.split('/').filter(Boolean);
 
   let accumulatedPath = '';
@@ -24,7 +24,7 @@ export function getAncestorPaths(currentPath: string): string[] {
 /**
  * Scroll an element into view smoothly, positioned in the center of the viewport
  */
-export function scrollElementIntoView(element: Element): void {
+export function scrollElementIntoView(element) {
   if (!element) return;
 
   try {
@@ -38,12 +38,10 @@ export function scrollElementIntoView(element: Element): void {
     const containerHeight = containerBottom - containerTop;
 
     // Check if element is already in view
-    if (elementTop >= containerTop && elementBottom <= containerBottom) {
-      return;
-    }
+    if (elementTop >= containerTop && elementBottom <= containerBottom) {}
 
     // Scroll to center the element
-    const elementCenter = (element as HTMLElement).offsetTop + (element as HTMLElement).offsetHeight / 2;
+    const elementCenter = (element).offsetTop + (element).offsetHeight / 2;
     const containerCenter = containerHeight / 2;
     const scrollTarget = elementCenter - containerCenter;
 

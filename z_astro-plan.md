@@ -65,8 +65,8 @@
 
 This is a step-by-step migration plan to convert the Silverstripe CMS documentation site from Gatsby v2 to Astro v4+. The plan is designed to be executed incrementally, with each step being manageable and testable independently.
 
-**Current Stack**: Gatsby v2.20 + React v16 + Node 12 + TypeScript v3  
-**Target Stack**: Astro v4+ + React v18 (islands) + Node 24 LTS + TypeScript v5  
+**Current Stack**: Gatsby v2.20 + React v16 + Node 12  
+**Target Stack**: Astro v4+ + React v18 (islands) + Node 24 LTS  
 **Estimated Total Time**: 2-3 weeks  
 **Complexity**: Medium
 
@@ -267,7 +267,6 @@ npm install --save-dev @types/node
 **Note**: You can reference old configuration files in `_gatsby/` for settings like:
 - `_gatsby/gatsby-config.js` → Check plugin configurations
 - `_gatsby/package.json` → Verify all dependencies
-- `_gatsby/tsconfig.json` → Compare TypeScript settings
 
 **Configuration**:
 Create/update `astro.config.mjs`:
@@ -313,7 +312,6 @@ export default defineConfig({
 **Success Criteria**:
 - Astro project runs with `npm run dev`
 - All integrations load without errors
-- TypeScript configuration is strict
 
 **Deliverables**:
 - New project directory structure
@@ -363,23 +361,19 @@ src/
 │   ├── global.css
 │   └── prism.css
 ├── utils/               # Utility functions
-│   ├── fileToTitle.ts
-│   ├── nodes.ts
+│   ├── fileToTitle.js
+│   ├── nodes.js
 │   └── ...
-├── types/               # TypeScript types
-│   └── index.ts
-└── env.d.ts             # Environment type declarations
+└── styles/              # SCSS stylesheets
 ```
 
 **Copy Files**:
 Copy from archived Gatsby project (to be migrated later):
-- `_gatsby/src/utils/*.ts` → `src/utils/`
-- `_gatsby/src/types/*` → `src/types/`
+- `_gatsby/src/utils/*.js` → `src/utils/`
 - `_gatsby/src/theme/assets/scss/*` → `src/styles/`
 
 **Success Criteria**:
 - Directory structure created
-- TypeScript recognizes all paths
 - No import errors
 
 ---
@@ -552,7 +546,6 @@ export function enhanceMarkdownContent(
 
 **Success Criteria**:
 - Content collections defined with proper schema
-- TypeScript types generated automatically
 - Can query content with `getCollection('docs')`
 
 ---
@@ -609,7 +602,6 @@ export function buildNavHierarchy(docs: CollectionEntry<'docs'>[]) {
 
 **Success Criteria**:
 - All utility functions migrated and working
-- TypeScript compiles without errors
 - Functions tested with sample data
 
 ---
@@ -2407,9 +2399,8 @@ npx playwright install
 2. **Update `.gitignore`**: Remove `_gatsby/` entry since it's deleted
 3. **Update documentation**: Document the new build process
 4. **Clean up comments**: Remove TODO comments
-5. **Type safety**: Ensure all TypeScript types are correct
-6. **Linting**: Set up ESLint/Prettier
-7. **Clean up scripts**: Remove `scripts/archive-gatsby.sh` if no longer needed
+5. **Linting**: Set up ESLint/Prettier
+6. **Clean up scripts**: Remove `scripts/archive-gatsby.sh` if no longer needed
 
 **Success Criteria**:
 - Code is clean and maintainable

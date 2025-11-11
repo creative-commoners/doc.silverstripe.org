@@ -1,15 +1,14 @@
 /**
  * Callout types supported in documentation
  */
-export type CalloutType = 'hint' | 'note' | 'warning' | 'info' | 'error' | 'danger' | 'success' | 'alert' | 'deprecated';
 
 /**
  * Parse callout tag content and return callout type
  */
-export function parseCalloutTag(content: string): CalloutType | null {
+export function parseCalloutTag(content) {
   const typeMatch = content.match(/\[(hint|note|warning|info|error|danger|success|alert|deprecated)\]/i);
   if (typeMatch) {
-    return typeMatch[1].toLowerCase() as CalloutType;
+    return typeMatch[1].toLowerCase();
   }
   return null;
 }
@@ -17,18 +16,15 @@ export function parseCalloutTag(content: string): CalloutType | null {
 /**
  * Extract all callout tags from content
  */
-export function extractCalloutTags(content: string): Array<{ tag: string; type: CalloutType; content: string }> {
+export function extractCalloutTags(content) {
   const pattern = /\[(hint|note|warning|info|error|danger|success|alert|deprecated)\](.*?)\[\/\1\]/gis;
   const results = [];
   let match;
 
   while ((match = pattern.exec(content)) !== null) {
-    const type = match[1].toLowerCase() as CalloutType;
+    const type = match[1].toLowerCase();
     results.push({
-      tag: match[0],
-      type,
-      content: match[2],
-    });
+      tag);
   }
 
   return results;
@@ -37,8 +33,8 @@ export function extractCalloutTags(content: string): Array<{ tag: string; type: 
 /**
  * Get CSS class for callout type
  */
-export function getCalloutClass(type: CalloutType): string {
-  const classMap: Record<CalloutType, string> = {
+export function getCalloutClass(type) {
+  const classMap = {
     'hint': 'alert-info',
     'note': 'alert-info',
     'warning': 'alert-warning',

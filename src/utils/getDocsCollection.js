@@ -1,11 +1,10 @@
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
 
-export async function getDocsWithVersions(): Promise<Array<CollectionEntry<'docs'> & { version: string }>> {
+export async function getDocsWithVersions(): Promise<Array<CollectionEntry<'docs'> & { version }>> {
   const docs = await getCollection('docs');
   
   return docs.map(doc => {
-    // Extract version from doc ID (first path component: v3, v4, v5, v6)
+    // Extract version from doc ID (first path component)
     const versionMatch = doc.id.match(/^v(\d+)/);
     const version = versionMatch ? versionMatch[1] : '6';
     
@@ -16,7 +15,7 @@ export async function getDocsWithVersions(): Promise<Array<CollectionEntry<'docs
   });
 }
 
-export async function getDocsByVersion(version: string): Promise<CollectionEntry<'docs'>[]> {
+export async function getDocsByVersion(version): Promise<CollectionEntry<'docs'>[]> {
   const docs = await getCollection('docs');
   return docs.filter(doc => doc.id.startsWith(`v${version}/`));
 }

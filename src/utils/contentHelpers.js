@@ -1,17 +1,17 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
-export async function getDocsByVersion(version: string) {
+export async function getDocsByVersion(version) {
   const allDocs = await getCollection('docs');
   return allDocs.filter(doc => {
     return doc.id.startsWith(`v${version}/`);
   });
 }
 
-export async function getAllVersions(): Promise<string[]> {
+export async function getAllVersions() {
   return ['3', '4', '5', '6'];
 }
 
-export function buildSlug(filePath: string, version: string, thirdparty?: string): string {
+export function buildSlug(filePath, version, thirdparty) {
   const parts = filePath
     .split('/')
     .filter(p => p && p !== 'en')
@@ -26,28 +26,24 @@ export function buildSlug(filePath: string, version: string, thirdparty?: string
   return `/${slug}/`;
 }
 
-export type NavItem = {
-  title: string;
-  path: string;
-  children?: NavItem[];
-  icon?: string;
-  order?: number;
+  path;
+  children?;
+  icon?;
+  order?;
 };
 
 export function buildNavHierarchy(
-  docs: CollectionEntry<'docs'>[],
-  basePath?: string
-): NavItem[] {
-  const hierarchy: Record<string, NavItem> = {};
-  const roots: NavItem[] = [];
+  docs) {
+  const hierarchy = {};
+  const roots = [];
 
   const filtered = basePath 
     ? docs.filter(doc => doc.id.startsWith(basePath))
-    : docs;
+    ;
 
   filtered.forEach(doc => {
     const parts = doc.slug.split('/').filter(Boolean);
-    let current: any = hierarchy;
+    let current = hierarchy;
 
     parts.forEach((part, index) => {
       if (!current[part]) {
@@ -59,7 +55,7 @@ export function buildNavHierarchy(
             .map(w => w.charAt(0).toUpperCase() + w.slice(1))
             .join(' '),
           path: '/' + parts.slice(0, index + 1).join('/') + '/',
-          children: [],
+          children,
           order: doc.data.order,
         };
       }
@@ -81,6 +77,6 @@ export function buildNavHierarchy(
   return roots;
 }
 
-export function sortByOrder(items: NavItem[]): NavItem[] {
+export function sortByOrder(items) {
   return items.sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 }

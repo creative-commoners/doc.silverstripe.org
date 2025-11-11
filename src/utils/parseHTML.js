@@ -3,21 +3,15 @@
  * This is a simplified version for Astro that avoids react-html-parser
  */
 
-export interface ParseOptions {
-  rewriteLinks?: boolean;
-  parseTables?: boolean;
-  parseCallouts?: boolean;
-}
-
 /**
  * Parse HTML string and return processed content
  * In Astro, we primarily work with markdown that's already processed
  * This utility provides hooks for additional transformation if needed
  */
 export function parseHTML(
-  html: string,
-  options: ParseOptions = {}
-): string {
+  html,
+  options = {}
+) {
   let content = html;
 
   // Remove [CHILDREN] tags if present
@@ -32,9 +26,8 @@ export function parseHTML(
 /**
  * Extract frontmatter from markdown content
  */
-export function extractFrontmatter(
-  content: string
-): { frontmatter: Record<string, any>; body: string } {
+export function extractFrontmatter(content
+) {frontmatter, any>; body } {
   const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
 
   if (!match) {
@@ -43,10 +36,10 @@ export function extractFrontmatter(
 
   const frontmatterStr = match[1];
   const body = match[2];
-  const frontmatter: Record<string, any> = {};
+  const frontmatter = {};
 
   frontmatterStr.split('\n').forEach(line => {
-    const colonIndex = line.indexOf(':');
+    const colonIndex = line.indexOf(');
     if (colonIndex > -1) {
       const key = line.substring(0, colonIndex).trim();
       const value = line.substring(colonIndex + 1).trim();
@@ -60,7 +53,7 @@ export function extractFrontmatter(
 /**
  * Parse simple YAML values
  */
-function parseYamlValue(value: string): any {
+function parseYamlValue(value) {
   if (value === 'true') return true;
   if (value === 'false') return false;
   if (!isNaN(Number(value))) return Number(value);
@@ -77,9 +70,9 @@ function parseYamlValue(value: string): any {
  * Rewrite links in content for correct routing
  */
 export function rewriteLinks(
-  content: string,
-  baseVersion: string
-): string {
+  content,
+  baseVersion
+) {
   // Replace relative links with correct routing
   // This will be processed during build time
   return content;

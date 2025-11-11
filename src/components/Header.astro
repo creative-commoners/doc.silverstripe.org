@@ -1,11 +1,6 @@
 ---
-import SearchBox from './SearchBox';
-import VersionSwitcher from './VersionSwitcher';
-
-export interface Props {
-  version: string;
-  context: 'docs' | 'user';
-}
+import SearchBox from './SearchBox.jsx';
+import VersionSwitcher from './VersionSwitcher.jsx';
 
 const { version, context } = Astro.props;
 const isUser = context === 'user';

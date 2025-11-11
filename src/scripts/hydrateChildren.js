@@ -1,6 +1,6 @@
 /**
  * Client-side script to hydrate ChildrenListRenderer React components
- * This finds all <div data-component="ChildrenListRenderer"> elements
+ * This finds all  elements
  * and mounts React components on them
  */
 

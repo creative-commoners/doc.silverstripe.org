@@ -1,20 +1,12 @@
 /**
  * Parse [CHILDREN] tag syntax into options
  */
-export interface ChildrenOfOptions {
-  folder?: string;
-  exclude?: string[];
-  only?: string[];
-  asList?: boolean;
-  includeFolders?: boolean;
-  reverse?: boolean;
-}
 
-export function parseChildrenTag(tagContent: string): ChildrenOfOptions | null {
-  const options: ChildrenOfOptions = {
-    asList: false,
-    includeFolders: false,
-    reverse: false,
+export function parseChildrenTag(tagContent) {
+  const options = {
+    asList,
+    includeFolders,
+    reverse,
   };
 
   // Parse [CHILDREN Folder="..."]
@@ -46,7 +38,7 @@ export function parseChildrenTag(tagContent: string): ChildrenOfOptions | null {
 /**
  * Extract all [CHILDREN] tags from content
  */
-export function extractChildrenTags(content: string): Array<{ tag: string; options: ChildrenOfOptions }> {
+export function extractChildrenTags(content) { tag; options: ChildrenOfOptions }> {
   const pattern = /\[CHILDREN([^\]]*)\]/g;
   const results = [];
   let match;
@@ -54,7 +46,7 @@ export function extractChildrenTags(content: string): Array<{ tag: string; optio
   while ((match = pattern.exec(content)) !== null) {
     const options = parseChildrenTag(match[1]);
     if (options) {
-      results.push({ tag: match[0], options });
+      results.push({ tag);
     }
   }
 

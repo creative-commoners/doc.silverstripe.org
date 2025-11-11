@@ -1,22 +1,9 @@
 import { fileToTitle } from './fileToTitle';
 import path from 'path';
 
-export interface EnhancedFrontmatter {
-  title: string;
-  summary?: string;
-  introduction?: string;
-  icon: string;
-  iconBrand?: string;
-  hideChildren: boolean;
-  hide: boolean;
-  order?: number;
-  version?: string;
-}
-
 export function enhanceMarkdownContent(
-  slug: string,
-  frontmatter: Record<string, any>
-): EnhancedFrontmatter {
+  slug,
+  frontmatter) {
   const versionMatch = slug.match(/\/v(\d+)\//);
   const version = versionMatch ? versionMatch[1] : '6';
 

@@ -13,7 +13,6 @@ The migration follows the detailed plan in `z_astro-plan.md`. Legacy Gatsby file
 **Framework & Core:**
 - Astro v4+ (static site generator with islands architecture)
 - React v18 (for interactive components only - SearchBox, VersionSwitcher, Sidebar)
-- TypeScript v5 (strict mode)
 - Node.js v24 LTS
 
 **Styling:**
@@ -71,9 +70,9 @@ The migration follows the detailed plan in `z_astro-plan.md`. Legacy Gatsby file
 │   │   └── utilities.scss  # SCSS utilities (for post-Tailwind migration)
 │   ├── utils/              # Utility functions (migrated from _gatsby/src/utils/)
 │   │   ├── fileToTitle.ts
-│   │   ├── contentHelpers.ts
-│   │   └── rewrite*.ts
-│   └── types/              # TypeScript type definitions
+│   │   ├── contentHelpers.js
+│   │   └── rewrite*.js
+│   └── styles/              # SCSS stylesheets
 ├── static/                 # Static assets (copied from original project)
 ├── public/                 # Build output for static files
 └── astro.config.mjs        # Astro configuration
@@ -82,7 +81,6 @@ The migration follows the detailed plan in `z_astro-plan.md`. Legacy Gatsby file
 ## Key Configuration Files
 
 - **astro.config.mjs** - Astro settings, integrations, markdown config
-- **tsconfig.json** - TypeScript strict mode configuration
 - **package.json** - Dependencies and build scripts
 - **sources-docs.js** / **sources-user.js** - Git repository sources (from _gatsby/)
 - **.env** - Environment variables (Algolia credentials, context)
@@ -90,17 +88,11 @@ The migration follows the detailed plan in `z_astro-plan.md`. Legacy Gatsby file
 
 ## Coding Standards
 
-**TypeScript:**
-- Use strict mode
-- Define explicit types for all function parameters and returns
-- Leverage Astro's type inference where possible
-- Use `type` for object shapes, `interface` for extendable contracts
-
 **React Components:**
 - Only use React for interactive components (islands)
 - Always specify `client:*` directive (`client:load`, `client:idle`)
 - Keep components small and focused
-- Use TypeScript for all React components (.tsx)
+- Use JavaScript (.jsx) for all React components
 
 **Astro Components:**
 - Use `.astro` files for static/server-rendered content
@@ -220,9 +212,8 @@ _gatsby/
 │   ├── utils/               # Utility functions (migrate these)
 │   │   ├── fileToTitle.js
 │   │   ├── nodes.ts
-│   │   ├── parseHTML.ts
-│   │   └── rewrite*.ts
-│   ├── types/               # TypeScript types
+│   │   ├── parseHTML.js
+│   │   └── rewrite*.js
 │   ├── theme/
 │   │   └── assets/
 │   │       └── scss/
@@ -235,7 +226,6 @@ _gatsby/
 ├── sources-docs.js          # Git sources for developer docs
 ├── sources-user.js          # Git sources for user help
 ├── package.json             # Dependencies reference
-└── tsconfig.json            # TypeScript configuration
 
 ```
 
@@ -265,7 +255,7 @@ _gatsby/
 ## Common Patterns
 
 **Getting all docs for a version:**
-```typescript
+```javascript
 import { getCollection } from 'astro:content';
 const docs = await getCollection('docs', ({ id }) => id.startsWith(`v${version}/`));
 ```

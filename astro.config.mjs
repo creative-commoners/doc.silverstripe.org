@@ -3,15 +3,15 @@ import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { remarkConvertImagesToPictures } from './src/utils/remarkConvertImages.mjs';
-import { remarkLanguageAliases } from './src/utils/remarkPlugins.ts';
-import remarkChildrenBlocks from './src/utils/remarkChildrenBlocks.ts';
+import { remarkLanguageAliases } from './src/utils/remarkPlugins.js';
+import remarkChildrenBlocks from './src/utils/remarkChildrenBlocks.js';
 import { 
   rehypeHeaders, 
   rehypeFixLinks, 
   rehypeCallouts, 
   rehypeTables,
   rehypeFixImages 
-} from './src/utils/rehypePlugins.ts';
+} from './src/utils/rehypePlugins.js';
 
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';

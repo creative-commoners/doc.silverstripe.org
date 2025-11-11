@@ -1,20 +1,12 @@
 /**
  * Client-side script to render [CHILDREN] blocks
- * This runs in the browser and processes <childrenlistrenderer> custom elements
+ * This runs in the browser and processes  custom elements
  */
 
 // Types for the docs index
-interface DocIndexEntry {
-  id: string;
-  title: string | null;
-  summary: string | null;
-  icon: string | null;
-  iconBrand: string | null;
-  order: number | null;
-}
 
 //Helper functions (client-side versions, simplified)
-function parseDocId(id: string) {
+function parseDocId(id) {
   const parts = id.split('/');
   const version = parts[0]; // v6
   const fileName = parts[parts.length - 1]; // Last component (either a page name or "index")
@@ -32,7 +24,7 @@ function parseDocId(id: string) {
   return { version, pathParts, fileName, isIndex };
 }
 
-function getParentPath(id: string): string | null {
+function getParentPath(id) {
   const { version, pathParts } = parseDocId(id);
   
   if (pathParts.length === 0) {
@@ -48,17 +40,17 @@ function getParentPath(id: string): string | null {
   return result;
 }
 
-function getFolderName(id: string): string {
+function getFolderName(id) {
   const { pathParts } = parseDocId(id);
   if (pathParts.length === 0) return '';
   return pathParts[pathParts.length - 1] || '';
 }
 
 function getChildren(
-  docs: DocIndexEntry[],
-  id: string,
-  includeFolders: boolean = true
-): DocIndexEntry[] {
+  docs,
+  id,
+  includeFolders= true
+) {
   return docs.filter(doc => {
     const childParsed = parseDocId(doc.id);
     const parentParsed = parseDocId(id);
@@ -103,10 +95,10 @@ function getChildren(
 }
 
 function getSiblings(
-  docs: DocIndexEntry[],
-  id: string,
-  includeFolders: boolean = false
-): DocIndexEntry[] {
+  docs,
+  id,
+  includeFolders= false
+) {
   const parsed = parseDocId(id);
   
   if (parsed.isIndex) {
@@ -130,10 +122,9 @@ function getSiblings(
 }
 
 function getChildrenByFolder(
-  docs: DocIndexEntry[],
-  parentId: string,
-  folderName: string
-): DocIndexEntry[] {
+  docs,
+  parentId,
+  folderName) {
   const children = getChildren(docs, parentId, true);
   
   const targetFolder = children.find(doc => {
@@ -147,7 +138,7 @@ function getChildrenByFolder(
   return getChildren(docs, targetFolder.id, false);
 }
 
-function sortDocs(docs: DocIndexEntry[]): DocIndexEntry[] {
+function sortDocs(docs) {
   return [...docs].sort((a, b) => {
     const aOrder = a.order ?? Infinity;
     const bOrder = b.order ?? Infinity;
@@ -163,7 +154,7 @@ function sortDocs(docs: DocIndexEntry[]): DocIndexEntry[] {
   });
 }
 
-function buildSlug(id: string): string {
+function buildSlug(id) {
   const { version, pathParts } = parseDocId(id);
   
   const slugParts = pathParts.map(part => {
@@ -174,7 +165,7 @@ function buildSlug(id: string): string {
   return `/en/${version.replace('v', '')}/${slugParts.join('/')}/`;
 }
 
-function escapeHtml(text: string | null): string {
+function escapeHtml(text) {
   if (!text) return '';
   const div = document.createElement('div');
   div.textContent = text;
@@ -185,7 +176,7 @@ async function renderChildrenBlocks() {
   
   // Wait for current document ID to be available
   let attempts = 0;
-  let currentDocId: string | null = null;
+  let currentDocId= null;
   
   while (attempts < 50 && !currentDocId) {
     const wrapper = document.querySelector('[data-current-doc-id]');
@@ -208,7 +199,7 @@ async function renderChildrenBlocks() {
   }
 
   // Load docs index
-  let allDocsData: DocIndexEntry[];
+  let allDocsData;
   try {
     const response = await fetch('/docs-index.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -238,7 +229,7 @@ async function renderChildrenBlocks() {
       const includeFolders = el.getAttribute('include-folders') === 'true';
       const reverse = el.getAttribute('reverse') === 'true';
 
-      let childrenList: DocIndexEntry[] = [];
+      let childrenList= [];
 
       if (folder) {
         childrenList = getChildrenByFolder(versionDocs, docId, folder);
@@ -284,20 +275,20 @@ async function renderChildrenBlocks() {
       let html = '';
       
       if (asList) {
-        html = '<div class="docs-overview py-5"><dl>';
+        html = '';
         for (const child of childrenList) {
           const title = child.title || getFolderName(child.id);
           const slug = buildSlug(child.id);
           const summary = child.summary || '';
           
           html += `
-            <dt><a href="${escapeHtml(slug)}">${escapeHtml(title)}</a></dt>
-            <dd>${escapeHtml(summary)}</dd>
+            ${escapeHtml(title)}
+            ${escapeHtml(summary)}
           `;
         }
-        html += '</dl></div>';
+        html += '';
       } else {
-        html = '<div class="docs-overview py-5"><div class="row">';
+        html = '';
         
         for (const child of childrenList) {
           const title = child.title || getFolderName(child.id);
@@ -308,24 +299,24 @@ async function renderChildrenBlocks() {
             : `fas fa-${child.icon || 'file-alt'}`;
           
           html += `
-            <div class="col-12 col-lg-6 py-3">
-              <div class="card shadow-sm">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <span class="theme-icon-holder card-icon-holder mr-2">
-                      <i class="${iconClass}"></i>
-                    </span>
-                    <span class="card-title-text">${escapeHtml(title)}</span>
-                  </h5>
-                  <div class="card-text">${escapeHtml(summary)}</div>
-                  <a class="card-link-mask" href="${escapeHtml(slug)}" aria-label="${escapeHtml(title)}"></a>
-                </div>
-              </div>
-            </div>
+            
+              
+                
+                  
+                    
+                      
+                    
+                    ${escapeHtml(title)}
+                  
+                  ${escapeHtml(summary)}
+                  
+                
+              
+            
           `;
         }
         
-        html += '</div></div>';
+        html += '';
       }
 
       // Replace element

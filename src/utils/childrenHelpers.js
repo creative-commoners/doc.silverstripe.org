@@ -1,17 +1,9 @@
-import type { CollectionEntry } from 'astro:content';
-
-export type DocEntry = CollectionEntry<'docs'>;
 
 /**
  * Parse a document ID to extract path components
  * ID format: v6/02_Developer_Guides/01_Some_Page or v6/index
  */
-export function parseDocId(id: string): {
-  version: string;
-  pathParts: string[];
-  fileName: string;
-  isIndex: boolean;
-} {
+export function parseDocId(id) {
   const parts = id.split('/');
   const version = parts[0]; // v6
   const fileName = parts[parts.length - 1]; // index or page or index.md
@@ -28,7 +20,7 @@ export function parseDocId(id: string): {
  * For v6/docs/en/02_Developer_Guides/01_Some_Page/index.md
  * Parent would be v6/docs/en/02_Developer_Guides/index
  */
-export function getParentPath(id: string): string | null {
+export function getParentPath(id) {
   const { version, pathParts } = parseDocId(id);
   
   if (pathParts.length === 0) {
@@ -48,7 +40,7 @@ export function getParentPath(id: string): string | null {
 /**
  * Get the folder name (last path component) from a document ID
  */
-export function getFolderName(id: string): string {
+export function getFolderName(id) {
   const { pathParts } = parseDocId(id);
   return pathParts[pathParts.length - 1] || '';
 }
@@ -56,7 +48,7 @@ export function getFolderName(id: string): string {
 /**
  * Check if a document is a child of a parent
  */
-export function isChildOf(childId: string, parentId: string): boolean {
+export function isChildOf(childId, parentId) {
   const child = parseDocId(childId);
   const parent = parseDocId(parentId);
   
@@ -85,10 +77,7 @@ export function isChildOf(childId: string, parentId: string): boolean {
  * Get siblings of a document (pages with same parent)
  */
 export function getSiblings(
-  docs: DocEntry[],
-  id: string,
-  includeFolders: boolean = false
-): DocEntry[] {
+  docs) {
   const parsed = parseDocId(id);
   
   // For index files, return nothing (no siblings)
@@ -122,10 +111,7 @@ export function getSiblings(
  * Get direct children of a document
  */
 export function getChildren(
-  docs: DocEntry[],
-  id: string,
-  includeFolders: boolean = true
-): DocEntry[] {
+  docs) {
   return docs.filter(doc => {
     // Child's parent must be this doc
     const childParent = getParentPath(doc.id);
@@ -145,10 +131,7 @@ export function getChildren(
  * Get children filtered by folder name
  */
 export function getChildrenByFolder(
-  docs: DocEntry[],
-  parentId: string,
-  folderName: string
-): DocEntry[] {
+  docs) {
   // First get all direct children (including folders)
   const children = getChildren(docs, parentId, true);
   
@@ -171,9 +154,7 @@ export function getChildrenByFolder(
  * Filter docs by names (case-insensitive)
  */
 export function filterDocsByNames(
-  docs: DocEntry[],
-  names: string[]
-): DocEntry[] {
+  docs) {
   const lowerNames = names.map(n => n.toLowerCase());
   
   return docs.filter(doc => {
@@ -185,7 +166,7 @@ export function filterDocsByNames(
 /**
  * Sort documents by order field, then by title
  */
-export function sortDocs(docs: DocEntry[]): DocEntry[] {
+export function sortDocs(docs) {
   return [...docs].sort((a, b) => {
     const aOrder = a.data.order ?? Infinity;
     const bOrder = b.data.order ?? Infinity;
@@ -205,7 +186,7 @@ export function sortDocs(docs: DocEntry[]): DocEntry[] {
  * Build URL slug from document ID
  * v6/docs/en/02_Developer_Guides/01_Page/index.md -> /en/6/02-developer-guides/01-page/
  */
-export function buildSlug(id: string): string {
+export function buildSlug(id) {
   const { version, pathParts } = parseDocId(id);
   
   // Remove numeric prefixes and convert to slug format

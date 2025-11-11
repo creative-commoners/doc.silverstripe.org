@@ -1,4 +1,4 @@
-export const fileToTitle = (str: string): string => {
+export const fileToTitle = (str) => {
   return str
     .replace(/^\d+_/, '')
     .replace(/_/g, ' ')
