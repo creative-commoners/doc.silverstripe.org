@@ -1,0 +1,193 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import {
+  parseDocId,
+  getChildren,
+  getSiblings,
+  getChildrenByFolder,
+  filterDocsByNames,
+  sortDocs,
+  buildSlug,
+  getFolderName
+} from '../utils/childrenHelpers';
+
+export interface Props {
+  currentDocId: string;
+  folder?: string;
+  only?: string[];
+  exclude?: string[];
+  asList?: boolean;
+  includeFolders?: boolean;
+  reverse?: boolean;
+}
+
+const {
+  currentDocId,
+  folder,
+  only,
+  exclude,
+  asList = false,
+  includeFolders = false,
+  reverse = false
+} = Astro.props;
+
+// Parse current document
+const parsed = parseDocId(currentDocId);
+
+// Get all docs for this version
+const allDocs = await getCollection('docs', ({ id }) => 
+  id.startsWith(`${parsed.version}/`)
+);
+
+let children: CollectionEntry<'docs'>[] = [];
+
+if (folder) {
+  // Get children of specific folder
+  children = getChildrenByFolder(allDocs, currentDocId, folder);
+} else if (only) {
+  // Filter to only specified folders
+  const matchingFolders = getChildren(allDocs, currentDocId, true).filter(doc => {
+    const folderName = getFolderName(doc.id);
+    return only.some(name => name.toLowerCase() === folderName.toLowerCase());
+  });
+  
+  // Get children of each matching folder
+  for (const parentFolder of matchingFolders) {
+    const folderChildren = getChildren(allDocs, parentFolder.id, false);
+    children.push(...folderChildren);
+  }
+} else if (exclude) {
+  // Get all children except excluded folders
+  children = getChildren(allDocs, currentDocId, includeFolders);
+  children = children.filter(doc => {
+    const folderName = getFolderName(doc.id);
+    return !exclude.some(name => name.toLowerCase() === folderName.toLowerCase());
+  });
+} else {
+  // Default: get children if index, siblings if not
+  if (parsed.isIndex) {
+    children = getChildren(allDocs, currentDocId, includeFolders);
+  } else {
+    children = getSiblings(allDocs, currentDocId, includeFolders);
+  }
+}
+
+// Sort
+children = sortDocs(children);
+
+// Reverse if needed
+if (reverse) {
+  children.reverse();
+}
+
+// Don't render if no children
+if (children.length === 0) {
+  // Could render "No pages found" but Gatsby doesn't, so we render nothing
+}
+---
+
+{children.length > 0 && (
+  <div class="docs-overview py-5">
+    {asList ? (
+      <dl>
+        {children.map((child) => (
+          <>
+            <dt>
+              <a href={buildSlug(child.id)}>
+                {child.data.title || getFolderName(child.id)}
+              </a>
+            </dt>
+            <dd>{child.data.summary || ''}</dd>
+          </>
+        ))}
+      </dl>
+    ) : (
+      <div class="row">
+        {children.map((child) => {
+          const iconClass = child.data.iconBrand 
+            ? `fab fa-${child.data.iconBrand}` 
+            : `fas fa-${child.data.icon || 'file-alt'}`;
+          const title = child.data.title || getFolderName(child.id);
+          const slug = buildSlug(child.id);
+          
+          return (
+            <div class="col-12 col-lg-6 py-3">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <span class="theme-icon-holder card-icon-holder mr-2">
+                      <i class={iconClass}></i>
+                    </span>
+                    <span class="card-title-text">{title}</span>
+                  </h5>
+                  <div class="card-text">
+                    {child.data.summary || ''}
+                  </div>
+                  <a class="card-link-mask" href={slug} aria-label={title}></a>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
+  </div>
+)}
+
+<style>
+  .docs-overview {
+    /* Padding handled by py-5 Bootstrap class */
+  }
+
+  .docs-overview .card {
+    border-color: var(--theme-divider, #e0e0e0);
+    position: relative;
+    height: 100%;
+  }
+
+  .docs-overview .card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    background: var(--theme-bg-light, #f9f9f9);
+  }
+
+  .docs-overview .card:hover .card-icon-holder {
+    background: #fff;
+  }
+
+  .docs-overview .card-icon-holder {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    display: inline-block;
+  }
+
+  .docs-overview .card-title-text {
+    display: inline-block;
+    position: relative;
+    top: -0.3rem;
+  }
+
+  .docs-overview .card-link-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .docs-overview dl {
+    margin-bottom: 0;
+  }
+
+  .docs-overview dt {
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .docs-overview dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+  }
+</style>

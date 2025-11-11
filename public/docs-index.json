@@ -1,0 +1,3954 @@
+[
+  {
+    "id": "index",
+    "title": "Silverstripe Documentation",
+    "summary": "Welcome to the Silverstripe Developer Documentation. This website is aimed at website developers looking to learn how to build and manage web applications with the Silverstripe Framework.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/00_Getting_Started/00_Server_Requirements",
+    "title": "Server Requirements",
+    "summary": "What you will need to run Silverstripe CMS on a web server",
+    "icon": "server",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/00_Getting_Started/02_Composer",
+    "title": "Composer",
+    "summary": "What is Composer and how to use it with Silverstripe CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/00_Getting_Started/03_Environment_Management",
+    "title": "Environment Management",
+    "summary": "How to configure your server environment for Silverstripe CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/00_Getting_Started/04_Directory_Structure",
+    "title": "Directory Structure",
+    "summary": "An overview of what each directory contains in a Silverstripe CMS installation",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/00_Getting_Started/05_Recipes",
+    "title": "Recipes",
+    "summary": "What Recipes are, and how they are used in Silverstripe CMS",
+    "icon": "clipboard",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/00_Getting_Started/index",
+    "title": "Getting Started",
+    "summary": null,
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/01_Lessons/index",
+    "title": "Lessons",
+    "summary": null,
+    "icon": "graduation-cap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/01_Data_Model_and_ORM",
+    "title": "Introduction to the Data Model and ORM",
+    "summary": "Introduction to creating and querying a database records through the ORM (object-relational mapping)",
+    "icon": "database",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/02_Relations",
+    "title": "Relations between Records",
+    "summary": "Relate models together using the ORM using has_one, has_many, and many_many.",
+    "icon": "link",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/03_Lists",
+    "title": "Managing Lists",
+    "summary": "The SS_List interface allows you to iterate through and manipulate a list of objects.",
+    "icon": "list",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/04_Data_Types_and_Casting",
+    "title": "Data types, Overriding and Casting",
+    "summary": "Learn how data is stored going in and coming out of the ORM and how to modify it.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/05_Extending_DataObjects",
+    "title": "Extending DataObjects",
+    "summary": "Modify the data model without using subclasses.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/06_SearchFilters",
+    "title": "SearchFilter Modifiers",
+    "summary": "Use suffixes on your ORM queries.",
+    "icon": "search",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/07_Permissions",
+    "title": "Model-Level Permissions",
+    "summary": "Reduce risk by securing models.",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/08_SQL_Select",
+    "title": "SQL Queries",
+    "summary": "Write and modify direct database queries through SQLExpression subclasses.",
+    "icon": null,
+    "iconBrand": "searchengin",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/09_Validation",
+    "title": "Model Validation and Constraints",
+    "summary": "Validate your data at the model level",
+    "icon": "check-square",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/10_Versioning",
+    "title": "Versioning",
+    "summary": "Add versioning to your database content through the Versioned extension.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/11_Scaffolding",
+    "title": "Building Model and Search Interfaces around Scaffolding",
+    "summary": "A Model-driven approach to defining your application UI.",
+    "icon": "hammer",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/12_Indexes",
+    "title": "Indexes",
+    "summary": "Add Indexes to your Data Model to optimize database queries.",
+    "icon": "database",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/13_Managing_Records",
+    "title": "Managing Records",
+    "summary": "Manage your DataObject records",
+    "icon": "list-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/How_Tos/Dynamic_Default_Fields",
+    "title": "Dynamic Default Fields",
+    "summary": "Learn how to add default values to your models",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/How_Tos/Grouping_DataObject_Sets",
+    "title": "Grouping DataObject sets",
+    "summary": "Learn how to split the results of a query into subgroups",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/00_Model/index",
+    "title": "Model and Databases",
+    "summary": "Learn how Silverstripe CMS manages database tables, ways to query your database and how to publish data.",
+    "icon": "database",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/01_Syntax",
+    "title": "Template Syntax",
+    "summary": "A look at the operations, variables and language controls you can use within templates.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/02_Common_Variables",
+    "title": "Common Variables",
+    "summary": "Some of the common variables and methods your templates can use, including Menu, SiteConfig, and more.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/03_Requirements",
+    "title": "Requirements",
+    "summary": "How to include and require other resources in your templates such as javascript and CSS files.",
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/04_Rendering_Templates",
+    "title": "Rendering data to a template",
+    "summary": "Call and render Silverstripe CMS templates manually.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/05_Template_Inheritance",
+    "title": "Template Inheritance",
+    "summary": "Override and extend module and core markup templates from your application code.",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/06_Themes",
+    "title": "Themes",
+    "summary": "What makes up a Silverstripe CMS Theme. How to install one or write your own theme.",
+    "icon": "paint-brush",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/07_Caching",
+    "title": "Caching",
+    "summary": "How template variables are cached.",
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/08_Translations",
+    "title": "Translations",
+    "summary": "Definition of the syntax for writing i18n compatible templates.",
+    "icon": "globe",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/09_Casting",
+    "title": "Formatting, Casting, and Escaping Variable Content",
+    "summary": "Information on casting, security, modifying data before it's displayed to the user and how to format data within the template.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/10_Unique_Keys",
+    "title": "Generating Unique Keys",
+    "summary": "Outputting unique keys in templates.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/11_Partial_Template_Caching",
+    "title": "Partial Template Caching",
+    "summary": "Cache a section of a template Reduce rendering time with cached templates and understand the limitations of the ViewableData object caching.",
+    "icon": "tags",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/How_Tos/01_Navigation_Menu",
+    "title": "How to Create a Navigation Menu",
+    "summary": "Build a multi-tiered navigation UI.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/How_Tos/02_Pagination",
+    "title": "How to Create a Paginated List",
+    "summary": "Break up the result of a database query into multiple pages",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/How_Tos/03_Disable_Anchor_Links",
+    "title": "Disable Anchor Rewriting",
+    "summary": "Get more control over how hash links are rendered.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/01_Templates/index",
+    "title": "Templates and Views",
+    "summary": "This guide showcases the Silverstripe CMS template engine and how to build your own themes.",
+    "icon": "file-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/01_Introduction",
+    "title": "Introduction to a Controller",
+    "summary": "A brief look at the definition of a Controller, creating actions and how to respond to requests.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/02_Routing",
+    "title": "Routing",
+    "summary": "A more in depth look at how to map requests to particular controllers and actions.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/03_Access_Control",
+    "title": "Access Control",
+    "summary": "Define allowed behavior and add permission based checks to your Controllers.",
+    "icon": "user-lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/04_Redirection",
+    "title": "Redirection",
+    "summary": "Move users around your site using automatic redirection.",
+    "icon": "reply",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/05_Middlewares",
+    "title": "HTTP Middlewares",
+    "summary": "Create objects for modifying request and response objects across controllers.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/06_Builtin_Middlewares",
+    "title": "Built-in Middleware",
+    "summary": "Middleware components that come with Silverstripe CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/07_CMS_JSON_APIs",
+    "title": "CMS JSON APIs",
+    "summary": "Creating standardised JSON APIs for authenticated users in the CMS.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/02_Controllers/index",
+    "title": "Controllers",
+    "summary": "Controllers form the backbone of your Silverstripe CMS application. They handle routing URLs to your templates.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/00_Introduction",
+    "title": "Introduction to Forms",
+    "summary": "An introduction to creating a Form instance and handling submissions.",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/01_Validation",
+    "title": "Form Validation",
+    "summary": "Validate form data through the server side validation API.",
+    "icon": "check-square",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/03_Form_Templates",
+    "title": "Form Templates",
+    "summary": "Customize the generated HTML for a FormField or an entire Form.",
+    "icon": "file-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/04_Form_Security",
+    "title": "Form Security",
+    "summary": "Ensure Forms are secure against Cross-Site Request Forgery attacks, bots and other malicious intent.",
+    "icon": "shield-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/05_Form_Transformations",
+    "title": "Form Transformations",
+    "summary": "Provide read-only and disabled views of your Form data.",
+    "icon": "random",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/06_Tabbed_Forms",
+    "title": "Tabbed Forms",
+    "summary": "Find out how CMS interfaces use jQuery UI tabs to provide nested FormFields.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/07_Using_GridField_With_Arbitrary_Data",
+    "title": "Using GridField with Arbitrary Data",
+    "summary": "Details about using the GridField class for managing data which isn't represented by DataObject models.",
+    "icon": "table",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/Field_types/01_Common_Subclasses",
+    "title": "Common FormField type subclasses",
+    "summary": "A table containing a list of the common FormField subclasses.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/Field_types/02_DateField",
+    "title": "DateField",
+    "summary": "How to format and use the DateField class.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/Field_types/03_HTMLEditorField",
+    "title": "Rich-text editing (WYSIWYG)",
+    "summary": "Silverstripe CMS's use and configuration of TinyMCE html editor.",
+    "icon": "file-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/Field_types/04_GridField",
+    "title": "GridField",
+    "summary": "How to use the GridField class for managing tabular data.",
+    "icon": "table",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/Field_types/index",
+    "title": "Field Types",
+    "summary": "More information about some of the core form fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/How_Tos/01_Encapsulate_Forms",
+    "title": "How to Encapsulate Forms",
+    "summary": "Learn how to move a form from a controller into its own class definition.",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/How_Tos/02_Lightweight_Form",
+    "title": "How to Create Lightweight Form",
+    "summary": "Create a simple search form with Silverstripe CMS",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/How_Tos/03_Create_a_GridFieldComponent",
+    "title": "Create a GridField Component",
+    "summary": "Customise your GridField with a variety of add-ons.",
+    "icon": "table",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/How_Tos/04_Create_a_GridField_ActionProvider",
+    "title": "How to add a custom action to a GridField row",
+    "summary": "Handle custom actions on your GridField",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/How_Tos/05_Simple_Contact_Form",
+    "title": "Simple contact form",
+    "summary": "Create a form that submits a message via email",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/How_Tos/06_Handle_Nested_data",
+    "title": "How to handle nested data in forms",
+    "summary": "Forms can save into arrays, including has_one relations",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/03_Forms/index",
+    "title": "Forms",
+    "summary": "Capture user information through Forms. This guide will work through how to create Silverstripe CMS forms, adding and modifying fields and how to handle form submissions.",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/04_Configuration/00_Configuration",
+    "title": "Configuration API",
+    "summary": "Silverstripe CMS's YAML based Configuration API for setting runtime configuration.",
+    "icon": "laptop-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/04_Configuration/01_SiteConfig",
+    "title": "SiteConfig",
+    "summary": "Content author configuration through the SiteConfig module.",
+    "icon": "laptop-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/04_Configuration/03_Environment_Variables",
+    "title": "Environment Variables",
+    "summary": "Site configuration variables such as database connection details, environment type and remote login information.",
+    "icon": "dollar-sign",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/04_Configuration/index",
+    "title": "Configuration",
+    "summary": "Silverstripe CMS provides several ways to store and modify your application settings. Learn about site wide settings and the YAML based configuration system.",
+    "icon": "laptop-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/00_Modules",
+    "title": "Modules",
+    "summary": "Extend core functionality with modules.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/01_Extensions",
+    "title": "Extensions",
+    "summary": "Extensions and DataExtensions let you modify and augment objects transparently.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/04_Shortcodes",
+    "title": "Shortcodes",
+    "summary": "Flexible content embedding",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/05_Injector",
+    "title": "Dependency Injection",
+    "summary": "Introduction to using Dependency Injection within Silverstripe CMS.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/07_Templates",
+    "title": "Custom Templates",
+    "summary": "Override templates from core and modules in your application",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/How_Tos/01_Publish_a_Module",
+    "title": "How to Publish a Silverstripe CMS module",
+    "summary": "Have you created some work you think others can use? Turn it into a module and share it.",
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/How_Tos/02_Create_a_Google_Maps_Shortcode",
+    "title": "How to Create a Google Maps Shortcode",
+    "summary": "Learn how to embed a Google map in the WYSIWYG editor with a simple shortcode",
+    "icon": "map",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/How_Tos/03_Track_member_logins",
+    "title": "Track member logins",
+    "summary": "Keep a log in the database of who logs in and when",
+    "icon": "user-friends",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/05_Extending/index",
+    "title": "Extending Silverstripe CMS",
+    "summary": "Understand the ways to modify the built-in functionality through Extensions, Subclassing and Dependency Injection.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/00_Unit_Testing",
+    "title": "Unit and Integration Testing",
+    "summary": "Test models, database logic and your object methods.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/01_Functional_Testing",
+    "title": "Functional Testing",
+    "summary": "Test controllers, forms and HTTP responses.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/02_Behavior_Testing",
+    "title": "Behavior Testing",
+    "summary": "Describe how your application should behave in plain text and run tests in a browser.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/04_Fixtures",
+    "title": "Fixtures",
+    "summary": "Populate test databases with fake seed data.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/05_Testing_Glossary",
+    "title": "Testing Glossary",
+    "summary": "All the jargon you need to be a bonafide testing guru",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/How_Tos/00_Write_a_SapphireTest",
+    "title": "How to write a SapphireTest",
+    "summary": "Learn the basics of unit testing in Silverstripe",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/How_Tos/01_Write_a_FunctionalTest",
+    "title": "How to write a FunctionalTest",
+    "summary": "Expand your testing capabilities with integrations tests",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/How_Tos/02_FixtureFactories",
+    "title": "How to use a FixtureFactory",
+    "summary": "Provide context to your tests with database fixtures",
+    "icon": "industry",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/How_Tos/03_Testing_Email",
+    "title": "How to test emails within unit tests",
+    "summary": "Test email functionality without ever hitting an inbox",
+    "icon": "envelope",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/06_Testing/index",
+    "title": "Testing",
+    "summary": "Deploy robust applications by bundling Unit and Behavior tests with your application code and modules.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/07_Debugging/00_Environment_Types",
+    "title": "Environment Types",
+    "summary": "Configure your Silverstripe CMS environment to define how your web application behaves.",
+    "icon": "exclamation-circle",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/07_Debugging/01_Error_Handling",
+    "title": "Logging and Error Handling",
+    "summary": "Trap, fire and report diagnostic logs, user exceptions, warnings and errors.",
+    "icon": "exclamation-circle",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/07_Debugging/02_URL_Variable_Tools",
+    "title": "URL Variable tools",
+    "summary": "Useful debugging tools you can use right in the browser",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/07_Debugging/03_Template_debugging",
+    "title": "Template debugging",
+    "summary": "Track down which template rendered a piece of html",
+    "icon": "bug",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/07_Debugging/index",
+    "title": "Debugging",
+    "summary": "Learn how to identify errors in your application and best practice for logging application errors.",
+    "icon": "bug",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/00_Partial_Caching",
+    "title": "Partial Caching",
+    "summary": "Cache Silverstripe CMS templates to reduce database queries.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/01_Caching",
+    "title": "Caching",
+    "summary": "Optimise performance by caching expensive processes",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/02_HTTP_Cache_Headers",
+    "title": "HTTP Cache Headers",
+    "summary": "Set the correct HTTP cache headers for your responses.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/03_Profiling",
+    "title": "Profiling",
+    "summary": "Identify bottlenecks within your application.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/04_Static_Publishing",
+    "title": "Static Publishing",
+    "summary": "Export your web pages as static HTML and serve the web like it's 1999.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/05_Resource_Usage",
+    "title": "Resource Usage",
+    "summary": "Manage Silverstripe CMS's memory footprint and CPU usage.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/06_ORM",
+    "title": "ORM Performance",
+    "summary": "Configuration and tips for improving ORM performance",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/08_Performance/index",
+    "title": "Performance",
+    "summary": "Make your applications faster by learning how to write more scalable code and ways to cache your important information.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/00_Member",
+    "title": "Members",
+    "summary": "Learn how logged in users are managed in Silverstripe CMS",
+    "icon": "user",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/01_Access_Control",
+    "title": "Access Control",
+    "summary": "Restrict CMS access to specific groups of users",
+    "icon": "user-lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/02_Permissions",
+    "title": "Permissions",
+    "summary": "Customise the permission system in Silverstripe",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/03_Authentication",
+    "title": "Authentication",
+    "summary": "Explains Silverstripe CMS's Authentication options and custom authenticators.",
+    "icon": "users-cog",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/04_Sudo_Mode",
+    "title": "Sudo Mode",
+    "summary": "Require users to verify their identity when performing sensitive actions",
+    "icon": "key",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/05_Secure_Coding",
+    "title": "Security",
+    "summary": "Learn how to minimise vulnerabilities in your code",
+    "icon": "user-secret",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/06_Rate_Limiting",
+    "title": "Rate Limiting",
+    "summary": "Silverstripe CMS's in built rate limiting features",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/07_Personal_Data",
+    "title": "Personal Data",
+    "summary": "How the Silverstripe CMS deals with data privacy",
+    "icon": "user-ninja",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/08_SQL_Placeholders",
+    "title": "SQL Placeholders",
+    "summary": "SQL placeholders in ORM queries",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/09_Security/index",
+    "title": "Security",
+    "summary": "This guide covers user authentication, the permission system and how to secure your code against malicious behaviors",
+    "icon": "user-shield",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/10_Email/index",
+    "title": "Email",
+    "summary": "Send HTML and plain text email from your Silverstripe CMS application.",
+    "icon": "envelope-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/11_Integration/00_CSV_Import",
+    "title": "CSV Import",
+    "summary": "Load data into your Silverstripe CMS database in bulk",
+    "icon": "upload",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/11_Integration/02_RSSFeed",
+    "title": "RSS Feed",
+    "summary": "Output records from your database as an RSS Feed.",
+    "icon": "rss",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/11_Integration/How_Tos/Import_CSV_through_a_Controller",
+    "title": "Import CSV Data through a Controller",
+    "summary": "Data importing through the frontend",
+    "icon": "upload",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/11_Integration/How_Tos/custom_csvbulkloader",
+    "title": "A custom CSVBulkLoader instance",
+    "summary": "Customise your data importing",
+    "icon": "upload",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/11_Integration/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/11_Integration/index",
+    "title": "Integration and Web Services",
+    "summary": "Integrate other web services within your application or make your Silverstripe CMS data available.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/12_Search/01_Searchcontext",
+    "title": "Scaffolding with SearchContext",
+    "summary": "Configure the search form within ModelAdmin using the SearchContext class.",
+    "icon": "search",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/12_Search/02_FulltextSearch",
+    "title": "Fulltext Search",
+    "summary": "Fulltext search allows sophisticated searching on text content.",
+    "icon": "search",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/12_Search/index",
+    "title": "Search",
+    "summary": "Provide your users with advanced search functionality.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/13_i18n/index",
+    "title": "i18n",
+    "summary": "Display templates and PHP code in different languages based on the preferences of your website users.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/01_File_Management",
+    "title": "File management",
+    "summary": "Learn how to manage File and Image records",
+    "icon": "file-signature",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/02_Images",
+    "title": null,
+    "summary": "Learn how to crop and resize images in templates and PHP code",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/03_File_Security",
+    "title": "File security",
+    "summary": "Manage access permission to assets",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/04_File_Storage",
+    "title": "File storage",
+    "summary": "Describes the persistence layer of files",
+    "icon": "hdd",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/05_File_Manipulation",
+    "title": "File manipulation and conversion",
+    "summary": "Learn how to manipulate and convert file records in code",
+    "icon": "file-medical-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/06_Allowed_file_types",
+    "title": "Allowed file types",
+    "summary": "Control the type of files that can be stored in your Silverstripe CMS project",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/07_File_Usage",
+    "title": "File usage",
+    "summary": "See file usage and customising the file \"Used on\" table",
+    "icon": "compress-arrows-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/14_Files/index",
+    "title": "Files",
+    "summary": "Upload, manage and manipulate files and images.",
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/01_ModelAdmin",
+    "title": "ModelAdmin",
+    "summary": "Create admin UI's for managing your data records.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/02_CMS_Architecture",
+    "title": "CMS Architecture",
+    "summary": "An overview of the code architecture of the CMS",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/03_CMS_Layout",
+    "title": "Admin Layout",
+    "summary": "Add interactivity enhancements to the admin with Javascript",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/04_Preview",
+    "title": "Preview",
+    "summary": "How content previews work in the CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/05_Typography",
+    "title": "WYSIWYG Styles",
+    "summary": "Add custom CSS properties to the rich-text editor.",
+    "icon": "text-width",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/06_Javascript_Development",
+    "title": "Javascript Development",
+    "summary": "Advanced documentation about writing and customizing javascript within Silverstripe CMS.",
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/07_jQuery_Entwine",
+    "title": "jQuery Entwine",
+    "summary": null,
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/08_ReactJS_Redux_and_GraphQL",
+    "title": "React, Redux, and GraphQL",
+    "summary": "Learn how to extend and customise the technologies we use for application state and client-rendered UI.",
+    "icon": null,
+    "iconBrand": "react",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/CMS_Alternating_Button",
+    "title": "CMS alternating button",
+    "summary": "Add an \"active\" and \"neutral\" state to the CMS buttons",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/CMS_Formfield_Help_Text",
+    "title": "CMS form field help text",
+    "summary": "Add help text to the form fields in the CMS",
+    "icon": "question",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Menu",
+    "title": "Customise the CMS Menu",
+    "summary": "Make custom changes to the left hand menu in the CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Pages_List",
+    "title": "Customise the CMS pages list",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Tree",
+    "title": "Customise the CMS tree",
+    "summary": "Learn how to add custom UI elements to the CMS page navigation",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_React_Components",
+    "title": "Customising React components",
+    "summary": "Learn how to use Injector to override React-rendered form fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_React_Forms",
+    "title": "Customising React forms",
+    "summary": "Use Injector to add customisations to React-rendered forms",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_Site_Reports",
+    "title": "Customise site reports",
+    "summary": "Creating your own custom data or content reports.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Extend_CMS_Interface",
+    "title": "Extend the CMS interface",
+    "summary": "Customise the UI of the CMS backend",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Extending_An_Existing_ModelAdmin",
+    "title": "Extending an existing ModelAdmin",
+    "summary": "ModelAdmin interfaces that come with the core can be customised easily",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/15_Customising_the_Admin_Interface/index",
+    "title": "Customising the Admin Interface",
+    "summary": "Extend the admin view to provide custom behavior or new features for CMS and admin users.",
+    "icon": null,
+    "iconBrand": "react",
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/16_Execution_Pipeline/01_Flushable",
+    "title": "Flushable",
+    "summary": "Allows a class to define it's own flush functionality.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/16_Execution_Pipeline/02_Manifests",
+    "title": "Manifests",
+    "summary": "Manage caches of file path maps and other expensive information",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/16_Execution_Pipeline/03_App_Object_and_Kernel",
+    "title": "Kernel and Application",
+    "summary": "Provides bootstrapping and entrypoint to the Silverstripe CMS application",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/16_Execution_Pipeline/index",
+    "title": "Execution pipeline",
+    "summary": "An overview of the steps involved in delivering a Silverstripe CMS web page.",
+    "icon": "route",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/17_CLI/index",
+    "title": "Command Line Interface",
+    "summary": "Automate Silverstripe CMS, run Cron Jobs or sync with other platforms through the Command Line Interface.",
+    "icon": "terminal",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/18_Cookies_And_Sessions/01_Cookies",
+    "title": "Cookies",
+    "summary": "A set of static methods for manipulating PHP cookies.",
+    "icon": "cookie-bite",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/18_Cookies_And_Sessions/02_Sessions",
+    "title": "Sessions",
+    "summary": "A set of static methods for manipulating PHP sessions.",
+    "icon": "user",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/18_Cookies_And_Sessions/03_Managing_Sessions",
+    "title": "Managing Sessions",
+    "summary": "Managing user sessions using session manager.",
+    "icon": "address-book",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/18_Cookies_And_Sessions/index",
+    "title": "Cookies and Sessions",
+    "summary": "Save state information using the Cookie class and the Session class.",
+    "icon": "cookie",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/01_getting_started/01_activating_the_server",
+    "title": "Activating the default server",
+    "summary": "Open up the default server that comes pre-configured with the module",
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/01_getting_started/02_configuring_your_schema",
+    "title": "Configuring your schema",
+    "summary": "Add a basic type to the schema configuration",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/01_getting_started/03_building_the_schema",
+    "title": "Building the schema",
+    "summary": "Turn your schema configuration into executable code",
+    "icon": "hammer",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/01_getting_started/04_using_procedural_code",
+    "title": "Building a schema with procedural code",
+    "summary": "Use PHP code to build your schema",
+    "icon": "tools",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/01_getting_started/05_deploying_the_schema",
+    "title": "Deploying the schema",
+    "summary": "Deploy your GraphQL schema to a test or production environment",
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/01_getting_started/index",
+    "title": "Getting started",
+    "summary": "Open up your first GraphQL server and build your schema",
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/01_adding_dataobjects_to_the_schema",
+    "title": "Adding DataObject models to the schema",
+    "summary": "An overview of how the DataObject model can influence the creation of types, queries, and mutations",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/02_query_plugins",
+    "title": "DataObject query plugins",
+    "summary": "Learn about some of the useful goodies that come pre-packaged with DataObject queries",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/03_permissions",
+    "title": "DataObject operation permissions",
+    "summary": "A look at how permissions work for DataObject queries and mutations",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/04_inheritance",
+    "title": "DataObject inheritance",
+    "summary": "Learn how inheritance is handled in DataObject model types",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/05_versioning",
+    "title": "Versioned content",
+    "summary": "A guide on how DataObject models with the Versioned extension behave in GraphQL schemas",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/06_property_mapping",
+    "title": "Property mapping and dot syntax",
+    "summary": "Learn how to customise field names, use dot syntax, and use aggregate functions",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/07_nested_definitions",
+    "title": "Nested type definitions",
+    "summary": "Define dependent types inline with a parent type",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/02_working_with_dataobjects/index",
+    "title": "Working with DataObject models",
+    "summary": "Add DataObject models to your schema, expose their fields, add read/write operations, and more",
+    "icon": "database",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/01_creating_a_generic_type",
+    "title": "Creating a generic type",
+    "summary": "Creating a type that doesn't map to a DataObject",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/02_building_a_custom_query",
+    "title": "Building a custom query",
+    "summary": "Add a custom query for any type of data",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/03_resolver_discovery",
+    "title": "The resolver discovery pattern",
+    "summary": "How you can opt out of mapping fields to resolvers by adhering to naming conventions",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/04_adding_arguments",
+    "title": "Adding arguments",
+    "summary": "Add arguments to your fields, queries, and mutations",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/05_adding_pagination",
+    "title": "Adding pagination",
+    "summary": "Add the pagination plugin to a generic query",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/06_adding_descriptions",
+    "title": "Adding descriptions",
+    "summary": "Add descriptions to just about anything in your schema to improve your developer experience",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/07_enums_unions_and_interfaces",
+    "title": "Enums, unions, and interfaces",
+    "summary": "Add some non-object types to your schema",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/03_working_with_generic_types/index",
+    "title": "Working with generic types",
+    "summary": "Break away from the magic of DataObject models and build types and queries from scratch.",
+    "icon": "clipboard",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/04_security_and_best_practices/01_authentication",
+    "title": "Authentication",
+    "summary": "Ensure your GraphQL api is only accessible to provisioned users",
+    "icon": "user-lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/04_security_and_best_practices/02_cors",
+    "title": "Cross-Origin Resource Sharing (CORS)",
+    "summary": "Ensure that requests to your API come from a whitelist of origins",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/04_security_and_best_practices/03_csrf_protection",
+    "title": "CSRF protection",
+    "summary": "Protect destructive actions from cross-site request forgery",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/04_security_and_best_practices/04_http_method_checking",
+    "title": "Strict HTTP method checking",
+    "summary": "Ensure requests are GET or POST",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/04_security_and_best_practices/05_recursive_or_complex_queries",
+    "title": "Recursive or complex queries",
+    "summary": "Protecting against potentially malicious queries",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/04_security_and_best_practices/index",
+    "title": "Security & best practices",
+    "summary": "A guide to keeping your GraphQL API secure and accessible",
+    "icon": "user-lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/05_plugins/01_overview",
+    "title": "What are plugins?",
+    "summary": "An overview of how plugins work with the GraphQL schema",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/05_plugins/02_writing_a_simple_plugin",
+    "title": "Writing a simple plugin",
+    "summary": "In this tutorial, we add a simple plugin for string fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/05_plugins/03_writing_a_complex_plugin",
+    "title": "Writing a complex plugin",
+    "summary": "In this tutorial, we'll create a plugin that affects models, queries, and input types",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/05_plugins/index",
+    "title": "Plugins",
+    "summary": "Learn what plugins are and how you can use them to extend your schema",
+    "icon": "file-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/06_extending/adding_a_custom_model",
+    "title": "Adding a custom model",
+    "summary": "Add a new class-backed type beyond DataObject",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/06_extending/adding_a_custom_operation",
+    "title": "Adding a custom operation",
+    "summary": "Add a new operation for model types",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/06_extending/adding_middleware",
+    "title": "Adding middleware",
+    "summary": "Add middleware to to extend query execution",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/06_extending/global_schema",
+    "title": "The global schema",
+    "summary": "How to push modifications to every schema in the project",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/06_extending/index",
+    "title": "Extending the schema",
+    "summary": "Add new functionality to the schema",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/07_tips_and_tricks",
+    "title": "Tips & Tricks",
+    "summary": "Miscellaneous useful tips for working with your GraphQL schema",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/08_architecture_diagrams",
+    "title": "Architecture Diagrams",
+    "summary": "A visual overview of the architecture and design of silverstripe/graphql",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/19_GraphQL/index",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/20_Deprecations/index",
+    "title": "Deprecating code",
+    "summary": "Details about how to deprecate code and emit or suppress deprecation warnings",
+    "icon": "exclamation-circle",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/02_Developer_Guides/index",
+    "title": "Developer Guides",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/04_Optional_Features/index",
+    "title": "Optional features",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/06_Upgrading/01_Keeping_projects_up_to_date",
+    "title": "Staying up to date with CMS releases",
+    "summary": "Guidance on upgrading your website with new recipe releases",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/06_Upgrading/07_Deprecations",
+    "title": "Deprecations",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/06_Upgrading/index",
+    "title": "Upgrading",
+    "summary": "The following guides will help you upgrade your project or module to Silverstripe CMS 5.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/5.0.0",
+    "title": "5.0.0",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/5.1.0",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/5.2.0",
+    "title": "5.2.0",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/5.3.0",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/5.4.0",
+    "title": "5.4.0",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/alpha/5.0.0-alpha1",
+    "title": "5.0.0-alpha1",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/alpha/index",
+    "title": "Alpha Changelogs",
+    "summary": null,
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/beta/5.0.0-beta1",
+    "title": "5.0.0-beta1",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/beta/5.1.0-beta1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/beta/5.2.0-beta1",
+    "title": "5.2.0-beta1",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/beta/5.3.0-beta1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/beta/5.4.0-beta1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/beta/index",
+    "title": "Beta Changelogs",
+    "summary": null,
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/index",
+    "title": "Changelogs",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/rc/5.0.0-rc1",
+    "title": "5.0.0-rc1",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/rc/5.1.0-rc1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/rc/5.2.0-rc1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/rc/5.3.0-rc1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/rc/5.4.0-rc1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/08_Changelogs/rc/index",
+    "title": "Release Candidate Changelogs",
+    "summary": null,
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/00_Issues_and_Bugs",
+    "title": "Issues and Bug Reports",
+    "summary": "Report bugs or problems with Silverstripe CMS, feature requests or other issues.",
+    "icon": "bug",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/01_Code",
+    "title": "Contributing Code",
+    "summary": "Fix bugs and add new features to help make Silverstripe CMS better.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/02_Documentation",
+    "title": "Contributing Documentation",
+    "summary": "Guide for contributing to Silverstripe CMS developer and CMS user help documentation.",
+    "icon": "file-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/03_Translations",
+    "title": "Contributing Translations",
+    "summary": "Translate interface components like button labels into multiple languages.",
+    "icon": "globe",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/05_Coding_Conventions/01_PHP_Coding_Conventions",
+    "title": "PHP coding conventions",
+    "summary": "The code style guidelines we use in our open source software",
+    "icon": null,
+    "iconBrand": "php",
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/05_Coding_Conventions/02_JavaScript_Coding_Conventions",
+    "title": "Javascript coding conventions",
+    "summary": "The Javascript style guidelines we follow in our open source software",
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/05_Coding_Conventions/03_CSS_Coding_Conventions",
+    "title": "CSS coding conventions",
+    "summary": "The CSS style guidelines we follow in our open source software",
+    "icon": null,
+    "iconBrand": "css3",
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/05_Coding_Conventions/index",
+    "title": "Coding conventions",
+    "summary": "The style guidelines we follow in all of our open source code",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/06_Build_Tooling",
+    "title": "Build tooling",
+    "summary": "The tools we use to compile our client-side code",
+    "icon": "tools",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/08_Triage_Resources",
+    "title": "Triage and peer review",
+    "summary": "Canned responses and other resources used during triage and peer review",
+    "icon": "users",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/09_Release_Process",
+    "title": "Release process",
+    "summary": "Describes the process followed for \"core\" releases.",
+    "icon": null,
+    "iconBrand": "git-alt",
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/10_Managing_Security_Issues",
+    "title": "Managing security issues",
+    "summary": "This document highlights how the Silverstripe CMS security team handles security issues.",
+    "icon": "shield-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/10_Contributing/index",
+    "title": "Contributing",
+    "summary": "Any open source product is only as good as the community behind it. You can participate by sharing code, ideas, or simply helping others. No matter what your skill level is, every contribution counts.",
+    "icon": "heart",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/01_Core_committers",
+    "title": "Core committers",
+    "summary": "The team of contributors that has merge access to our open source repositories",
+    "icon": "users",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/02_Code_of_conduct",
+    "title": "Code of conduct",
+    "summary": "How to be a high-performing, helpful member of our community",
+    "icon": "handshake",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/03_Maintainer_Guidelines",
+    "title": "Maintainer guidelines",
+    "summary": "Cheat sheet for module maintainers",
+    "icon": "clipboard-list",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/04_Request_for_comment",
+    "title": "Request for comment",
+    "summary": "Our approach to decision-making around impactful changes to the product",
+    "icon": "comments",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/05_Release_policy",
+    "title": "Release policy",
+    "summary": "Outlines the release lifecycle and support commitments for Silverstripe CMS",
+    "icon": "code-branch",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/07_Supported_Modules",
+    "title": "Supported modules",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/08_Fixed_dependencies",
+    "title": "Fixed dependencies",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/08_Public_API",
+    "title": "Definition of Public API",
+    "summary": "A definition of what we consider to be \"public API\" which is protected by semantic versioning",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/09_Repository_Management",
+    "title": "GitHub repository management",
+    "summary": "Information about management of the various GitHub repositories",
+    "icon": null,
+    "iconBrand": "github",
+    "order": null
+  },
+  {
+    "id": "v5/12_Project_Governance/index",
+    "title": "Project Governance",
+    "summary": "Detailed how the Silverstripe CMS Project operates.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/index",
+    "title": "Silverstripe Documentation",
+    "summary": "Welcome to the Silverstripe Developer Documentation. This website is aimed at website developers looking to learn how to build and manage web applications with the Silverstripe Framework.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/.github/ISSUE_TEMPLATE",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/.github/PULL_REQUEST_TEMPLATE",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/README",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/01_basic_usage",
+    "title": "Basic usage",
+    "summary": "How to set up your link relations and fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/02_configuration",
+    "title": "Configuring links and link fields",
+    "summary": "Advanced usage of the Link model and link fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/03_templates",
+    "title": "Rendering links in templates",
+    "summary": "How to render links in templates, and what templates to override",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/08_gotchas",
+    "title": "Gotchas",
+    "summary": "Behaviour or scenarios that might be unexpected, and how to deal with them",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/09_migrating/00_upgrading",
+    "title": "Upgrading from older versions",
+    "summary": "A guide for migrating from older versions of silverstripe/linkfield",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/09_migrating/01_linkable-migration",
+    "title": "Migrating from sheadawson/silverstripe-linkable module",
+    "summary": "A guide for migrating from sheadawson/silverstripe-linkable to silverstripe/linkfield",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/09_migrating/02_gorriecoe-migration",
+    "title": "Migrating from gorriecoe/silverstripe-linkfield",
+    "summary": "A guide for migrating from gorriecoe/silverstripe-linkfield",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/09_migrating/index",
+    "title": "Migrating to silverstripe/linkfield v4",
+    "summary": "Guides for migrating or upgrading to silverstripe/linkfield v4",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/index",
+    "title": "Linkfield",
+    "summary": "Provides a Link model and CMS interface for managing different types of links",
+    "icon": "link",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/userguide/01_links_types",
+    "title": "Links types",
+    "summary": "Primary link types provided by the LinkField module.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/userguide/02_work_with_link_field",
+    "title": "Using the link field",
+    "summary": "How to work with the link field and multi-ink field in the CMS.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v5/optional_features/linkfield/docs/en/userguide/index",
+    "title": "Managing links in the CMS",
+    "summary": "How to use the Link Field module to manage links in the CMS.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/00_Getting_Started/00_Server_Requirements",
+    "title": "Server Requirements",
+    "summary": "What you will need to run Silverstripe CMS on a web server",
+    "icon": "server",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/00_Getting_Started/02_Composer",
+    "title": "Composer",
+    "summary": "What is Composer and how to use it with Silverstripe CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/00_Getting_Started/03_Environment_Management",
+    "title": "Environment Management",
+    "summary": "How to configure your server environment for Silverstripe CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/00_Getting_Started/04_Directory_Structure",
+    "title": "Directory Structure",
+    "summary": "An overview of what each directory contains in a Silverstripe CMS installation",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/00_Getting_Started/05_Recipes",
+    "title": "Recipes",
+    "summary": "What Recipes are, and how they are used in Silverstripe CMS",
+    "icon": "clipboard",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/00_Getting_Started/index",
+    "title": "Getting Started",
+    "summary": null,
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/01_Data_Model_and_ORM",
+    "title": "Introduction to the Data Model and ORM",
+    "summary": "Introduction to creating and querying a database records through the ORM (object-relational mapping)",
+    "icon": "database",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/02_Relations",
+    "title": "Relations between Records",
+    "summary": "Relate models together using the ORM using has_one, has_many, and many_many.",
+    "icon": "link",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/03_Lists",
+    "title": "Managing Lists",
+    "summary": "The SS_List interface allows you to iterate through and manipulate a list of objects.",
+    "icon": "list",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/04_Data_Types_and_Casting",
+    "title": "Data types, Overriding and Casting",
+    "summary": "Learn how data is stored going in and coming out of the ORM and how to modify it.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/05_Extending_DataObjects",
+    "title": "Extending DataObjects",
+    "summary": "Modify the data model without using subclasses.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/06_SearchFilters",
+    "title": "SearchFilter Modifiers",
+    "summary": "Use suffixes on your ORM queries.",
+    "icon": "search",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/07_Permissions",
+    "title": "Model-Level Permissions",
+    "summary": "Reduce risk by securing models.",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/08_SQL_Select",
+    "title": "SQL Queries",
+    "summary": "Write and modify direct database queries through SQLExpression subclasses.",
+    "icon": null,
+    "iconBrand": "searchengin",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/09_Validation",
+    "title": "Model Validation and Constraints",
+    "summary": "Validate your data at the model level",
+    "icon": "check-square",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/10_Versioning",
+    "title": "Versioning",
+    "summary": "Add versioning to your database content through the Versioned extension.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/11_Scaffolding",
+    "title": "Building Model and Search Interfaces around Scaffolding",
+    "summary": "A Model-driven approach to defining your application UI.",
+    "icon": "hammer",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/12_Indexes",
+    "title": "Indexes",
+    "summary": "Add Indexes to your Data Model to optimize database queries.",
+    "icon": "database",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/13_Managing_Records",
+    "title": "Managing Records",
+    "summary": "Manage your DataObject records",
+    "icon": "list-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/How_Tos/Dynamic_Default_Fields",
+    "title": "Dynamic Default Fields",
+    "summary": "Learn how to add default values to your models",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/How_Tos/Grouping_DataObject_Sets",
+    "title": "Grouping DataObject sets",
+    "summary": "Learn how to split the results of a query into subgroups",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/00_Model/index",
+    "title": "Model and Databases",
+    "summary": "Learn how Silverstripe CMS manages database tables, ways to query your database and how to publish data.",
+    "icon": "database",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/01_Syntax",
+    "title": "Template Syntax",
+    "summary": "A look at the operations, variables and language controls you can use within templates.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/02_Common_Variables",
+    "title": "Common Variables",
+    "summary": "Some of the common variables and methods your templates can use, including Menu, SiteConfig, and more.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/03_Requirements",
+    "title": "Requirements",
+    "summary": "How to include and require other resources in your templates such as javascript and CSS files.",
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/04_Rendering_Templates",
+    "title": "Rendering data to a template",
+    "summary": "Call and render Silverstripe CMS templates manually.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/05_Template_Inheritance",
+    "title": "Template Inheritance",
+    "summary": "Override and extend module and core markup templates from your application code.",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/06_Themes",
+    "title": "Themes",
+    "summary": "What makes up a Silverstripe CMS Theme. How to install one or write your own theme.",
+    "icon": "paint-brush",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/07_Caching",
+    "title": "Caching",
+    "summary": "How template variables are cached.",
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/08_Translations",
+    "title": "Translations",
+    "summary": "Definition of the syntax for writing i18n compatible templates.",
+    "icon": "globe",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/09_Casting",
+    "title": "Formatting, Casting, and Escaping Variable Content",
+    "summary": "Information on casting, security, modifying data before it's displayed to the user and how to format data within the template.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/10_Unique_Keys",
+    "title": "Generating Unique Keys",
+    "summary": "Outputting unique keys in templates.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/11_Partial_Template_Caching",
+    "title": "Partial Template Caching",
+    "summary": "Cache a section of a template Reduce rendering time with cached templates and understand the limitations of the ModelData object caching.",
+    "icon": "tags",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/12_Swap_Template_Engines",
+    "title": "Swap Template Engines",
+    "summary": "Using a third-party template rendering engine with Silverstripe CMS",
+    "icon": "hdd",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/How_Tos/01_Navigation_Menu",
+    "title": "How to Create a Navigation Menu",
+    "summary": "Build a multi-tiered navigation UI.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/How_Tos/02_Pagination",
+    "title": "How to Create a Paginated List",
+    "summary": "Break up the result of a database query into multiple pages",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/How_Tos/03_Disable_Anchor_Links",
+    "title": "Disable Anchor Rewriting",
+    "summary": "Get more control over how hash links are rendered.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/01_Templates/index",
+    "title": "Templates and Views",
+    "summary": "This guide showcases the Silverstripe CMS template engine and how to build your own themes.",
+    "icon": "file-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/01_Introduction",
+    "title": "Introduction to a Controller",
+    "summary": "A brief look at the definition of a Controller, creating actions and how to respond to requests.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/02_Routing",
+    "title": "Routing",
+    "summary": "A more in depth look at how to map requests to particular controllers and actions.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/03_Access_Control",
+    "title": "Access Control",
+    "summary": "Define allowed behavior and add permission based checks to your Controllers.",
+    "icon": "user-lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/04_Redirection",
+    "title": "Redirection",
+    "summary": "Move users around your site using automatic redirection.",
+    "icon": "reply",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/05_Middlewares",
+    "title": "HTTP Middlewares",
+    "summary": "Create objects for modifying request and response objects across controllers.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/06_Builtin_Middlewares",
+    "title": "Built-in Middleware",
+    "summary": "Middleware components that come with Silverstripe CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/07_CMS_JSON_APIs",
+    "title": "CMS JSON APIs",
+    "summary": "Creating standardised JSON APIs for authenticated users in the CMS.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/02_Controllers/index",
+    "title": "Controllers",
+    "summary": "Controllers form the backbone of your Silverstripe CMS application. They handle routing URLs to your templates.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/00_Introduction",
+    "title": "Introduction to Forms",
+    "summary": "An introduction to creating a Form instance and handling submissions.",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/01_Validation",
+    "title": "Form Validation",
+    "summary": "Validate form data through the server side validation API.",
+    "icon": "check-square",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/03_Form_Templates",
+    "title": "Form Templates",
+    "summary": "Customize the generated HTML for a FormField or an entire Form.",
+    "icon": "file-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/04_Form_Security",
+    "title": "Form Security",
+    "summary": "Ensure Forms are secure against Cross-Site Request Forgery attacks, bots and other malicious intent.",
+    "icon": "shield-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/05_Form_Transformations",
+    "title": "Form Transformations",
+    "summary": "Provide read-only and disabled views of your Form data.",
+    "icon": "random",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/06_Tabbed_Forms",
+    "title": "Tabbed Forms",
+    "summary": "Find out how CMS interfaces use jQuery UI tabs to provide nested FormFields.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/07_Using_GridField_With_Arbitrary_Data",
+    "title": "Using GridField with Arbitrary Data",
+    "summary": "Details about using the GridField class for managing data which isn't represented by DataObject models.",
+    "icon": "table",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/Field_types/01_Common_Subclasses",
+    "title": "Common FormField type subclasses",
+    "summary": "A table containing a list of the common FormField subclasses.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/Field_types/02_DateField",
+    "title": "DateField",
+    "summary": "How to format and use the DateField class.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/Field_types/03_HTMLEditorField",
+    "title": "Rich-text editing (WYSIWYG)",
+    "summary": "Silverstripe CMS's use and configuration of HTML editors.",
+    "icon": "file-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/Field_types/04_GridField",
+    "title": "GridField",
+    "summary": "How to use the GridField class for managing tabular data.",
+    "icon": "table",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/Field_types/index",
+    "title": "Field Types",
+    "summary": "More information about some of the core form fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/How_Tos/01_Encapsulate_Forms",
+    "title": "How to Encapsulate Forms",
+    "summary": "Learn how to move a form from a controller into its own class definition.",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/How_Tos/02_Lightweight_Form",
+    "title": "How to Create Lightweight Form",
+    "summary": "Create a simple search form with Silverstripe CMS",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/How_Tos/03_Create_a_GridFieldComponent",
+    "title": "Create a GridField Component",
+    "summary": "Customise your GridField with a variety of add-ons.",
+    "icon": "table",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/How_Tos/04_Create_a_GridField_ActionProvider",
+    "title": "How to add a custom action to a GridField row",
+    "summary": "Handle custom actions on your GridField",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/How_Tos/05_Simple_Contact_Form",
+    "title": "Simple contact form",
+    "summary": "Create a form that submits a message via email",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/How_Tos/06_Handle_Nested_data",
+    "title": "How to handle nested data in forms",
+    "summary": "Forms can save into arrays, including has_one relations",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/03_Forms/index",
+    "title": "Forms",
+    "summary": "Capture user information through Forms. This guide will work through how to create Silverstripe CMS forms, adding and modifying fields and how to handle form submissions.",
+    "icon": null,
+    "iconBrand": "wpforms",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/04_Configuration/00_Configuration",
+    "title": "Configuration API",
+    "summary": "Silverstripe CMS's YAML based Configuration API for setting runtime configuration.",
+    "icon": "laptop-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/04_Configuration/01_SiteConfig",
+    "title": "SiteConfig",
+    "summary": "Content author configuration through the SiteConfig module.",
+    "icon": "laptop-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/04_Configuration/03_Environment_Variables",
+    "title": "Environment Variables",
+    "summary": "Site configuration variables such as database connection details, environment type and remote login information.",
+    "icon": "dollar-sign",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/04_Configuration/index",
+    "title": "Configuration",
+    "summary": "Silverstripe CMS provides several ways to store and modify your application settings. Learn about site wide settings and the YAML based configuration system.",
+    "icon": "laptop-code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/00_Modules",
+    "title": "Modules",
+    "summary": "Extend core functionality with modules.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/01_Extensions",
+    "title": "Extensions",
+    "summary": "Extensions let you modify and augment objects transparently.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/04_Shortcodes",
+    "title": "Shortcodes",
+    "summary": "Flexible content embedding",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/05_Injector",
+    "title": "Dependency Injection",
+    "summary": "Introduction to using Dependency Injection within Silverstripe CMS.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/07_Templates",
+    "title": "Custom Templates",
+    "summary": "Override templates from core and modules in your application",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/How_Tos/01_Publish_a_Module",
+    "title": "How to Publish a Silverstripe CMS module",
+    "summary": "Have you created some work you think others can use? Turn it into a module and share it.",
+    "icon": "rocket",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/How_Tos/02_Create_a_Google_Maps_Shortcode",
+    "title": "How to Create a Google Maps Shortcode",
+    "summary": "Learn how to embed a Google map in the WYSIWYG editor with a simple shortcode",
+    "icon": "map",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/How_Tos/03_Track_member_logins",
+    "title": "Track member logins",
+    "summary": "Keep a log in the database of who logs in and when",
+    "icon": "user-friends",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/05_Extending/index",
+    "title": "Extending Silverstripe CMS",
+    "summary": "Understand the ways to modify the built-in functionality through Extensions, Subclassing and Dependency Injection.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/00_Unit_Testing",
+    "title": "Unit and Integration Testing",
+    "summary": "Test models, database logic and your object methods.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/01_Functional_Testing",
+    "title": "Functional Testing",
+    "summary": "Test controllers, forms and HTTP responses.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/02_Behavior_Testing",
+    "title": "Behavior Testing",
+    "summary": "Describe how your application should behave in plain text and run tests in a browser.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/04_Fixtures",
+    "title": "Fixtures",
+    "summary": "Populate test databases with fake seed data.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/05_Testing_Glossary",
+    "title": "Testing Glossary",
+    "summary": "All the jargon you need to be a bonafide testing guru",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/How_Tos/00_Write_a_SapphireTest",
+    "title": "How to write a SapphireTest",
+    "summary": "Learn the basics of unit testing in Silverstripe",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/How_Tos/01_Write_a_FunctionalTest",
+    "title": "How to write a FunctionalTest",
+    "summary": "Expand your testing capabilities with integrations tests",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/How_Tos/02_FixtureFactories",
+    "title": "How to use a FixtureFactory",
+    "summary": "Provide context to your tests with database fixtures",
+    "icon": "industry",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/How_Tos/03_Testing_Email",
+    "title": "How to test emails within unit tests",
+    "summary": "Test email functionality without ever hitting an inbox",
+    "icon": "envelope",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/06_Testing/index",
+    "title": "Testing",
+    "summary": "Deploy robust applications by bundling Unit and Behavior tests with your application code and modules.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/07_Debugging/00_Environment_Types",
+    "title": "Environment Types",
+    "summary": "Configure your Silverstripe CMS environment to define how your web application behaves.",
+    "icon": "exclamation-circle",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/07_Debugging/01_Error_Handling",
+    "title": "Logging and Error Handling",
+    "summary": "Trap, fire and report diagnostic logs, user exceptions, warnings and errors.",
+    "icon": "exclamation-circle",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/07_Debugging/02_URL_Variable_Tools",
+    "title": "URL Variable tools",
+    "summary": "Useful debugging tools you can use right in the browser",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/07_Debugging/03_Template_debugging",
+    "title": "Template debugging",
+    "summary": "Track down which template rendered a piece of html",
+    "icon": "bug",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/07_Debugging/index",
+    "title": "Debugging",
+    "summary": "Learn how to identify errors in your application and best practice for logging application errors.",
+    "icon": "bug",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/00_Partial_Template_Caching",
+    "title": "Partial template caching",
+    "summary": "Cache Silverstripe CMS templates to reduce database queries.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/01_Object_Caching",
+    "title": "Object caching",
+    "summary": "Optimise performance by caching expensive processes",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/02_Cache_Adapters",
+    "title": "Cache adapters",
+    "summary": "Cache adapters supported by symfony/cache",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/03_HTTP_Cache_Headers",
+    "title": "HTTP Cache Headers",
+    "summary": "Set the correct HTTP cache headers for your responses.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/04_Static_Publishing",
+    "title": "Static Publishing",
+    "summary": "Export web pages as static HTML",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/06_ORM",
+    "title": "ORM Performance",
+    "summary": "Configuration and tips for improving ORM performance",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/07_Eager_Loading",
+    "title": "Eager loading",
+    "summary": "Avoid the N + 1 queries with eager loading",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/08_Read_only_database_replicas",
+    "title": "Read-only database replicas",
+    "summary": "Using read-only database replicas to improve performance",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/09_Configuration_Options",
+    "title": "Configuration Options",
+    "summary": "Configuration options for improving performance",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/10_Other_Optimisations",
+    "title": "Other Optimisations",
+    "summary": "Other performance optimisations",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/08_Performance/index",
+    "title": "Performance",
+    "summary": "Make your applications faster by learning how to write more scalable code and ways to cache your important information.",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/00_Member",
+    "title": "Members",
+    "summary": "Learn how logged in users are managed in Silverstripe CMS",
+    "icon": "user",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/01_Access_Control",
+    "title": "Access Control",
+    "summary": "Restrict CMS access to specific groups of users",
+    "icon": "user-lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/02_Permissions",
+    "title": "Permissions",
+    "summary": "Customise the permission system in Silverstripe",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/03_Authentication",
+    "title": "Authentication",
+    "summary": "Explains Silverstripe CMS's Authentication options and custom authenticators.",
+    "icon": "users-cog",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/04_Sudo_Mode",
+    "title": "Sudo Mode",
+    "summary": "Require users to verify their identity when performing sensitive actions",
+    "icon": "key",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/05_Secure_Coding",
+    "title": "Security",
+    "summary": "Learn how to minimise vulnerabilities in your code",
+    "icon": "user-secret",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/06_Rate_Limiting",
+    "title": "Rate Limiting",
+    "summary": "Silverstripe CMS's in built rate limiting features",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/07_Personal_Data",
+    "title": "Personal Data",
+    "summary": "How the Silverstripe CMS deals with data privacy",
+    "icon": "user-ninja",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/08_SQL_Placeholders",
+    "title": "SQL Placeholders",
+    "summary": "SQL placeholders in ORM queries",
+    "icon": "tachometer-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/09_Security/index",
+    "title": "Security",
+    "summary": "This guide covers user authentication, the permission system and how to secure your code against malicious behaviors",
+    "icon": "user-shield",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/10_Email/index",
+    "title": "Email",
+    "summary": "Send HTML and plain text email from your Silverstripe CMS application.",
+    "icon": "envelope-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/11_Integration/00_CSV_Import",
+    "title": "CSV Import",
+    "summary": "Load data into your Silverstripe CMS database in bulk",
+    "icon": "upload",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/11_Integration/02_RSSFeed",
+    "title": "RSS Feed",
+    "summary": "Output records from your database as an RSS Feed.",
+    "icon": "rss",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/11_Integration/How_Tos/Import_CSV_through_a_Controller",
+    "title": "Import CSV Data through a Controller",
+    "summary": "Data importing through the frontend",
+    "icon": "upload",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/11_Integration/How_Tos/custom_csvbulkloader",
+    "title": "A custom CSVBulkLoader instance",
+    "summary": "Customise your data importing",
+    "icon": "upload",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/11_Integration/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/11_Integration/index",
+    "title": "Integration and Web Services",
+    "summary": "Integrate other web services within your application or make your Silverstripe CMS data available.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/12_Search/01_Searchcontext",
+    "title": "Scaffolding with SearchContext",
+    "summary": "Configure the search form within ModelAdmin using the SearchContext class.",
+    "icon": "search",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/12_Search/02_FulltextSearch",
+    "title": "Fulltext Search",
+    "summary": "Fulltext search allows sophisticated searching on text content.",
+    "icon": "search",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/12_Search/index",
+    "title": "Search",
+    "summary": "Provide your users with advanced search functionality.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/13_i18n/index",
+    "title": "i18n",
+    "summary": "Display templates and PHP code in different languages based on the preferences of your website users.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/01_File_Management",
+    "title": "File management",
+    "summary": "Learn how to manage File and Image records",
+    "icon": "file-signature",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/02_Images",
+    "title": null,
+    "summary": "Learn how to crop and resize images in templates and PHP code",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/03_File_Security",
+    "title": "File security",
+    "summary": "Manage access permission to assets",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/04_File_Storage",
+    "title": "File storage",
+    "summary": "Describes the persistence layer of files",
+    "icon": "hdd",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/05_File_Manipulation",
+    "title": "File manipulation and conversion",
+    "summary": "Learn how to manipulate and convert file records in code",
+    "icon": "file-medical-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/06_Allowed_file_types",
+    "title": "Allowed file types",
+    "summary": "Control the type of files that can be stored in your Silverstripe CMS project",
+    "icon": "lock",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/07_File_Usage",
+    "title": "File usage",
+    "summary": "See file usage and customising the file \"Used on\" table",
+    "icon": "compress-arrows-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/14_Files/index",
+    "title": "Files",
+    "summary": "Upload, manage and manipulate files and images.",
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/01_ModelAdmin",
+    "title": "Managing Multiple Records",
+    "summary": "Create admin UI's for managing multiple records at once with ModelAdmin",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/03_SingleRecordAdmin",
+    "title": "Single-record Admin Sections",
+    "summary": "Create admin UI's for managing a single record with SingleRecordAdmin",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/04_CMS_Architecture",
+    "title": "CMS Architecture",
+    "summary": "An overview of the code architecture of the CMS",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/05_CMS_Layout",
+    "title": "Admin Layout",
+    "summary": "Add interactivity enhancements to the admin with Javascript",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/06_Preview",
+    "title": "Preview",
+    "summary": "How content previews work in the CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/07_Status_Flags",
+    "title": "Status Flags",
+    "summary": "Provide information about the status of content in the CMS",
+    "icon": "icon-square",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/10_Javascript_Development",
+    "title": "Javascript Development",
+    "summary": "Advanced documentation about writing and customizing javascript within Silverstripe CMS.",
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/11_jQuery_Entwine",
+    "title": "jQuery Entwine",
+    "summary": null,
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/12_ReactJS_and_Redux",
+    "title": "React and Redux",
+    "summary": "Learn how to extend and customise the technologies we use for application state and client-rendered UI.",
+    "icon": null,
+    "iconBrand": "react",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/CMS_Alternating_Button",
+    "title": "CMS alternating button",
+    "summary": "Add an \"active\" and \"neutral\" state to the CMS buttons",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/CMS_Formfield_Help_Text",
+    "title": "CMS form field help text",
+    "summary": "Add help text to the form fields in the CMS",
+    "icon": "question",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Menu",
+    "title": "Customise the CMS Menu",
+    "summary": "Make custom changes to the left hand menu in the CMS",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Pages_List",
+    "title": "Customise the CMS pages list",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_CMS_Tree",
+    "title": "Customise the CMS tree",
+    "summary": "Learn how to add custom UI elements to the CMS page navigation",
+    "icon": "sitemap",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_React_Components",
+    "title": "Customising React components",
+    "summary": "Learn how to use Injector to override React-rendered form fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_React_Forms",
+    "title": "Customising React forms",
+    "summary": "Use Injector to add customisations to React-rendered forms",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Customise_Site_Reports",
+    "title": "Customise site reports",
+    "summary": "Creating your own custom data or content reports.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Extend_CMS_Interface",
+    "title": "Extend the CMS interface",
+    "summary": "Customise the UI of the CMS backend",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/Extending_An_Existing_ModelAdmin",
+    "title": "Extending an existing ModelAdmin",
+    "summary": "ModelAdmin interfaces that come with the core can be customised easily",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/How_Tos/index",
+    "title": "How To's",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/15_Customising_the_Admin_Interface/index",
+    "title": "Customising the Admin Interface",
+    "summary": "Extend the admin view to provide custom behavior or new features for CMS and admin users.",
+    "icon": null,
+    "iconBrand": "react",
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/16_Execution_Pipeline/01_Flushable",
+    "title": "Flushable",
+    "summary": "Allows a class to define it's own flush functionality.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/16_Execution_Pipeline/02_Manifests",
+    "title": "Manifests",
+    "summary": "Manage caches of file path maps and other expensive information",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/16_Execution_Pipeline/03_App_Object_and_Kernel",
+    "title": "Kernel and Application",
+    "summary": "Provides bootstrapping and entrypoint to the Silverstripe CMS application",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/16_Execution_Pipeline/index",
+    "title": "Execution pipeline",
+    "summary": "An overview of the steps involved in delivering a Silverstripe CMS web page.",
+    "icon": "route",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/17_CLI/01_Sake",
+    "title": "Sake",
+    "summary": "Run commands against your Silverstripe CMS project on the command line",
+    "icon": "terminal",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/17_CLI/02_PolyCommand",
+    "title": "PolyCommand",
+    "summary": "Code that can be run both from the command line and via HTTP requests",
+    "icon": "tasks-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/17_CLI/index",
+    "title": "Command Line Interface (CLI)",
+    "summary": "Automate Silverstripe CMS, run Cron Jobs or sync with other platforms through the Command Line Interface.",
+    "icon": "terminal",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/18_Cookies_And_Sessions/01_Cookies",
+    "title": "Cookies",
+    "summary": "A set of static methods for manipulating PHP cookies.",
+    "icon": "cookie-bite",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/18_Cookies_And_Sessions/02_Sessions",
+    "title": "Sessions",
+    "summary": "A set of static methods for manipulating PHP sessions.",
+    "icon": "user",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/18_Cookies_And_Sessions/03_Managing_Sessions",
+    "title": "Managing Sessions",
+    "summary": "Managing user sessions using session manager.",
+    "icon": "address-book",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/18_Cookies_And_Sessions/index",
+    "title": "Cookies and Sessions",
+    "summary": "Save state information using the Cookie class and the Session class.",
+    "icon": "cookie",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/20_Deprecations/index",
+    "title": "Deprecating code",
+    "summary": "Details about how to deprecate code and emit or suppress deprecation warnings",
+    "icon": "exclamation-circle",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/02_Developer_Guides/index",
+    "title": "Developer Guides",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/04_Optional_Features/index",
+    "title": "Optional features",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/06_Upgrading/01_Keeping_projects_up_to_date",
+    "title": "Staying up to date with CMS releases",
+    "summary": "Guidance on upgrading your website with new recipe releases",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/06_Upgrading/07_Deprecations",
+    "title": "Deprecations",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/06_Upgrading/index",
+    "title": "Upgrading",
+    "summary": "The following guides will help you upgrade your project or module to Silverstripe CMS 6.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/6.0.0",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/6.1.0",
+    "title": "6.1.0",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/alpha/6.0.0-alpha1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/alpha/index",
+    "title": "Alpha Changelogs",
+    "summary": null,
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/beta/6.0.0-beta1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/beta/6.1.0-beta1",
+    "title": "6.1.0-beta1",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/beta/index",
+    "title": "Beta Changelogs",
+    "summary": null,
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/index",
+    "title": "Changelogs",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/rc/6.0.0-rc1",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/rc/6.1.0-rc1",
+    "title": "6.1.0-rc1",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/08_Changelogs/rc/index",
+    "title": "Release Candidate Changelogs",
+    "summary": null,
+    "icon": "folder-open",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/00_Issues_and_Bugs",
+    "title": "Issues and Bug Reports",
+    "summary": "Report bugs or problems with Silverstripe CMS, feature requests or other issues.",
+    "icon": "bug",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/01_Code",
+    "title": "Contributing Code",
+    "summary": "Fix bugs and add new features to help make Silverstripe CMS better.",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/02_Documentation",
+    "title": "Contributing Documentation",
+    "summary": "Guide for contributing to Silverstripe CMS developer and CMS user help documentation.",
+    "icon": "file-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/03_Translations",
+    "title": "Contributing Translations",
+    "summary": "Translate interface components like button labels into multiple languages.",
+    "icon": "globe",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/05_Coding_Conventions/01_PHP_Coding_Conventions",
+    "title": "PHP coding conventions",
+    "summary": "The code style guidelines we use in our open source software",
+    "icon": null,
+    "iconBrand": "php",
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/05_Coding_Conventions/02_JavaScript_Coding_Conventions",
+    "title": "Javascript coding conventions",
+    "summary": "The Javascript style guidelines we follow in our open source software",
+    "icon": null,
+    "iconBrand": "js",
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/05_Coding_Conventions/03_CSS_Coding_Conventions",
+    "title": "CSS coding conventions",
+    "summary": "The CSS style guidelines we follow in our open source software",
+    "icon": null,
+    "iconBrand": "css3",
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/05_Coding_Conventions/index",
+    "title": "Coding conventions",
+    "summary": "The style guidelines we follow in all of our open source code",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/06_Build_Tooling",
+    "title": "Build tooling",
+    "summary": "The tools we use to compile our client-side code",
+    "icon": "tools",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/08_Triage_Resources",
+    "title": "Triage and peer review",
+    "summary": "Canned responses and other resources used during triage and peer review",
+    "icon": "users",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/09_Release_Process",
+    "title": "Release process",
+    "summary": "Describes the process followed for \"core\" releases.",
+    "icon": null,
+    "iconBrand": "git-alt",
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/10_Managing_Security_Issues",
+    "title": "Managing security issues",
+    "summary": "This document highlights how the Silverstripe CMS security team handles security issues.",
+    "icon": "shield-alt",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/10_Contributing/index",
+    "title": "Contributing",
+    "summary": "Any open source product is only as good as the community behind it. You can participate by sharing code, ideas, or simply helping others. No matter what your skill level is, every contribution counts.",
+    "icon": "heart",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/01_Core_committers",
+    "title": "Core committers",
+    "summary": "The team of contributors that has merge access to our open source repositories",
+    "icon": "users",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/02_Code_of_conduct",
+    "title": "Code of conduct",
+    "summary": "How to be a high-performing, helpful member of our community",
+    "icon": "handshake",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/03_Maintainer_Guidelines",
+    "title": "Maintainer guidelines",
+    "summary": "Cheat sheet for module maintainers",
+    "icon": "clipboard-list",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/04_Request_for_comment",
+    "title": "Request for comment",
+    "summary": "Our approach to decision-making around impactful changes to the product",
+    "icon": "comments",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/05_Release_policy",
+    "title": "Release policy",
+    "summary": "Outlines the release lifecycle and support commitments for Silverstripe CMS",
+    "icon": "code-branch",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/07_Supported_Modules",
+    "title": "Supported modules",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/08_Fixed_dependencies",
+    "title": "Fixed dependencies",
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/08_Public_API",
+    "title": "Definition of Public API",
+    "summary": "A definition of what we consider to be \"public API\" which is protected by semantic versioning",
+    "icon": "code",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/09_Repository_Management",
+    "title": "GitHub repository management",
+    "summary": "Information about management of the various GitHub repositories",
+    "icon": null,
+    "iconBrand": "github",
+    "order": null
+  },
+  {
+    "id": "v6/12_Project_Governance/index",
+    "title": "Project Governance",
+    "summary": "Detailed how the Silverstripe CMS Project operates.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/index",
+    "title": "Silverstripe Documentation",
+    "summary": "Welcome to the Silverstripe Developer Documentation. This website is aimed at website developers looking to learn how to build and manage web applications with the Silverstripe Framework.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/.github/ISSUE_TEMPLATE/3_blank_issue",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/.github/PULL_REQUEST_TEMPLATE",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/README",
+    "title": null,
+    "summary": null,
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/01_basic_usage",
+    "title": "Basic usage",
+    "summary": "How to set up your link relations and fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/02_configuration",
+    "title": "Configuring links and link fields",
+    "summary": "Advanced usage of the Link model and link fields",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/03_templates",
+    "title": "Rendering links in templates",
+    "summary": "How to render links in templates, and what templates to override",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/08_gotchas",
+    "title": "Gotchas",
+    "summary": "Behaviour or scenarios that might be unexpected, and how to deal with them",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/09_migrating/02_gorriecoe-migration",
+    "title": "Migrating from gorriecoe/silverstripe-linkfield",
+    "summary": "A guide for migrating from gorriecoe/silverstripe-linkfield",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/09_migrating/index",
+    "title": "Migrating to silverstripe/linkfield",
+    "summary": "Guides for migrating to silverstripe/linkfield",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/index",
+    "title": "Linkfield",
+    "summary": "Provides a Link model and CMS interface for managing different types of links",
+    "icon": "link",
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/userguide/01_links_types",
+    "title": "Links types",
+    "summary": "Primary link types provided by the LinkField module.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/userguide/02_work_with_link_field",
+    "title": "Using the link field",
+    "summary": "How to work with the link field and multi-ink field in the CMS.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  },
+  {
+    "id": "v6/optional_features/linkfield/docs/en/userguide/index",
+    "title": "Managing links in the CMS",
+    "summary": "How to use the Link Field module to manage links in the CMS.",
+    "icon": null,
+    "iconBrand": null,
+    "order": null
+  }
+]

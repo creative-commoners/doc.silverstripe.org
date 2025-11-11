@@ -1,5 +1,7 @@
+@use 'sass:color';
+@use 'bootstrap/scss/functions' as *;
+
 // Import Bootstrap functions first (needed for variables)
-@import 'bootstrap/scss/functions';
 
 // Custom color definitions
 $blue:       #0066cc;
@@ -21,7 +23,7 @@ $gray-500:   #adb5bd;
 $gray-600:   #6c757d;
 $gray-700:   #495057;
 $gray-800:   #343a40;
-$gray-850:   lighten(#495057, 5%);
+$gray-850:   color.adjust(#495057, $lightness: 5%);
 $gray-900:   #212529;
 
 // Primary brand colors
@@ -37,11 +39,11 @@ $dark:       $gray-800;
 // Custom theme colors
 $theme-color-primary: $primary;
 $theme-success-color: $success;
-$theme-success-color-dark: darken($success, 10%);
-$theme-info-color-dark: darken($info, 10%);
+$theme-success-color-dark: color.adjust($success, $lightness: -10%);
+$theme-info-color-dark: color.adjust($info, $lightness: -10%);
 $theme-warning-color: $warning;
-$theme-warning-color-dark: darken($warning, 10%);
-$theme-danger-color-dark: darken($danger, 10%);
+$theme-warning-color-dark: color.adjust($warning, $lightness: -10%);
+$theme-danger-color-dark: color.adjust($danger, $lightness: -10%);
 
 // Typography
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -63,4 +65,4 @@ $container-max-widths: (
 $header-height: 70px;
 
 // Theme background
-$theme-bg-light: lighten(#495057, 65%);
+$theme-bg-light: color.adjust(#495057, $lightness: 65%);

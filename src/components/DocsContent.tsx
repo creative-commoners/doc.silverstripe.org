@@ -5,6 +5,7 @@ interface Props {
   children: ReactNode;
   version: string;
   slug?: string;
+  docId?: string;
 }
 
 type SlugMap = Record<string, string>;
@@ -123,12 +124,16 @@ function resolveRelativeLink(href: string, version: string, parentDir: string, s
   return (finalUrl + hashFragment).replace(/\/+/g, '/');
 }
 
-export default function DocsContent({ children, version, slug = '' }: Props) {
+/**
+ * Wrapper component that processes links with slug map and provides context to children
+ */
+export default function DocsContent({ children, version, slug = '', docId = '' }: Props) {
   // Get the current page's directory context from the slug
   const slugParts = slug.split('/').filter(p => p);
   const pageDir = slugParts.length > 1 ? slugParts.slice(0, -1).join('/') : (slugParts.length === 1 ? slugParts[0] : '');
   const containerRef = useRef<HTMLDivElement>(null);
   const [slugMap, setSlugMap] = useState<SlugMap>({});
+  const [initialized, setInitialized] = useState(false);
 
   // Load the slug map on mount
   useEffect(() => {
@@ -140,7 +145,8 @@ export default function DocsContent({ children, version, slug = '' }: Props) {
 
   // Process links when slug map is loaded
   useEffect(() => {
-    if (!containerRef.current || Object.keys(slugMap).length === 0) return;
+    if (!containerRef.current) return;
+    if (Object.keys(slugMap).length === 0) return;
     
     // Find all links in the container and fix their hrefs
     const links = containerRef.current.querySelectorAll('a[href]');
@@ -162,10 +168,20 @@ export default function DocsContent({ children, version, slug = '' }: Props) {
         }
       }
     });
+
+    setInitialized(true);
   }, [version, pageDir, slugMap]);
 
   return (
-    <div ref={containerRef} className="docs-content-wrapper" data-version={version} data-slug={slug} data-page-dir={pageDir}>
+    <div 
+      ref={containerRef} 
+      className="docs-content-wrapper" 
+      data-version={version} 
+      data-slug={slug} 
+      data-page-dir={pageDir}
+      data-current-doc-id={docId}
+      data-initialized={initialized}
+    >
       {children}
     </div>
   );

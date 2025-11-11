@@ -63,7 +63,7 @@ const formattedHeadings = headings
     </div>
   )}
   
-  <DocsContent client:load version={version} slug={undefined}>
+  <DocsContent client:load version={version} slug={undefined} docId={doc.id}>
     <Content />
   </DocsContent>
 </DocsLayout>

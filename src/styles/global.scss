@@ -1,8 +1,9 @@
-// Import variables first
-@import './variables.scss';
+@use 'sass:color';
+@use './variables.scss' as vars;
+@use 'bootstrap/scss/bootstrap' as *;
 
+// Import variables first
 // Import Bootstrap v5 (already configured with our variables above)
-@import 'bootstrap/scss/bootstrap.scss';
 
 // ============================================================================
 // GLOBAL STYLES
@@ -22,9 +23,9 @@ body {
 }
 
 body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  font-family: vars.$font-family-base;
+  font-size: vars.$font-size-base;
+  line-height: vars.$line-height-base;
   color: #333;
   background-color: #fff;
 }
@@ -44,7 +45,7 @@ html {
 // ============================================================================
 
 a {
-  color: $primary;
+  color: vars.$primary;
   text-decoration: none;
   
   &:hover {
@@ -119,7 +120,7 @@ code[class*="language-"], pre[class*="language-"] {
 
 .header {
   background-color: #fff;
-  border-bottom: 1px solid $gray-300;
+  border-bottom: 1px solid vars.$gray-300;
   padding: 0.75rem 0;
   position: sticky;
   top: 0;
@@ -142,7 +143,7 @@ code[class*="language-"], pre[class*="language-"] {
 // ============================================================================
 
 .nav-link {
-  color: $primary;
+  color: vars.$primary;
   text-decoration: none;
   
   &:hover {
@@ -159,7 +160,7 @@ code[class*="language-"], pre[class*="language-"] {
 .section-title {
   font-weight: 600;
   margin: 1rem 0;
-  color: $gray-700;
+  color: vars.$gray-700;
 }
 
 // ============================================================================
@@ -228,7 +229,7 @@ code[class*="language-"], pre[class*="language-"] {
   appearance: none;
   border: 1px solid #ddd;
   background: #f8f9fa;
-  color: $gray-800;
+  color: vars.$gray-800;
   padding: 0.5rem 0.75rem;
   border-radius: 4px;
   cursor: pointer;
@@ -238,7 +239,7 @@ code[class*="language-"], pre[class*="language-"] {
   
   &:hover {
     background: #e9ecef;
-    border-color: #adb5bd;
+    border-color: vars.$gray-500;
   }
 }
 
@@ -292,7 +293,7 @@ h1, h2, h3 {
   gap: 0.5rem;
   
   a {
-    color: $gray-850;
+    color: vars.$gray-850;
     text-decoration: none;
     font-size: 0.9rem;
     
@@ -305,7 +306,7 @@ h1, h2, h3 {
 .copy-button {
   appearance: none;
   background: #333;
-  color: $theme-warning-color;
+  color: vars.$theme-warning-color;
   border: none;
   padding: 0.25rem 0.5rem;
   font-size: 0.85rem;
@@ -315,7 +316,7 @@ h1, h2, h3 {
   
   &:hover, &:active {
     background: #555;
-    color: $theme-warning-color-dark;
+    color: vars.$theme-warning-color-dark;
   }
 }
 

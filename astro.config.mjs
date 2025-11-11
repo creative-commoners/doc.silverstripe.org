@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { remarkConvertImagesToPictures } from './src/utils/remarkConvertImages.mjs';
 import { remarkLanguageAliases } from './src/utils/remarkPlugins.ts';
+import remarkChildrenBlocks from './src/utils/remarkChildrenBlocks.ts';
 import { 
   rehypeHeaders, 
   rehypeFixLinks, 
@@ -25,17 +26,12 @@ export default defineConfig({
     react(),
     mdx({
       optimize: false,
-      remarkPlugins: [],
+      remarkPlugins: [remarkChildrenBlocks],
       // remarkPlugins: [remarkConvertImagesToPictures],
     }),
     sitemap()
   ],
   srcDir: './src',
-  vite: {
-    alias: {
-      '@content': join(__dirname, '.cache/content/docs'),
-    },
-  },
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
@@ -43,7 +39,7 @@ export default defineConfig({
       langs: ['javascript', 'typescript', 'html', 'css', 'bash', 'php', 'yaml', 'json'],
       wrap: true,
     },
-    remarkPlugins: [remarkLanguageAliases],
+    remarkPlugins: [remarkLanguageAliases, remarkChildrenBlocks],
     rehypePlugins: [
       rehypeHeaders,
       rehypeTables,
@@ -51,13 +47,17 @@ export default defineConfig({
       // rehypeFixLinks is disabled - link fixing is done client-side in DocsContent component
       // to have access to the current page's slug for proper relative link resolution
       rehypeCallouts,
+      // rehypeChildrenRenderer is disabled - [CHILDREN] rendering is done client-side in DocsLayout
     ],
   },
   vite: {
+    alias: {
+      '@content': join(__dirname, '.cache/content/docs'),
+    },
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "variables.scss";`
+          silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions']
         }
       }
     },

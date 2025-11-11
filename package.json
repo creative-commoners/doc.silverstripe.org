@@ -11,10 +11,11 @@
     "generate-nav": "node scripts/generate-nav.js",
     "generate-slug-map": "node scripts/generate-slug-map.js",
     "copy-images": "node scripts/copy-images.js",
-    "dev": "npm run setup-content && npm run fix-paths && npm run copy-images && npm run generate-nav && npm run generate-slug-map && astro dev",
-    "build": "npm run clone-docs && npm run setup-content && npm run clean && npm run fix-paths && npm run copy-images && npm run generate-nav && npm run generate-slug-map && astro build",
+    "dev": "npm run setup-content && npm run fix-paths && npm run copy-images && npm run generate-nav && npm run generate-slug-map && npm run generate-docs-index && astro dev",
+    "build": "npm run clone-docs && npm run setup-content && npm run clean && npm run fix-paths && npm run copy-images && npm run generate-nav && npm run generate-slug-map && npm run generate-docs-index && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-docs-index": "node scripts/generate-docs-index.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.10",
