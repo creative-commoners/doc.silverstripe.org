@@ -182,7 +182,6 @@ function escapeHtml(text: string | null): string {
 }
 
 async function renderChildrenBlocks() {
-  console.log('🎯 renderChildrenBlocks() client-side script started');
   
   // Wait for current document ID to be available
   let attempts = 0;
@@ -199,48 +198,37 @@ async function renderChildrenBlocks() {
   }
 
   if (!currentDocId) {
-    console.warn('⚠️ [CHILDREN] Could not find document ID after 50 attempts');
     return;
   }
-
-  console.log('📍 Current document ID found:', currentDocId);
 
   // Remove .md or .mdx extension from document ID to match docs index format
   let docId = currentDocId;
   if (docId.endsWith('.md') || docId.endsWith('.mdx')) {
     docId = docId.replace(/\.mdx?$/, '');
-    console.log('🔧 Normalized document ID (removed extension):', docId);
   }
 
   // Load docs index
   let allDocsData: DocIndexEntry[];
   try {
-    console.log('🔍 Fetching docs-index.json...');
     const response = await fetch('/docs-index.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     allDocsData = await response.json();
-    console.log('📚 Docs index loaded:', allDocsData.length, 'entries');
   } catch (err) {
-    console.error('❌ [CHILDREN] Failed to load docs index:', err);
     return;
   }
 
   // Parse current document
   const parsed = parseDocId(docId);
-  console.log('🔎 Parsed current document:', { version: parsed.version, isIndex: parsed.isIndex, pathParts: parsed.pathParts });
 
   // Filter docs for this version
   const versionDocs = allDocsData.filter(doc => doc.id.startsWith(`${parsed.version}/`));
-  console.log('🎯 Filtered', versionDocs.length, `docs for version ${parsed.version}`);
 
   // Process all [CHILDREN] elements
   const childrenElements = document.querySelectorAll('childrenlistrenderer');
-  console.log('🔎 Found', childrenElements.length, '<childrenlistrenderer> elements to process');
   
   for (let elemIndex = 0; elemIndex < childrenElements.length; elemIndex++) {
     const el = childrenElements[elemIndex];
     try {
-      console.log(`\n📦 Processing element ${elemIndex + 1}/${childrenElements.length}`);
       
       // Extract props from attributes
       const folder = el.getAttribute('folder') || undefined;
@@ -250,69 +238,52 @@ async function renderChildrenBlocks() {
       const includeFolders = el.getAttribute('include-folders') === 'true';
       const reverse = el.getAttribute('reverse') === 'true';
 
-      console.log('⚙️ Element props:', { folder, only, exclude, asList, includeFolders, reverse });
-
       let childrenList: DocIndexEntry[] = [];
 
       if (folder) {
-        console.log('📂 Using folder filter:', folder);
         childrenList = getChildrenByFolder(versionDocs, docId, folder);
       } else if (only) {
-        console.log('🔖 Using only filter:', only);
         const matchingFolders = getChildren(versionDocs, docId, true).filter(doc => {
           const folderName = getFolderName(doc.id);
           return only.some(name => name.toLowerCase() === folderName.toLowerCase());
         });
-        console.log('🔍 Matching folders found:', matchingFolders.length);
         
         for (const parentFolder of matchingFolders) {
           const folderChildren = getChildren(versionDocs, parentFolder.id, false);
           childrenList.push(...folderChildren);
         }
       } else if (exclude) {
-        console.log('🚫 Using exclude filter:', exclude);
         childrenList = getChildren(versionDocs, docId, includeFolders);
         childrenList = childrenList.filter(doc => {
           const folderName = getFolderName(doc.id);
           return !exclude.some(name => name.toLowerCase() === folderName.toLowerCase());
         });
       } else {
-        console.log('📋 Using default filter (children if index, siblings if not)');
         if (parsed.isIndex) {
           // For index pages, get children but ONLY folder indices, not leaf pages
           childrenList = getChildren(versionDocs, docId, false);
-          console.log('📚 Getting children folders (document is index, includeFolders=false)');
         } else {
           childrenList = getSiblings(versionDocs, docId, includeFolders);
-          console.log('👥 Getting siblings (document is not index)');
         }
       }
 
-      console.log('📊 Children list before sort:', childrenList.length, 'items');
-
       // Sort
       childrenList = sortDocs(childrenList);
-      console.log('✅ Children sorted alphabetically by title/folder name');
 
       // Reverse if needed
       if (reverse) {
         childrenList.reverse();
-        console.log('🔄 Children list reversed');
       }
 
       if (childrenList.length === 0) {
-        console.log('⏭️ No children found, removing element');
         el.remove();
         continue;
       }
-
-      console.log('🎨 Final children list:', childrenList.length, 'items');
 
       // Render HTML
       let html = '';
       
       if (asList) {
-        console.log('📄 Rendering as definition list (asList)');
         html = '<div class="docs-overview py-5"><dl>';
         for (const child of childrenList) {
           const title = child.title || getFolderName(child.id);
@@ -326,7 +297,6 @@ async function renderChildrenBlocks() {
         }
         html += '</dl></div>';
       } else {
-        console.log('🏛️ Rendering as card grid (default)');
         html = '<div class="docs-overview py-5"><div class="row">';
         
         for (const child of childrenList) {
@@ -358,31 +328,22 @@ async function renderChildrenBlocks() {
         html += '</div></div>';
       }
 
-      console.log('📝 Generated HTML (length:', html.length, 'chars)');
-
       // Replace element
       const wrapper = document.createElement('div');
       wrapper.innerHTML = html;
       const newElement = wrapper.firstElementChild;
       if (newElement) {
         el.parentNode?.replaceChild(newElement, el);
-        console.log('✨ Element replaced with rendered content');
-      } else {
-        console.log('⚠️ Could not get first element from wrapper');
       }
     } catch (err) {
-      console.error('❌ [CHILDREN] Error rendering block:', err);
+      console.error('[CHILDREN] Error rendering block:', err);
     }
   }
-  
-  console.log('✅ renderChildrenBlocks() completed');
 }
 
 // Run when ready
 if (document.readyState === 'loading') {
-  console.log('⏳ DOM still loading, waiting for DOMContentLoaded...');
   document.addEventListener('DOMContentLoaded', renderChildrenBlocks);
 } else {
-  console.log('📄 DOM already loaded, running renderChildrenBlocks immediately');
   renderChildrenBlocks();
 }

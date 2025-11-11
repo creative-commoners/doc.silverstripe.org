@@ -62,18 +62,15 @@ function parseChildrenBlock(text: string): ChildrenBlockData | null {
  */
 export default function remarkChildrenBlocks() {
   return (tree: Root) => {
-    console.log('🦄 remarkChildrenBlocks() remark plugin initialized');
     visit(tree, 'paragraph', (node, index, parent) => {
       if (!parent || index === undefined) return;
       
       // Check if paragraph contains only [CHILDREN] text
       if (node.children.length === 1 && node.children[0].type === 'text') {
         const text = node.children[0].value.trim();
-        console.log('📝 Checking paragraph:', text);
         const childrenData = parseChildrenBlock(text);
         
         if (childrenData) {
-          console.log('✅ [CHILDREN] block parsed:', JSON.stringify(childrenData));
           // Build HTML attributes
           const attrs: string[] = [];
           
@@ -98,14 +95,12 @@ export default function remarkChildrenBlocks() {
           
           // Create custom HTML element
           const html = `<childrenlistrenderer ${attrs.join(' ')}></childrenlistrenderer>`;
-          console.log('🏗️ Created HTML element:', html);
           
           // Replace paragraph with HTML node
           parent.children[index] = {
             type: 'html',
             value: html,
           } as any;
-          console.log('✨ Paragraph replaced with childrenlistrenderer element');
         }
       }
     });
