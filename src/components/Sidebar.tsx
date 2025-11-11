@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { NavItem } from '../utils/contentHelpers';
+import { scrollElementIntoView } from '../utils/sidebarHelpers';
 import '../styles/sidebar.scss';
 
 interface Props {
@@ -46,11 +47,24 @@ export default function Sidebar({ version, currentPath }: Props) {
     loadExpandedPaths(version)
   );
   const [isLoading, setIsLoading] = useState(true);
+  const activeItemRef = useRef<HTMLLIElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
 
   // Save expanded paths to localStorage whenever they change
   useEffect(() => {
     saveExpandedPaths(version, expandedPaths);
   }, [expandedPaths, version]);
+
+  // Scroll active item into view after navigation
+  useEffect(() => {
+    if (activeItemRef.current && navRef.current) {
+      // Use setTimeout to ensure DOM has updated after expansion
+      const timer = setTimeout(() => {
+        scrollElementIntoView(activeItemRef.current!);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [currentPath]);
 
   useEffect(() => {
     const loadNavigation = async () => {
@@ -65,9 +79,10 @@ export default function Sidebar({ version, currentPath }: Props) {
         const ancestorPaths = new Set<string>();
         const parts = currentPath.split('/').filter(Boolean);
         let currentPath_ = '';
-        for (const part of parts) {
-          currentPath_ += '/' + part;
-          ancestorPaths.add(currentPath_);
+        for (let i = 0; i < parts.length - 1; i++) {
+          // Don't include the last part (current page), only ancestors
+          currentPath_ += parts[i] + '/';
+          ancestorPaths.add('/' + currentPath_);
         }
         
         // Combine stored paths with current page ancestors
@@ -97,9 +112,14 @@ export default function Sidebar({ version, currentPath }: Props) {
     const isActive = currentPath === item.path || currentPath.startsWith(item.path + '/');
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = expandedPaths.has(item.path);
+    const isCurrentPage = currentPath === item.path;
 
     return (
-      <li key={item.path} className={`sidebar-item sidebar-depth-${depth} ${isActive ? 'sidebar-active' : ''}`}>
+      <li 
+        key={item.path} 
+        ref={isCurrentPage ? activeItemRef : null}
+        className={`sidebar-item sidebar-depth-${depth} ${isActive ? 'sidebar-active' : ''} ${isCurrentPage ? 'sidebar-current-page' : ''}`}
+      >
         <div className="sidebar-item-header">
           {hasChildren && (
             <button
@@ -132,7 +152,7 @@ export default function Sidebar({ version, currentPath }: Props) {
           
           <a
             href={item.path}
-            className={`sidebar-link ${isActive ? 'sidebar-link-active' : ''}`}
+            className={`sidebar-link ${isActive ? 'sidebar-link-active' : ''} ${isCurrentPage ? 'sidebar-link-current' : ''}`}
           >
             {item.title}
           </a>
@@ -148,7 +168,7 @@ export default function Sidebar({ version, currentPath }: Props) {
   };
 
   return (
-    <aside className="sidebar">
+    <aside className="sidebar" ref={navRef}>
       <nav className="sidebar-nav">
         {isLoading ? (
           <div className="sidebar-loading">Loading...</div>

@@ -23,10 +23,13 @@ const {
   headings = []
 } = Astro.props;
 
-// Build the URL path from doc.id: "00_Getting_Started/02_Composer" -> "/en/6/00_Getting_Started/02_Composer/"
+// Build the URL path from doc.id: "v6/00_Getting_Started/02_Composer/index" -> "/en/6/00_Getting_Started/02_Composer/"
 let currentPath = '';
 if (doc) {
-  const parts = doc.id.split('/').filter(p => p !== 'index');
+  let pathWithoutVersion = doc.id
+    .replace(/^v\d+\//, '')  // Remove version prefix
+    .replace(/\.mdx?$/, '');  // Remove file extension
+  const parts = pathWithoutVersion.split('/').filter(p => p !== 'index' && p !== '');
   currentPath = `/en/${version}/${parts.join('/')}/`;
 }
 ---
