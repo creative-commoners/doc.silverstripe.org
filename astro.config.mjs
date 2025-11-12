@@ -5,6 +5,7 @@ import { dirname, join } from 'path';
 import { remarkConvertImagesToPictures } from './src/utils/remarkConvertImages.mjs';
 import { remarkLanguageAliases } from './src/utils/remarkPlugins.js';
 import remarkChildrenBlocks from './src/utils/remarkChildrenBlocks.js';
+import rehypeChildrenList from './src/utils/rehypeChildrenList.js';
 import { 
   rehypeHeaders, 
   rehypeFixLinks, 
@@ -44,10 +45,10 @@ export default defineConfig({
       rehypeHeaders,
       rehypeTables,
       rehypeFixImages,
+      rehypeChildrenList,
       // rehypeFixLinks is disabled - link fixing is done client-side in DocsContent component
       // to have access to the current page's slug for proper relative link resolution
       rehypeCallouts,
-      // rehypeChildrenRenderer is disabled - [CHILDREN] rendering is done client-side in DocsLayout
     ],
   },
   vite: {

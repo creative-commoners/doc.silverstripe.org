@@ -1,5 +1,7 @@
 import { visit } from 'unist-util-visit';
 
+let hasLogged = false;
+
 /**
  * Parse [CHILDREN] syntax from text
  * Supports variations like:
@@ -45,13 +47,39 @@ function parseChildrenBlock(text) {
 }
 
 /**
- * Remark plugin to replace [CHILDREN] blocks with custom HTML elements
+ * Remark plugin to replace [CHILDREN] blocks with HTML elements
  * 
- * This creates <childrenlistrenderer> elements with attributes that will be
- * rendered by the ChildrenRenderer.astro script component
+ * For Markdown files, creates HTML elements that will be processed by a rehype plugin.
+ * The HTML elements are then converted to Astro ChildrenList components by a rehype plugin.
+ * 
+ * The currentDocId is derived from the file's ID in Astro's content collection.
  */
-export default function remarkChildrenBlocks() {
-  return (tree) => {
+export default function remarkChildrenBlocks(options = {}) {
+  return (tree, vfile) => {
+    // Extract currentDocId from VFile data
+    // Astro passes the file's collection entry ID in vfile.data
+    let currentDocId = null;
+    
+    if (vfile.data?.astro?.frontmatter?.docId) {
+      currentDocId = vfile.data.astro.frontmatter.docId;
+    } else if (vfile.data?.astro?.id) {
+      currentDocId = vfile.data.astro.id;
+    } else if (options.currentDocId) {
+      currentDocId = options.currentDocId;
+    }
+    
+    // If still not found, try to derive from file path
+    if (!currentDocId && vfile.path) {
+      const match = vfile.path.match(/\.cache[/\\]content[/\\]docs[/\\](.*?)\.(md|mdx)$/i);
+      if (match) {
+        currentDocId = match[1];
+      }
+    }
+    
+    if (!hasLogged && currentDocId) {
+      hasLogged = true;
+    }
+    
     visit(tree, 'paragraph', (node, index, parent) => {
       if (!parent || index === undefined) return;
       
@@ -61,38 +89,47 @@ export default function remarkChildrenBlocks() {
         const childrenData = parseChildrenBlock(text);
         
         if (childrenData) {
-          // Build HTML attributes
-          const attrs = [];
+          // Build AST node for the placeholder div
+          const properties = { class: 'children-list-placeholder' };
+          
+          if (currentDocId) {
+            properties['data-current-doc-id'] = currentDocId;
+          }
           
           if (childrenData.folder) {
-            attrs.push(`folder="${childrenData.folder}"`);
+            properties['data-folder'] = childrenData.folder;
           }
-          if (childrenData.only) {
-            attrs.push(`only="${childrenData.only.join(',')}"`);
+          
+          if (childrenData.only && childrenData.only.length > 0) {
+            properties['data-only'] = childrenData.only.join(',');
           }
-          if (childrenData.exclude) {
-            attrs.push(`exclude="${childrenData.exclude.join(',')}"`);
+          
+          if (childrenData.exclude && childrenData.exclude.length > 0) {
+            properties['data-exclude'] = childrenData.exclude.join(',');
           }
+          
           if (childrenData.asList) {
-            attrs.push('as-list="true"');
+            properties['data-as-list'] = 'true';
           }
+          
           if (childrenData.includeFolders) {
-            attrs.push('include-folders="true"');
+            properties['data-include-folders'] = 'true';
           }
+          
           if (childrenData.reverse) {
-            attrs.push('reverse="true"');
+            properties['data-reverse'] = 'true';
           }
           
-          // Create custom HTML element
-          const html = `<childrenlistrenderer ${attrs.join(' ')}></childrenlistrenderer>`;
-          
-          // Replace paragraph with HTML node
+          // Create proper AST element node instead of raw HTML
           parent.children[index] = {
-            type: 'html',
-            value: html,
+            type: 'element',
+            tagName: 'div',
+            properties,
+            children: []
           };
         }
       }
     });
   };
 }
+

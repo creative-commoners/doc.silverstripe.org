@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 
-interface Props {
-  version: string;
-  context: 'docs' | 'user';
-}
-
-export default function VersionSwitcher({ version, context }: Props) {
+export default function VersionSwitcher({ version, context }) {
   const [isOpen, setIsOpen] = useState(false);
   const versions = ['6', '5', '4', '3'];
   
-  const handleVersionChange = (newVersion: string) => {
+  const handleVersionChange = (newVersion) => {
     if (newVersion === version) {
       setIsOpen(false);
       return;

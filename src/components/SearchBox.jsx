@@ -2,12 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import docsearch from '@docsearch/js';
 import '@docsearch/css';
 
-interface Props {
-  context: 'docs' | 'user';
-}
-
-export default function SearchBox({ context }: Props) {
-  const containerRef = useRef<HTMLDivElement>(null);
+export default function SearchBox({ context }) {
+  const containerRef = useRef(null);
   
   useEffect(() => {
     if (!containerRef.current) return;

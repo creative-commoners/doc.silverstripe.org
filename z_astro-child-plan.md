@@ -1,16 +1,10 @@
 # [CHILDREN] Rendering Refactoring - Implementation Steps
 
-## Overview
-
-Refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
-
-**Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
-
-**Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
-
----
-
 ## STEP 1: Create Canonical Helper Module
+
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
 
 Create `src/utils/childrenHelpers.js` with all helper functions. Base this on existing `src/utils/childrenHelpers.js` and consolidate duplicates.
 
@@ -60,6 +54,10 @@ export function getChildren(docs, id, includeFolders = false) {
 
 ## STEP 2: Update Remark Plugin for Server-Side Rendering
 
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
+
 Update `src/utils/remarkChildrenBlocks.js` to output Astro component syntax instead of HTML elements.
 
 **Changes:**
@@ -88,21 +86,26 @@ Update `src/utils/remarkChildrenBlocks.js` to output Astro component syntax inst
 
 ## STEP 3: Refactor ChildrenList.astro Component
 
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
+
 Update `src/components/ChildrenList.astro` to render children at build time.
 
 **Component props:**
 ```javascript
 // These come from remark plugin as JSX attributes
-export interface Props {
-  currentDocId; // string - required
-  folder; // string - optional
-  only; // string - optional (comma-separated folders)
-  exclude; // string - optional (comma-separated folders)
-  asList; // boolean - optional
-  includeFolders; // boolean - optional
-  reverse; // boolean - optional
-}
+const { currentDocId, folder, only, exclude, asList, includeFolders, reverse } = Astro.props;
 ```
+
+**Prop types:**
+- `currentDocId` (string, required) - Current document ID for context
+- `folder` (string, optional) - Specific folder to list children from
+- `only` (string, optional) - Comma-separated folders to include only
+- `exclude` (string, optional) - Comma-separated folders to exclude
+- `asList` (boolean, optional) - Render as `<dl>` instead of cards
+- `includeFolders` (boolean, optional) - Include folder index pages
+- `reverse` (boolean, optional) - Reverse sort order
 
 **Component logic:**
 1. Extract current version from `currentDocId` using helpers
@@ -131,6 +134,10 @@ export interface Props {
 ---
 
 ## STEP 4: Update Page Template
+
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
 
 Update `src/pages/en/[version]/[...slug].astro` to pass `currentDocId` to remark plugin.
 
@@ -162,6 +169,10 @@ Update `src/pages/en/[version]/[...slug].astro` to pass `currentDocId` to remark
 
 ## STEP 5: Delete Client-Side Files
 
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
+
 Remove all client-side rendering scripts and unused components.
 
 **Files to delete:**
@@ -184,6 +195,10 @@ Remove all client-side rendering scripts and unused components.
 
 ## STEP 6: Update Layouts
 
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
+
 Remove script tags that load client-side children renderers.
 
 **File: `src/layouts/DocsLayout.astro`**
@@ -203,6 +218,10 @@ Remove script tags that load client-side children renderers.
 ---
 
 ## STEP 7: Update Configuration
+
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
 
 Update `astro.config.mjs` to clarify the [CHILDREN] rendering approach.
 
@@ -225,6 +244,10 @@ Update `astro.config.mjs` to clarify the [CHILDREN] rendering approach.
 ---
 
 ## STEP 8: Update Documentation
+
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
 
 Update `AGENTS.md` to document the [CHILDREN] block system.
 
@@ -271,6 +294,10 @@ Documentation pages can include `[CHILDREN]` blocks to automatically list child 
 ---
 
 ## STEP 9: Validation
+
+This is one step in a larger project to refactoring the [CHILDREN] block rendering system to use **Server-Side Rendering (SSR)** with Astro components.
+- **Current state:** Massive code duplication, 15+ files, multiple rendering paths, ~500 lines of dead code.
+- **Target state:** Single SSR implementation, zero JavaScript, all files consolidated.
 
 Run build and dev environments to verify all functionality works.
 

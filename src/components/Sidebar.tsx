@@ -1,18 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import type { NavItem } from '../utils/contentHelpers';
 import { scrollElementIntoView } from '../utils/sidebarHelpers';
 import '../styles/sidebar.scss';
 
-interface Props {
-  version: string;
-  currentPath: string;
-}
-
-function getStorageKey(version: string): string {
+function getStorageKey(version) {
   return `ss-docs-sidebar-v${version}`;
 }
 
-function loadExpandedPaths(version: string): Set<string> {
+function loadExpandedPaths(version) {
   if (typeof window === 'undefined') return new Set();
 
   try {
@@ -29,7 +23,7 @@ function loadExpandedPaths(version: string): Set<string> {
   return new Set();
 }
 
-function saveExpandedPaths(version: string, paths: Set<string>): void {
+function saveExpandedPaths(version, paths) {
   if (typeof window === 'undefined') return;
 
   try {
@@ -41,14 +35,14 @@ function saveExpandedPaths(version: string, paths: Set<string>): void {
   }
 }
 
-export default function Sidebar({ version, currentPath }: Props) {
-  const [navTree, setNavTree] = useState<NavItem[]>([]);
-  const [expandedPaths, setExpandedPaths] = useState<Set<string>>(() =>
+export default function Sidebar({ version, currentPath }) {
+  const [navTree, setNavTree] = useState([]);
+  const [expandedPaths, setExpandedPaths] = useState(() =>
     loadExpandedPaths(version)
   );
   const [isLoading, setIsLoading] = useState(true);
-  const activeItemRef = useRef<HTMLLIElement>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const activeItemRef = useRef(null);
+  const navRef = useRef(null);
 
   // Save expanded paths to localStorage whenever they change
   useEffect(() => {
@@ -76,7 +70,7 @@ export default function Sidebar({ version, currentPath }: Props) {
         
         // Merge stored expanded paths with auto-expanded paths from current page
         const storedExpanded = loadExpandedPaths(version);
-        const ancestorPaths = new Set<string>();
+        const ancestorPaths = new Set();
         const parts = currentPath.split('/').filter(Boolean);
         let currentPath_ = '';
         for (let i = 0; i < parts.length - 1; i++) {
@@ -98,7 +92,7 @@ export default function Sidebar({ version, currentPath }: Props) {
     loadNavigation();
   }, [version, currentPath]);
 
-  const togglePath = (path: string) => {
+  const togglePath = (path) => {
     const newExpanded = new Set(expandedPaths);
     if (newExpanded.has(path)) {
       newExpanded.delete(path);
@@ -108,7 +102,7 @@ export default function Sidebar({ version, currentPath }: Props) {
     setExpandedPaths(newExpanded);
   };
 
-  const renderNavItem = (item: NavItem, depth = 0): React.ReactNode => {
+  const renderNavItem = (item, depth = 0) => {
     const isActive = currentPath === item.path || currentPath.startsWith(item.path + '/');
     const hasChildren = item.children && item.children.length > 0;
     const isExpanded = expandedPaths.has(item.path);

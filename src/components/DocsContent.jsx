@@ -1,16 +1,6 @@
-import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-interface Props {
-  children: ReactNode;
-  version: string;
-  slug?: string;
-  docId?: string;
-}
-
-type SlugMap = Record<string, string>;
-
-function normalizeFileName(name: string): string {
+function normalizeFileName(name) {
   return name
     .replace(/^\.\//, '') // Remove ./
     .replace(/^\.\.\//, '') // Remove ../
@@ -19,7 +9,7 @@ function normalizeFileName(name: string): string {
     .replace(/_/g, '_');
 }
 
-function resolveLinkToFile(simpleLink: string, parentDir: string, slugMap: SlugMap): string | null {
+function resolveLinkToFile(simpleLink, parentDir, slugMap) {
   // Try to look up the mapping
   const key = `${parentDir}|${normalizeFileName(simpleLink)}`;
   if (slugMap[key]) {
@@ -28,7 +18,7 @@ function resolveLinkToFile(simpleLink: string, parentDir: string, slugMap: SlugM
   return null;
 }
 
-function resolveRelativeLink(href: string, version: string, parentDir: string, slugMap: SlugMap): string {
+function resolveRelativeLink(href, version, parentDir, slugMap) {
   // Handle API links with shorthand
   if (href.match(/^api\:/)) {
     const match = href.match(/api\:(.*)/);
@@ -74,7 +64,7 @@ function resolveRelativeLink(href: string, version: string, parentDir: string, s
   }
   
   // Handle relative paths
-  let resolvedPath: string;
+  let resolvedPath;
   
   if (hrefWithoutHash.includes('../')) {
     // Go up directories
@@ -127,12 +117,12 @@ function resolveRelativeLink(href: string, version: string, parentDir: string, s
 /**
  * Wrapper component that processes links with slug map and provides context to children
  */
-export default function DocsContent({ children, version, slug = '', docId = '' }: Props) {
+export default function DocsContent({ children, version, slug = '', docId = '' }) {
   // Get the current page's directory context from the slug
   const slugParts = slug.split('/').filter(p => p);
   const pageDir = slugParts.length > 1 ? slugParts.slice(0, -1).join('/') : (slugParts.length === 1 ? slugParts[0] : '');
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [slugMap, setSlugMap] = useState<SlugMap>({});
+  const containerRef = useRef(null);
+  const [slugMap, setSlugMap] = useState({});
   const [initialized, setInitialized] = useState(false);
 
   // Load the slug map on mount
