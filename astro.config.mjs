@@ -5,7 +5,6 @@ import { dirname, join } from 'path';
 import { remarkConvertImagesToPictures } from './src/utils/remarkConvertImages.mjs';
 import { remarkLanguageAliases } from './src/utils/remarkPlugins.js';
 import remarkChildrenBlocks from './src/utils/remarkChildrenBlocks.js';
-import rehypeChildrenList from './src/utils/rehypeChildrenList.js';
 import { 
   rehypeHeaders, 
   rehypeFixLinks, 
@@ -40,12 +39,15 @@ export default defineConfig({
       langs: ['javascript', 'typescript', 'html', 'css', 'bash', 'php', 'yaml', 'json'],
       wrap: true,
     },
+    // [CHILDREN] blocks are server-side rendered at build time
+    // - Parser: src/utils/remarkChildrenBlocks.js
+    // - Renderer: src/components/ChildrenList.astro
+    // - Helpers: src/utils/childrenHelpers.js
     remarkPlugins: [remarkLanguageAliases, remarkChildrenBlocks],
     rehypePlugins: [
       rehypeHeaders,
       rehypeTables,
       rehypeFixImages,
-      rehypeChildrenList,
       // rehypeFixLinks is disabled - link fixing is done client-side in DocsContent component
       // to have access to the current page's slug for proper relative link resolution
       rehypeCallouts,

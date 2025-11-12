@@ -273,7 +273,8 @@ export function rehypeTables() {
         properties: {
           className: ['table-responsive', 'my-4'],
         },
-        children};
+        children: [node]
+      };
 
       // Add Bootstrap table classes
       if (!node.properties) {
