@@ -54,7 +54,7 @@ export default function Sidebar({ version, currentPath }) {
     if (activeItemRef.current && navRef.current) {
       // Use setTimeout to ensure DOM has updated after expansion
       const timer = setTimeout(() => {
-        scrollElementIntoView(activeItemRef.current!);
+        scrollElementIntoView(activeItemRef.current);
       }, 100);
       return () => clearTimeout(timer);
     }

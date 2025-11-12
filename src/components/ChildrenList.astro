@@ -80,13 +80,7 @@ children = sortDocs(children);
 if (reverse) {
   children.reverse();
 }
-
-// Don't render if no children
-if (children.length === 0) {
-  // Could render "No pages found" but Gatsby doesn't, so we render nothing
-}
 ---
-
 {children.length > 0 && (
   <div class="docs-overview py-5">
     {asList ? (

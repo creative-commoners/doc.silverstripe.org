@@ -12,6 +12,7 @@ import {
   rehypeTables,
   rehypeFixImages 
 } from './src/utils/rehypePlugins.js';
+import rehypeChildrenList from './src/utils/rehypeChildrenList.js';
 
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
@@ -45,6 +46,7 @@ export default defineConfig({
     // - Helpers: src/utils/childrenHelpers.js
     remarkPlugins: [remarkLanguageAliases, remarkChildrenBlocks],
     rehypePlugins: [
+      rehypeChildrenList,
       rehypeHeaders,
       rehypeTables,
       rehypeFixImages,

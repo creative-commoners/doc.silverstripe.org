@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import DocsLayout from '../../../layouts/DocsLayout.astro';
 import DocsContent from '../../../components/DocsContent';
 import ChildrenList from '../../../components/ChildrenList.astro';
+import { remarkLanguageAliases } from '../../../utils/remarkPlugins.js';
 import remarkChildrenBlocks from '../../../utils/remarkChildrenBlocks.js';
 import type { GetStaticPaths } from 'astro';
 
@@ -53,9 +54,6 @@ export const getStaticPaths = (async () => {
 const { doc } = Astro.props;
 const { version, slug } = Astro.params;
 const { Content, headings } = await doc.render({
-  remarkPlugins: [
-    [remarkChildrenBlocks, { currentDocId: doc.id }]
-  ],
   components: {
     ChildrenList,
   },

@@ -26,12 +26,6 @@ export function buildSlug(filePath, version, thirdparty) {
   return `/${slug}/`;
 }
 
-  path;
-  children?;
-  icon?;
-  order?;
-};
-
 export function buildNavHierarchy(
   docs) {
   const hierarchy = {};

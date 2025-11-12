@@ -13,7 +13,7 @@ let hasLogged = false;
  * - [CHILDREN reverse]
  */
 function parseChildrenBlock(text) {
-  const childrenMatch = text.match(/^\[CHILDREN(.*?)\]$/);
+  const childrenMatch = text.match(/\[CHILDREN(.*?)\]/);
   if (!childrenMatch) return null;
   
   const attributes = childrenMatch[1].trim();
@@ -119,7 +119,7 @@ export default function remarkChildrenBlocks(options = {}) {
           if (childrenData.reverse) {
             properties['data-reverse'] = 'true';
           }
-          
+
           // Create proper AST element node instead of raw HTML
           parent.children[index] = {
             type: 'element',

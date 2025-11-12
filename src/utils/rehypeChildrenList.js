@@ -16,15 +16,19 @@ import {
  * with rendered children content. It queries the content collection to build the lists.
  */
 export default function rehypeChildrenList() {
+  console.log({where: 'rehypeChildrenList initialized'});
   return async (tree, vfile) => {
     // Dynamically import getCollection
+    console.log({where: 'rehypeChildrenList plugin A', tree, vfile});
     let getCollection;
     try {
       const module = await import('astro:content');
       getCollection = module.getCollection;
     } catch (err) {
+      console.log({where: 'rehypeChildrenList plugin A ERROR', err});
       return;
     }
+    console.log({where: 'rehypeChildrenList plugin B'});
     
     // Get ALL docs once
     let allDocs;
@@ -83,7 +87,7 @@ export default function rehypeChildrenList() {
         }
       }
     });
-    
+
     // Process each placeholder
     for (const node of nodesToProcess) {
       try {
