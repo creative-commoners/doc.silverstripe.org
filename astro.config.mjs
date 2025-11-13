@@ -45,10 +45,21 @@ function childrenBlocksIntegration() {
             
             filesProcessed++;
             
+            // Get docId from the wrapper (DocsContent sets data-current-doc-id on wrapper)
+            const wrapper = $('.docs-content-wrapper');
+            const wrapperDocId = wrapper.attr('data-current-doc-id') || '';
+            
             for (let i = 0; i < placeholders.length; i++) {
               const $placeholder = $(placeholders[i]);
+              let currentDocId = $placeholder.attr('data-current-doc-id');
+              
+              // If placeholder doesn't have docId, use wrapper's docId
+              if (!currentDocId && wrapperDocId) {
+                currentDocId = wrapperDocId;
+              }
+              
               const options = {
-                currentDocId: $placeholder.attr('data-current-doc-id') || '',
+                currentDocId: currentDocId || '',
                 folder: $placeholder.attr('data-folder') || '',
                 only: $placeholder.attr('data-only')?.split(',').filter(Boolean) || [],
                 exclude: $placeholder.attr('data-exclude')?.split(',').filter(Boolean) || [],

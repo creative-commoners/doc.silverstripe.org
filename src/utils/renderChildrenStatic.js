@@ -47,6 +47,18 @@ function parseDocId(docId) {
 function getChildrenDocs(docId, includeFolders = false) {
   try {
     const docParts = docId.split('/');
+    // Remove the filename (last part) to get the directory
+    docParts.pop();
+    
+    // Insert 'docs/en' after version if not already present
+    // Convert: v6/02_Developer_Guides -> v6/docs/en/02_Developer_Guides
+    if (docParts.length > 0 && docParts[0].match(/^v\d+$/)) {
+      // Check if 'docs' is already in the path
+      if (!docParts.includes('docs')) {
+        docParts.splice(1, 0, 'docs', 'en');
+      }
+    }
+    
     const parentDir = path.join(contentRoot, ...docParts);
     
     if (!fs.existsSync(parentDir)) {

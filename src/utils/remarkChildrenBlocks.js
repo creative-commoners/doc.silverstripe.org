@@ -71,9 +71,14 @@ export default function remarkChildrenBlocks(options = {}) {
     
     // If still not found, try to derive from file path
     if (!currentDocId && vfile.path) {
-      const match = vfile.path.match(/\.cache[/\\]content[/\\]docs[/\\](.*?)\.(md|mdx)$/i);
+      // Try .cache path first (for build context)
+      let match = vfile.path.match(/\.cache[/\\]content[/\\]docs[/\\](.*?)\.(md|mdx)$/i);
+      if (!match) {
+        // Try src/content path (for dev/SSR context)
+        match = vfile.path.match(/src[/\\]content[/\\]docs[/\\](.*?)\.(md|mdx)$/i);
+      }
       if (match) {
-        currentDocId = match[1];
+        currentDocId = match[1].replace(/\\/g, '/');
       }
     }
     
