@@ -1,4 +1,5 @@
 import { visit } from 'unist-util-visit';
+import { createChildrenMarker } from './childrenMarkersUtils.js';
 
 let hasLogged = false;
 
@@ -89,43 +90,22 @@ export default function remarkChildrenBlocks(options = {}) {
         const childrenData = parseChildrenBlock(text);
         
         if (childrenData) {
-          // Build AST node for the placeholder div
-          const properties = { class: 'children-list-placeholder' };
-          
-          if (currentDocId) {
-            properties['data-current-doc-id'] = currentDocId;
-          }
-          
-          if (childrenData.folder) {
-            properties['data-folder'] = childrenData.folder;
-          }
-          
-          if (childrenData.only && childrenData.only.length > 0) {
-            properties['data-only'] = childrenData.only.join(',');
-          }
-          
-          if (childrenData.exclude && childrenData.exclude.length > 0) {
-            properties['data-exclude'] = childrenData.exclude.join(',');
-          }
-          
-          if (childrenData.asList) {
-            properties['data-as-list'] = 'true';
-          }
-          
-          if (childrenData.includeFolders) {
-            properties['data-include-folders'] = 'true';
-          }
-          
-          if (childrenData.reverse) {
-            properties['data-reverse'] = 'true';
-          }
+          // Build metadata object for marker
+          const metadata = {
+            currentDocId: currentDocId,
+            folder: childrenData.folder,
+            category: childrenData.category,
+            only: childrenData.only,
+            exclude: childrenData.exclude,
+            asList: childrenData.asList,
+            includeFolders: childrenData.includeFolders,
+            reverse: childrenData.reverse
+          };
 
-          // Create proper AST element node instead of raw HTML
+          // Create HTML comment marker with metadata
           parent.children[index] = {
-            type: 'element',
-            tagName: 'div',
-            properties,
-            children: []
+            type: 'html',
+            value: createChildrenMarker(metadata)
           };
         }
       }

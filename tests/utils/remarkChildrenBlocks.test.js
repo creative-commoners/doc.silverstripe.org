@@ -1,6 +1,9 @@
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkChildrenBlocks from '../../src/utils/remarkChildrenBlocks.js';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import { deserializeChildrenData } from '../../src/utils/childrenMarkersUtils.js';
 
 describe('remarkChildrenBlocks plugin', () => {
   let processor;
@@ -23,56 +26,72 @@ describe('remarkChildrenBlocks plugin', () => {
     });
   });
 
-  describe('Basic [CHILDREN] Parsing', () => {
-    it('should parse a simple [CHILDREN] block', () => {
+  describe('Marker Output Format', () => {
+    it('should output HTML comment marker for [CHILDREN]', () => {
       const markdown = '[CHILDREN]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      // Find the div element created by the plugin
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
+      // Find the html node created by the plugin
+      const htmlNode = result.children.find(child => child.type === 'html');
 
-      expect(element).toBeDefined();
-      expect(element.properties.class).toBe('children-list-placeholder');
-      expect(element.properties['data-current-doc-id']).toBe('v6/02_Developer_Guides/index');
+      expect(htmlNode).toBeDefined();
+      expect(htmlNode.value).toContain('<!-- CHILDREN_BLOCK:');
+      expect(htmlNode.value).toContain('-->');
     });
 
-    it('should preserve non-[CHILDREN] paragraphs', () => {
-      const markdown = 'This is a normal paragraph.\n\n[CHILDREN]\n\nAnother paragraph.';
+    it('should contain valid JSON in marker', () => {
+      const markdown = '[CHILDREN]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const paragraphs = result.children.filter(child => child.type === 'paragraph');
-      expect(paragraphs.length).toBeGreaterThanOrEqual(2);
+      const htmlNode = result.children.find(child => child.type === 'html');
+      const match = htmlNode.value.match(/<!-- CHILDREN_BLOCK:(.+) -->/);
+      
+      expect(match).not.toBeNull();
+      const jsonStr = match[1];
+      expect(() => JSON.parse(jsonStr)).not.toThrow();
     });
 
-    it('should process [CHILDREN] even with other text on same line', () => {
-      const markdown = 'Some text [CHILDREN] more text';
+    it('should include currentDocId in marker', () => {
+      const markdown = '[CHILDREN]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"currentDocId":"v6/02_Developer_Guides/index"');
+    });
+
+    it('should not output div elements anymore', () => {
+      const markdown = '[CHILDREN]';
+      const tree = processor.parse(markdown);
+      const result = processor.runSync(tree);
+
+      const divElements = result.children.filter(
         child => child.type === 'element' && child.tagName === 'div'
       );
-      // The plugin converts [CHILDREN] blocks in any paragraph
-      expect(element).toBeDefined();
+
+      expect(divElements.length).toBe(0);
+    });
+
+    it('should not create children-list-placeholder class', () => {
+      const markdown = '[CHILDREN]';
+      const tree = processor.parse(markdown);
+      const result = processor.runSync(tree);
+
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).not.toContain('children-list-placeholder');
     });
   });
 
-  describe('Folder Attribute', () => {
-    it('should parse Folder attribute with quotes', () => {
+  describe('Marker with Folder Attribute', () => {
+    it('should include folder attribute in marker', () => {
       const markdown = '[CHILDREN Folder="optional_features"]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-folder']).toBe('optional_features');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"folder":"optional_features"');
     });
 
     it('should parse Folder attribute without quotes', () => {
@@ -80,12 +99,8 @@ describe('remarkChildrenBlocks plugin', () => {
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-folder']).toBe('Field_types');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"folder":"Field_types"');
     });
 
     it('should handle folder names with underscores', () => {
@@ -93,132 +108,71 @@ describe('remarkChildrenBlocks plugin', () => {
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-folder']).toBe('optional_features');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"folder":"optional_features"');
     });
   });
 
-  describe('asList Attribute', () => {
-    it('should parse asList flag', () => {
+  describe('Marker with Boolean Attributes', () => {
+    it('should include asList attribute in marker', () => {
       const markdown = '[CHILDREN asList]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-as-list']).toBe('true');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"asList":true');
     });
 
-    it('should combine Folder and asList attributes', () => {
-      const markdown = '[CHILDREN Folder="guides" asList]';
-      const tree = processor.parse(markdown);
-      const result = processor.runSync(tree);
-
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-folder']).toBe('guides');
-      expect(element.properties['data-as-list']).toBe('true');
-    });
-  });
-
-  describe('Only Attribute', () => {
-    it('should parse Only attribute with comma-separated values', () => {
-      const markdown = '[CHILDREN Only="rc,beta,alpha"]';
-      const tree = processor.parse(markdown);
-      const result = processor.runSync(tree);
-
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-only']).toBe('rc,beta,alpha');
-    });
-
-    it('should handle single value in Only attribute', () => {
-      const markdown = '[CHILDREN Only="stable"]';
-      const tree = processor.parse(markdown);
-      const result = processor.runSync(tree);
-
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-only']).toBe('stable');
-    });
-  });
-
-  describe('Exclude Attribute', () => {
-    it('should parse Exclude attribute', () => {
-      const markdown = '[CHILDREN Exclude="deprecated,internal"]';
-      const tree = processor.parse(markdown);
-      const result = processor.runSync(tree);
-
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-exclude']).toBe('deprecated,internal');
-    });
-  });
-
-  describe('includeFolders Attribute', () => {
-    it('should parse includeFolders flag', () => {
+    it('should include includeFolders attribute in marker', () => {
       const markdown = '[CHILDREN includeFolders]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-include-folders']).toBe('true');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"includeFolders":true');
     });
-  });
 
-  describe('reverse Attribute', () => {
-    it('should parse reverse flag', () => {
+    it('should include reverse attribute in marker', () => {
       const markdown = '[CHILDREN reverse]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-reverse']).toBe('true');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"reverse":true');
     });
   });
 
-  describe('Complex Combinations', () => {
-    it('should handle multiple attributes together', () => {
+  describe('Marker with Only/Exclude Attributes', () => {
+    it('should include Only attribute in marker', () => {
+      const markdown = '[CHILDREN Only="rc,beta,alpha"]';
+      const tree = processor.parse(markdown);
+      const result = processor.runSync(tree);
+
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"only":');
+    });
+
+    it('should include Exclude attribute in marker', () => {
+      const markdown = '[CHILDREN Exclude="deprecated,internal"]';
+      const tree = processor.parse(markdown);
+      const result = processor.runSync(tree);
+
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"exclude":');
+    });
+  });
+
+  describe('Marker with Multiple Attributes', () => {
+    it('should include all attributes in marker', () => {
       const markdown = '[CHILDREN Folder="guides" asList Only="v4,v5" reverse]';
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-folder']).toBe('guides');
-      expect(element.properties['data-as-list']).toBe('true');
-      expect(element.properties['data-only']).toBe('v4,v5');
-      expect(element.properties['data-reverse']).toBe('true');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"folder":"guides"');
+      expect(htmlNode.value).toContain('"asList":true');
+      expect(htmlNode.value).toContain('"only":');
+      expect(htmlNode.value).toContain('"reverse":true');
     });
 
     it('should handle attributes in different order', () => {
@@ -227,18 +181,34 @@ describe('remarkChildrenBlocks plugin', () => {
 
       const tree1 = processor.parse(markdown1);
       const result1 = processor.runSync(tree1);
-      const element1 = result1.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
+      const htmlNode1 = result1.children.find(child => child.type === 'html');
 
       const tree2 = processor.parse(markdown2);
       const result2 = processor.runSync(tree2);
-      const element2 = result2.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
+      const htmlNode2 = result2.children.find(child => child.type === 'html');
 
-      expect(element1.properties['data-folder']).toBe(element2.properties['data-folder']);
-      expect(element1.properties['data-as-list']).toBe(element2.properties['data-as-list']);
+      // Both should contain the same attributes
+      expect(htmlNode1.value).toContain('"folder":"test"');
+      expect(htmlNode1.value).toContain('"asList":true');
+      expect(htmlNode2.value).toContain('"folder":"test"');
+      expect(htmlNode2.value).toContain('"asList":true');
+    });
+  });
+
+  describe('Marker Deserialization', () => {
+    it('should allow deserializing marker back to object', () => {
+      const markdown = '[CHILDREN Folder="guides" asList]';
+      const tree = processor.parse(markdown);
+      const result = processor.runSync(tree);
+
+      const htmlNode = result.children.find(child => child.type === 'html');
+      const match = htmlNode.value.match(/<!-- CHILDREN_BLOCK:(.+) -->/);
+      const jsonStr = match[1];
+      const data = JSON.parse(jsonStr);
+
+      expect(data.folder).toBe('guides');
+      expect(data.asList).toBe(true);
+      expect(data.currentDocId).toBe('v6/02_Developer_Guides/index');
     });
   });
 
@@ -248,26 +218,9 @@ describe('remarkChildrenBlocks plugin', () => {
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-folder']).toBe('test');
-    });
-
-    it('should match [CHILDREN2] as a valid CHILDREN tag (regex quirk)', () => {
-      const markdown = '[CHILD] or [CHILDREN2]';
-      const tree = processor.parse(markdown);
-      const result = processor.runSync(tree);
-
-      const elements = result.children.filter(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      // [CHILDREN2] is matched by the regex as valid
-      // This is a quirk of the current implementation
-      expect(elements.length).toBeGreaterThanOrEqual(1);
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode).toBeDefined();
+      expect(htmlNode.value).toContain('"folder":"test"');
     });
 
     it('should match [CHILDREN] in middle of text', () => {
@@ -275,12 +228,17 @@ describe('remarkChildrenBlocks plugin', () => {
       const tree = processor.parse(markdown);
       const result = processor.runSync(tree);
 
-      const elements = result.children.filter(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
+      const htmlNodes = result.children.filter(child => child.type === 'html');
+      expect(htmlNodes.length).toBe(1);
+    });
 
-      // Plugin will match [CHILDREN] anywhere in text
-      expect(elements.length).toBe(1);
+    it('should preserve non-[CHILDREN] paragraphs', () => {
+      const markdown = 'This is a normal paragraph.\n\n[CHILDREN]\n\nAnother paragraph.';
+      const tree = processor.parse(markdown);
+      const result = processor.runSync(tree);
+
+      const paragraphs = result.children.filter(child => child.type === 'paragraph');
+      expect(paragraphs.length).toBeGreaterThanOrEqual(2);
     });
   });
 
@@ -294,14 +252,11 @@ describe('remarkChildrenBlocks plugin', () => {
       const tree = customProcessor.parse(markdown);
       const result = customProcessor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element.properties['data-current-doc-id']).toBe('v6/custom/path');
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode.value).toContain('"currentDocId":"v6/custom/path"');
     });
 
-    it('should create placeholder element without currentDocId when not available', () => {
+    it('should include currentDocId in marker even when null', () => {
       const noIdProcessor = unified()
         .use(remarkParse)
         .use(remarkChildrenBlocks);
@@ -310,41 +265,9 @@ describe('remarkChildrenBlocks plugin', () => {
       const tree = noIdProcessor.parse(markdown);
       const result = noIdProcessor.runSync(tree);
 
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element).toBeDefined();
-      expect(element.properties['data-current-doc-id']).toBeUndefined();
-    });
-  });
-
-  describe('Output Structure', () => {
-    it('should create proper div element', () => {
-      const markdown = '[CHILDREN]';
-      const tree = processor.parse(markdown);
-      const result = processor.runSync(tree);
-
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element.type).toBe('element');
-      expect(element.tagName).toBe('div');
-      expect(Array.isArray(element.children)).toBe(true);
-      expect(element.properties).toBeDefined();
-    });
-
-    it('should have empty children array', () => {
-      const markdown = '[CHILDREN]';
-      const tree = processor.parse(markdown);
-      const result = processor.runSync(tree);
-
-      const element = result.children.find(
-        child => child.type === 'element' && child.tagName === 'div'
-      );
-
-      expect(element.children).toEqual([]);
+      const htmlNode = result.children.find(child => child.type === 'html');
+      expect(htmlNode).toBeDefined();
+      expect(htmlNode.value).toContain('"currentDocId":null');
     });
   });
 });
