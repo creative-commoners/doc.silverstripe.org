@@ -8,6 +8,7 @@ export default {
   },
   moduleNameMapper: {
     '\\.(scss|sass|css)$': '<rootDir>/tests/__mocks__/styleMock.js',
+    '^astro:content$': '<rootDir>/tests/__mocks__/astroContent.js',
   },
 };
 
