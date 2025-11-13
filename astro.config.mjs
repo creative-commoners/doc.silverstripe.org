@@ -12,6 +12,7 @@ import {
   rehypeTables,
   rehypeFixImages 
 } from './src/utils/rehypePlugins.js';
+import rehypeChildrenBlocks from './src/utils/rehypeChildrenBlocks.js';
 
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
@@ -51,6 +52,7 @@ export default defineConfig({
       // rehypeFixLinks is disabled - link fixing is done client-side in DocsContent component
       // to have access to the current page's slug for proper relative link resolution
       rehypeCallouts,
+      rehypeChildrenBlocks,
     ],
   },
   vite: {

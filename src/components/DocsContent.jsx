@@ -130,7 +130,9 @@ export default function DocsContent({ children, version, slug = '', docId = '' }
     fetch('/slug-map.json')
       .then(res => res.json())
       .then(data => setSlugMap(data))
-      .catch(err => console.warn('Failed to load slug map:', err));
+      .catch(err => {
+        // noop
+      });
   }, []);
 
   // Process links when slug map is loaded

@@ -50,6 +50,6 @@ export function scrollElementIntoView(element) {
       behavior: 'smooth',
     });
   } catch (err) {
-    console.warn('Failed to scroll element into view:', err);
+    // noop
   }
 }
