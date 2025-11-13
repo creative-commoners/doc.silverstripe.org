@@ -252,6 +252,27 @@ _gatsby/
 - Leverage Astro's zero-JS default
 - Images should use Astro's Image component for optimization
 
+## Testing
+
+**Unit Tests with Jest:**
+- Tests located in `tests/` directory
+- Configuration in `jest.config.js`
+- Run tests: `npm test` or `npm run test:watch`
+- Test utilities in `tests/utils/` for functions in `src/utils/`
+- Test files: `*.test.js` format
+
+**Example test structure:**
+```javascript
+import { functionToTest } from '../src/utils/helpers.js';
+
+describe('functionToTest', () => {
+  it('should do something specific', () => {
+    const result = functionToTest(input);
+    expect(result).toBe(expected);
+  });
+});
+```
+
 ## Common Patterns
 
 **Getting all docs for a version:**

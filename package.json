@@ -15,7 +15,9 @@
     "build": "npm run clone-docs && npm run setup-content && npm run clean && npm run fix-paths && npm run copy-images && npm run generate-nav && npm run generate-slug-map && npm run generate-docs-index && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate-docs-index": "node scripts/generate-docs-index.mjs"
+    "generate-docs-index": "node scripts/generate-docs-index.mjs",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.10",
@@ -32,6 +34,7 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "fs-extra": "^11.3.2"
+    "fs-extra": "^11.3.2",
+    "jest": "^30.2.0"
   }
 }

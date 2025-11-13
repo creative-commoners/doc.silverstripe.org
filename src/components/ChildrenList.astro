@@ -32,6 +32,7 @@ const {
   reverse = false
 } = Astro.props;
 
+
 // Parse current document
 const parsed = parseDocId(currentDocId);
 
@@ -80,6 +81,7 @@ children = sortDocs(children);
 if (reverse) {
   children.reverse();
 }
+
 ---
 {children.length > 0 && (
   <div class="docs-overview py-5">

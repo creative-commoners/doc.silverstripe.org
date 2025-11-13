@@ -1,9 +1,5 @@
 ---
-import { getCalloutClass, type CalloutType } from '../utils/parseCalloutTags';
-
-interface Props {
-  type: CalloutType;
-}
+import { getCalloutClass } from '../utils/parseCalloutTags';
 
 const { type } = Astro.props;
 const alertClass = getCalloutClass(type);

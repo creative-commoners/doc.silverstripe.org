@@ -31,6 +31,8 @@ All commands are run from the root of the project, from a terminal:
 | `npm run fix-paths`    | Normalize relative image paths in markdown (runs in build)       |
 | `npm run preview`      | Preview your build locally, before deploying                     |
 | `npm run astro ...`    | Run CLI commands like `astro add`, `astro check`                 |
+| `npm test`             | Run Jest unit tests                                              |
+| `npm run test:watch`   | Run Jest tests in watch mode                                     |
 
 ## 📁 Project Structure
 
@@ -76,6 +78,21 @@ All commands are run from the root of the project, from a terminal:
 │   └── api/nav/                 # Generated navigation JSON files per version
 └── astro.config.mjs             # Astro configuration
 ```
+
+## 🧪 Testing
+
+Unit tests are written with Jest and located in the `tests/` directory. 
+
+**Run tests:**
+```bash
+npm test           # Run tests once
+npm run test:watch # Run tests in watch mode (rerun on changes)
+```
+
+**Writing tests:**
+- Test files should be named `*.test.js` and placed in `tests/` directory
+- Tests for utilities in `src/utils/` go in `tests/utils/`
+- Jest configuration is in `jest.config.js`
 
 ## 🔧 Development Workflow
 

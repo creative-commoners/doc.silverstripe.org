@@ -1,13 +1,5 @@
 [
   {
-    "id": "index",
-    "title": "Silverstripe Documentation",
-    "summary": "Welcome to the Silverstripe Developer Documentation. This website is aimed at website developers looking to learn how to build and manage web applications with the Silverstripe Framework.",
-    "icon": null,
-    "iconBrand": null,
-    "order": null
-  },
-  {
     "id": "v5/00_Getting_Started/00_Server_Requirements",
     "title": "Server Requirements",
     "summary": "What you will need to run Silverstripe CMS on a web server",

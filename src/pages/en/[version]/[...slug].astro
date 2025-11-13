@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import DocsLayout from '../../../layouts/DocsLayout.astro';
-import DocsContent from '../../../components/DocsContent';
+import DocsContent from '../../../components/DocsContent.jsx';
 import ChildrenList from '../../../components/ChildrenList.astro';
 import { remarkLanguageAliases } from '../../../utils/remarkPlugins.js';
 import remarkChildrenBlocks from '../../../utils/remarkChildrenBlocks.js';
@@ -53,11 +53,7 @@ export const getStaticPaths = (async () => {
 
 const { doc } = Astro.props;
 const { version, slug } = Astro.params;
-const { Content, headings } = await doc.render({
-  components: {
-    ChildrenList,
-  },
-});
+const { Content, headings, ...rest } = await doc.render();
 
 // Get frontmatter with defaults
 const {
@@ -95,6 +91,9 @@ const formattedHeadings = headings
   <DocsContent client:load version={version} slug={slug} docId={doc.id}>
     <Content />
   </DocsContent>
+  {!hideChildren && (
+    <ChildrenList currentDocId={doc.id} version={version} slug={slug} />
+  )}
 </DocsLayout>
 
 <style>

@@ -24,7 +24,8 @@ export function extractCalloutTags(content) {
   while ((match = pattern.exec(content)) !== null) {
     const type = match[1].toLowerCase();
     results.push({
-      tag);
+      tag
+    });
   }
 
   return results;
