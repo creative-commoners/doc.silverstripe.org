@@ -2,7 +2,7 @@
  * Rewrite api: shorthand links to full API documentation URLs
  */
 export function rewriteAPILink(link, version = '6') {
-  const match = link.match(/api\)/);
+  const match = link.match(/^api:(.+)$/);
   if (!match) {
     console.error(`Unable to resolve api link ${link}!`);
     return link;

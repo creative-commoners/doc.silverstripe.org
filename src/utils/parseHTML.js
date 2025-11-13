@@ -26,8 +26,7 @@ export function parseHTML(
 /**
  * Extract frontmatter from markdown content
  */
-export function extractFrontmatter(content
-) {frontmatter, any>; body } {
+export function extractFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
 
   if (!match) {
@@ -39,7 +38,7 @@ export function extractFrontmatter(content
   const frontmatter = {};
 
   frontmatterStr.split('\n').forEach(line => {
-    const colonIndex = line.indexOf(');
+    const colonIndex = line.indexOf(':');
     if (colonIndex > -1) {
       const key = line.substring(0, colonIndex).trim();
       const value = line.substring(colonIndex + 1).trim();

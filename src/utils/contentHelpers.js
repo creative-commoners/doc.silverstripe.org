@@ -26,16 +26,12 @@ export function buildSlug(filePath, version, thirdparty) {
   return `/${slug}/`;
 }
 
-export function buildNavHierarchy(
-  docs) {
+export function buildNavHierarchy(docs) {
+  // This function appears to be unused and incomplete
   const hierarchy = {};
   const roots = [];
 
-  const filtered = basePath 
-    ? docs.filter(doc => doc.id.startsWith(basePath))
-    ;
-
-  filtered.forEach(doc => {
+  docs.forEach(doc => {
     const parts = doc.slug.split('/').filter(Boolean);
     let current = hierarchy;
 
@@ -49,14 +45,14 @@ export function buildNavHierarchy(
             .map(w => w.charAt(0).toUpperCase() + w.slice(1))
             .join(' '),
           path: '/' + parts.slice(0, index + 1).join('/') + '/',
-          children,
-          order: doc.data.order,
+          children: {},
+          order: doc.data?.order,
         };
       }
 
       if (index === parts.length - 1) {
-        current[part].title = doc.data.title || current[part].title;
-        current[part].order = doc.data.order;
+        current[part].title = doc.data?.title || current[part].title;
+        current[part].order = doc.data?.order;
       } else {
         current = current[part].children;
       }
