@@ -172,21 +172,38 @@ npm run fix-paths     # Normalize relative image paths in markdown
 
 ## Testing Expectations
 
-**Required Tests:**
+**Unit Tests (Jest):**
+- Located in `tests/` directory (mirrors `src/` structure)
+- Utility functions in `src/utils/` - all have comprehensive unit tests in `tests/utils/`
+- React components in `src/components/` - tested with React Testing Library in `tests/components/`
+- Test coverage focuses on logic, state management, event handling, and rendering
+
+**Integration Tests (Future - Playwright):**
 - Smoke tests for page generation (all versions accessible)
 - Link checking (no broken internal links)
 - Search functionality verification
 - Version switcher interactivity
 
 **Testing Tools:**
-- Playwright for end-to-end tests
+- **Jest**: Unit testing framework with jsdom environment
+- **React Testing Library**: Component testing with user-centric assertions
+- **Babel**: Configured for JSX transformation
+- Playwright for end-to-end tests (future implementation)
 - Custom link checker script (`scripts/check-links.js`)
 
 **Run Tests:**
 ```bash
-npm run test          # Run Playwright tests
-npm run test:links    # Check for broken links
+npm test                # Run Jest unit tests
+npm run test:watch      # Run Jest tests in watch mode (rerun on changes)
+npm run test:links      # Check for broken links (when implemented)
 ```
+
+**Writing Unit Tests:**
+- Use `describe()` and `it()` for test organization
+- For utilities: Test with Jest assertions only
+- For components: Use React Testing Library (queries like `getByRole`, `getByText`, `fireEvent` for interactions)
+- Mock external dependencies (fetch, docsearch, localStorage, etc.)
+- Test files use `.test.js` or `.test.jsx` extension
 
 ## Important Notes
 

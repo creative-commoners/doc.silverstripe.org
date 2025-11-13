@@ -81,7 +81,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## 🧪 Testing
 
-Unit tests are written with Jest and located in the `tests/` directory. 
+Unit tests are written with Jest and located in the `tests/` directory. Tests cover both utility functions and React components.
 
 **Run tests:**
 ```bash
@@ -89,10 +89,20 @@ npm test           # Run tests once
 npm run test:watch # Run tests in watch mode (rerun on changes)
 ```
 
+**Test coverage:**
+- **Utilities** (`tests/utils/`): All utility functions in `src/utils/` have unit tests covering link rewriting, content parsing, sidebar navigation, image path handling, and more
+- **Components** (`tests/components/`): React components are tested using React Testing Library, including interactive behavior testing
+
+**Testing tools & setup:**
+- **Framework**: Jest with jsdom environment for DOM simulation
+- **React Testing**: @testing-library/react for component testing
+- **Configuration**: `jest.config.js` | Babel: `babel.config.js` | Mocks: `tests/__mocks__/` | Setup: `tests/setup.js`
+
 **Writing tests:**
-- Test files should be named `*.test.js` and placed in `tests/` directory
-- Tests for utilities in `src/utils/` go in `tests/utils/`
-- Jest configuration is in `jest.config.js`
+- Test files should be named `*.test.js` or `*.test.jsx` and placed in corresponding `tests/` subdirectory
+- Utility tests in `tests/utils/` - test pure functions with Jest assertions
+- Component tests in `tests/components/` - test React components with React Testing Library (use `@testing-library/react` for interactive behavior)
+- Mock styles and external dependencies as needed (see existing tests for patterns)
 
 ## 🔧 Development Workflow
 
